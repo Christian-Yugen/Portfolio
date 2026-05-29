@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -17,6 +17,19 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 3.93 1.5 5.58L0 24l6.66-1.54A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM17.1 14.7c-.26-.13-1.54-.76-1.78-.85-.23-.09-.39-.13-.55.13-.16.26-.62.85-.76 1.02-.14.16-.27.18-.5.06-1.25-.63-2.06-1.12-2.88-2.54-.22-.38.22-.36.63-1.2.07-.15.03-.27-.02-.4-.05-.12-.55-1.33-.76-1.82-.2-.49-.41-.42-.56-.44-.15-.02-.32-.02-.49-.02-.17 0-.45.06-.69.26-.24.2-.93.91-.93 2.21 0 1.3.95 2.56 1.08 2.74.13.19 1.86 2.84 4.52 3.88 1.77.7 2.77.75 3.78.63.61-.08 1.88-.77 2.15-1.5.27-.73.27-1.36.19-1.5-.08-.14-.29-.23-.55-.36z" />
+    </svg>
+  );
+}
 import CSSCBB from "../../client/public/CSSC-BB-Final.png";
 import CSSCGB from "../../client/public/CSSC-GB-Final-v2.png";
 import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
@@ -26,19 +39,19 @@ import REDTEAM from "../../client/public/Especializado_RED.png";
 
 const experiences = [
   {
-    role: "Coord. Gestao de Politicas Publicas",
-    company: "Prefeitura de Tres Lagoas",
-    period: "2021 -> 2026",
+    role: "Coord. Gestão de Políticas Públicas",
+    company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
+    period: "2021 -> maio2026",
     summary:
-      "Arquitetura de indicadores de people analytics e BI para mais de 5.000 servidores, com automacao de fluxos e governanca de dados para decisao executiva.",
-    stack: ["Power BI", "SQL", "Python", "Governanca de Dados"],
+      "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
+    stack: ["BI", "SQL", "Python", "Governança de Dados"],
   },
   {
     role: "Founder & CEO",
     company: "UXBRAS Editech",
     period: "2022 -> hoje",
     summary:
-      "Condução de estrategia de produto e plataforma com orientacao data-driven, desenho de operacao e priorizacao de roadmap com foco em valor de negocio.",
+      "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
     stack: ["Product Strategy", "Analytics", "React", "Next.js"],
   },
   {
@@ -79,7 +92,7 @@ const heroHighlights = [
   },
   {
     title: "Estatística Aplicada & BI",
-    description: "Power BI, Modelagem Preditiva de Tendências e Minitab.",
+    description: "Power BI, Minitab e Modelagem Preditiva de Tendências.",
     icon: BarChart3,
   },
   {
@@ -91,9 +104,14 @@ const heroHighlights = [
 ];
 
 const heroStats = [
-  { value: "5K+", label: "Fontes de dados integradas" },
-  { value: "17+", label: "Lideres apoiados" },
-  { value: "5", label: "Certificações Lean Six Sigma" },
+  {
+    value: "5K+",
+    target: 5000,
+    suffix: "+",
+    label: "Fontes de dados integradas",
+  },
+  { value: "17+", target: 17, suffix: "+", label: "Líderes apoiados" },
+  { value: "5", target: 5, suffix: "", label: "Certificações Lean Six Sigma" },
 ];
 
 const projects = [
@@ -223,6 +241,57 @@ export default function PortfolioPage() {
       <SkillsSection />
       <FooterSection />
     </main>
+  );
+}
+
+function AnimatedStat({
+  target,
+  suffix = "",
+  className = "",
+}: {
+  target: number;
+  suffix?: string;
+  className?: string;
+}) {
+  const elRef = useRef<HTMLParagraphElement | null>(null);
+  const [display, setDisplay] = useState<string>(() =>
+    target >= 1000 ? `0K${suffix}` : `0${suffix}`
+  );
+
+  useEffect(() => {
+    if (!elRef.current) return;
+    const obj = { val: 0 } as { val: number };
+    gsap.registerPlugin(ScrollTrigger);
+
+    const anim = gsap.to(obj, {
+      val: target,
+      duration: 1.2,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: elRef.current,
+        start: "top 90%",
+        once: true,
+      },
+      onUpdate: () => {
+        const v = Math.floor(obj.val);
+        if (target >= 1000) {
+          setDisplay(`${Math.round(v / 1000)}K${suffix}`);
+        } else {
+          setDisplay(`${v}${suffix}`);
+        }
+      },
+    });
+
+    return () => {
+      anim.kill();
+      if ((anim as any).scrollTrigger) (anim as any).scrollTrigger.kill();
+    };
+  }, [target, suffix]);
+
+  return (
+    <p ref={elRef} className={className}>
+      {display}
+    </p>
   );
 }
 
@@ -604,9 +673,11 @@ function HeroSection() {
           <div className="mt-8 grid gap-5 border-y border-[#2a2a2d] py-5 sm:grid-cols-3">
             {heroStats.map(item => (
               <div key={item.label}>
-                <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl">
-                  {item.value}
-                </p>
+                <AnimatedStat
+                  target={item.target}
+                  suffix={item.suffix}
+                  className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
+                />
                 <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">
                   {item.label}
                 </p>
@@ -674,7 +745,7 @@ function AboutSection() {
   return (
     <section
       id="sobre"
-      className="border-b border-[#2a2a2d] bg-linear-to-b from-[#111216] via-[#151821] to-[#181c26] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="sobre-title"
     >
       <div className="container">
@@ -688,13 +759,24 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-relaxed text-[#b1b1b7] md:text-2xl"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-bold"
           data-reveal
         >
-          Profissional orientado por dados, com atuacao em people analytics,
-          business intelligence e transformação digital. Estruturo arquiteturas
-          de informação e monitoramento executivo para conectar qualquer
-          indicadores a resultados concretos de negócio.
+          Administrador e Full-Stack Developer com sólida experiência em
+          Business Intelligence e modelagem estatística aplicada à engenharia de
+          processos e inteligência de negócios. Especialista na estruturação de
+          governança de dados, integração de múltiplos sistemas corporativos
+          (RPs/HRIS) e automação em larga escala — com histórico de mais de 5
+          mil servidores integrados via código. Atuo de forma consultiva junto a
+          lideranças executivas,{" "}
+          <span className="text-[#ffffff]">
+            aplicando as melhores práticas da metodologia PMBOK para a gestão de
+            projetos estratégicos de People Analytics
+          </span>{" "}
+          (turnover, absenteísmo, custos e retenção de talentos). Master Black
+          Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura
+          data-driven, eficiência operacional e transformação digital. Residente
+          em Três Lagoas/MS.
         </motion.p>
       </div>
     </section>
@@ -867,7 +949,7 @@ function CertificatesSection() {
   return (
     <section
       id="certificados"
-      className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="certificados-title"
     >
       <div className="container">
@@ -1062,29 +1144,22 @@ function SkillsSection() {
               <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 Email
               </h4>
-              <a
-                href="mailto:jcristianolima@yahoo.com.br"
-                className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
-              >
+              <a className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]">
                 jcristianolima@yahoo.com.br
               </a>
             </article>
 
             <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
               <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
-                <Zap className="h-6 w-6 text-[#8ec5ea]" aria-hidden="true" />
+                <WhatsAppIcon className="h-6 w-6 text-[#8ec5ea]" />
               </div>
-              <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
+              <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#8ec5ea] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 WhatsApp
               </h4>
-              <a
-                href="#"
-                className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
-              >
-                Abrir WhatsApp
+              <a className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]">
+                67 98194-0075
               </a>
             </article>
-
             <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
               <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
                 <MapPin className="h-6 w-6 text-[#8ec5ea]" aria-hidden="true" />
@@ -1098,7 +1173,7 @@ function SkillsSection() {
                 rel="noreferrer"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
               >
-                Ver no mapa
+                Três Lagoas, MS
               </a>
             </article>
           </div>
