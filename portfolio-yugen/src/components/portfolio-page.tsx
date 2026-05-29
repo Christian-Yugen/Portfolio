@@ -26,19 +26,19 @@ import REDTEAM from "../../client/public/Especializado_RED.png";
 
 const experiences = [
   {
-    role: "Coord. Gestao de Politicas Publicas",
-    company: "Prefeitura de Tres Lagoas",
+    role: "Coord. Gestão de Políticas Públicas",
+    company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
     period: "2021 -> 2026",
     summary:
-      "Arquitetura de indicadores de people analytics e BI para mais de 5.000 servidores, com automacao de fluxos e governanca de dados para decisao executiva.",
-    stack: ["Power BI", "SQL", "Python", "Governanca de Dados"],
+      "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
+    stack: ["BI", "SQL", "Python", "Governança de Dados"],
   },
   {
     role: "Founder & CEO",
     company: "UXBRAS Editech",
     period: "2022 -> hoje",
     summary:
-      "Condução de estrategia de produto e plataforma com orientacao data-driven, desenho de operacao e priorizacao de roadmap com foco em valor de negocio.",
+      "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
     stack: ["Product Strategy", "Analytics", "React", "Next.js"],
   },
   {
@@ -79,7 +79,7 @@ const heroHighlights = [
   },
   {
     title: "Estatística Aplicada & BI",
-    description: "Power BI, Modelagem Preditiva de Tendências e Minitab.",
+    description: "Power BI, Minitab e Modelagem Preditiva de Tendências.",
     icon: BarChart3,
   },
   {
@@ -674,7 +674,7 @@ function AboutSection() {
   return (
     <section
       id="sobre"
-      className="border-b border-[#2a2a2d] bg-linear-to-b from-[#111216] via-[#151821] to-[#181c26] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="sobre-title"
     >
       <div className="container">
@@ -688,13 +688,24 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-relaxed text-[#b1b1b7] md:text-2xl"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-bold"
           data-reveal
         >
-          Profissional orientado por dados, com atuacao em people analytics,
-          business intelligence e transformação digital. Estruturo arquiteturas
-          de informação e monitoramento executivo para conectar qualquer
-          indicadores a resultados concretos de negócio.
+          Administrador e Full-Stack Developer com sólida experiência em
+          Business Intelligence e modelagem estatística aplicada à engenharia de
+          processos e inteligência de negócios. Especialista na estruturação de
+          governança de dados, integração de múltiplos sistemas corporativos
+          (RPs/HRIS) e automação em larga escala — com histórico de mais de 5
+          mil servidores integrados via código. Atuo de forma consultiva junto a
+          lideranças executivas,{" "}
+          <span className="text-[#ffffff]">
+            aplicando as melhores práticas da metodologia PMBOK para a gestão de
+            projetos estratégicos de People Analytics
+          </span>{" "}
+          (turnover, absenteísmo, custos e retenção de talentos). Master Black
+          Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura
+          data-driven, eficiência operacional e transformação digital. Residente
+          em Três Lagoas/MS.
         </motion.p>
       </div>
     </section>
@@ -867,7 +878,7 @@ function CertificatesSection() {
   return (
     <section
       id="certificados"
-      className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="certificados-title"
     >
       <div className="container">
