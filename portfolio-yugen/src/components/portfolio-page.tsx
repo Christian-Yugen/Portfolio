@@ -41,7 +41,7 @@ const experiences = [
   {
     role: "Coord. Gestão de Políticas Públicas",
     company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
-    period: "2021 -> 2026",
+    period: "2021 -> maio2026",
     summary:
       "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
     stack: ["BI", "SQL", "Python", "Governança de Dados"],
@@ -234,8 +234,8 @@ export default function PortfolioPage() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <ProjectsSection />
       <ExperienceSection />
+      <ProjectsSection />
       <EducationSection />
       <CertificatesSection />
       <SkillsSection />
