@@ -1,67 +1,146 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function Expertise() {
   const expertise = [
     {
       category: "People Analytics & BI",
-      skills: ["Power BI", "Dashboards Executivos", "Análise de Indicadores RH", "Modelagem Preditiva", "SQL"],
-      description: "Desenvolvimento de soluções de analytics focadas em gestão de pessoas e tomada de decisão estratégica.",
+      skills: [
+        "Power BI",
+        "Dashboards Executivos",
+        "Análise de Indicadores RH",
+        "Modelagem Preditiva",
+        "SQL",
+      ],
+      description:
+        "Arquitetura de indicadores e paineis executivos para acelerar decisoes de gestao de pessoas.",
+      value: "Decisao orientada por evidencias",
     },
     {
       category: "Desenvolvimento de Software",
       skills: ["React.js", "Python", "JavaScript", "Full Stack", "HTML/CSS"],
-      description: "Criação de aplicações web modernas e escaláveis com foco em user experience.",
+      description:
+        "Construcao de produtos digitais escalaveis com foco em usabilidade, performance e manutencao.",
+      value: "Entrega tecnica com foco de produto",
     },
     {
       category: "Lean Six Sigma",
-      skills: ["Master Black Belt", "Black Belt", "Green Belt", "Análise Estatística", "Otimização de Processos"],
-      description: "Metodologias de melhoria contínua e redução de variabilidade em processos.",
+      skills: [
+        "Master Black Belt",
+        "Black Belt",
+        "Green Belt",
+        "Análise Estatística",
+        "Otimização de Processos",
+      ],
+      description:
+        "Aplicacao de metodos robustos para reduzir variabilidade e ampliar previsibilidade operacional.",
+      value: "Eficiencia sistemica e padronizacao",
     },
     {
       category: "Gestão & Liderança",
-      skills: ["Gestão de Equipes", "Gestão de Projetos", "Saúde Ocupacional", "Políticas Públicas", "Consultoria"],
-      description: "Liderança estratégica de equipes multidisciplinares e implementação de políticas.",
+      skills: [
+        "Gestão de Equipes",
+        "Gestão de Projetos",
+        "Saúde Ocupacional",
+        "Políticas Públicas",
+        "Consultoria",
+      ],
+      description:
+        "Lideranca de times multidisciplinares com alinhamento entre estrategia, execucao e governanca.",
+      value: "Times de alta performance",
     },
     {
       category: "Saúde Ocupacional",
-      skills: ["PCMSO", "Gestão de Riscos", "Segurança do Trabalho", "Indicadores de Bem-estar", "Compliance"],
-      description: "Desenvolvimento de programas de saúde e segurança ocupacional em larga escala.",
+      skills: [
+        "PCMSO",
+        "Gestão de Riscos",
+        "Segurança do Trabalho",
+        "Indicadores de Bem-estar",
+        "Compliance",
+      ],
+      description:
+        "Estruturacao de programas de saude ocupacional com monitoramento de risco e compliance.",
+      value: "Seguranca com visao preventiva",
     },
     {
       category: "Idiomas",
-      skills: ["Português (Nativo)", "Inglês (Profissional)", "Espanhol (Profissional)"],
-      description: "Comunicação fluente em múltiplos idiomas para colaboração global.",
+      skills: [
+        "Português (Nativo)",
+        "Inglês (Profissional)",
+        "Espanhol (Profissional)",
+      ],
+      description:
+        "Comunicacao fluente para colaborar com stakeholders tecnicos e executivos em contexto global.",
+      value: "Colaboracao internacional",
     },
   ];
 
   return (
-    <section id="expertise" className="py-20 bg-muted/30">
+    <section id="expertise" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Expertise</h2>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4">Expertise</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Uma combinação única de competências técnicas, metodológicas e de liderança
+            Competencias aplicadas para converter estrategia em resultado
+            mensuravel
           </p>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-3xl mx-auto mb-12">
+          <div className="rounded-2xl border border-black/8 bg-[#f5f5f7] p-4 text-center shadow-sm">
+            <p className="text-2xl md:text-3xl font-bold text-primary">6</p>
+            <p className="text-xs text-muted-foreground">
+              Eixos de especialidade
+            </p>
+          </div>
+          <div className="rounded-2xl border border-black/8 bg-[#f5f5f7] p-4 text-center shadow-sm">
+            <p className="text-2xl md:text-3xl font-bold text-primary">15+</p>
+            <p className="text-xs text-muted-foreground">Competencias-chave</p>
+          </div>
+          <div className="rounded-2xl border border-black/8 bg-[#f5f5f7] p-4 text-center shadow-sm">
+            <p className="text-2xl md:text-3xl font-bold text-primary">1</p>
+            <p className="text-xs text-muted-foreground">
+              Modelo integrado de entrega
+            </p>
+          </div>
         </div>
 
         {/* Expertise Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {expertise.map((item, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-l-4 border-l-primary">
+            <Card
+              key={index}
+              className="border border-black/8 bg-white shadow-sm hover:shadow-lg transition-all rounded-3xl"
+            >
               <CardHeader>
-                <CardTitle className="text-xl">{item.category}</CardTitle>
+                <div className="flex items-start justify-between gap-3">
+                  <CardTitle className="text-xl">{item.category}</CardTitle>
+                  <Badge className="bg-black/5 text-foreground border border-black/10">
+                    Foco
+                  </Badge>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+              <CardContent className="space-y-5">
+                <div className="rounded-xl border border-black/8 bg-[#f5f5f7] px-3 py-2">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
+                    Valor de negocio
+                  </p>
+                  <p className="text-sm font-semibold text-primary">
+                    {item.value}
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {item.skills.map((skill, idx) => (
-                    <span
+                    <Badge
                       key={idx}
-                      className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium"
+                      className="text-xs border border-black/10 bg-white text-foreground hover:bg-white"
                     >
                       {skill}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
@@ -70,11 +149,13 @@ export default function Expertise() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 bg-white rounded-xl p-8 border border-border">
+        <div className="mt-16 bg-[#f5f5f7] rounded-3xl p-8 border border-black/8 shadow-sm">
           <h3 className="text-2xl font-bold mb-6">Certificações Principais</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="font-semibold text-lg mb-3 text-primary">Lean Six Sigma</h4>
+              <h4 className="font-semibold text-lg mb-3 text-primary">
+                Lean Six Sigma
+              </h4>
               <ul className="space-y-2 text-foreground/80">
                 <li>✓ Master Black Belt</li>
                 <li>✓ Black Belt</li>
@@ -84,7 +165,9 @@ export default function Expertise() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-lg mb-3 text-primary">Educação</h4>
+              <h4 className="font-semibold text-lg mb-3 text-primary">
+                Educação
+              </h4>
               <ul className="space-y-2 text-foreground/80">
                 <li>✓ MBA - University of Illinois</li>
                 <li>✓ Engenharia de Software - Anhanguera</li>
