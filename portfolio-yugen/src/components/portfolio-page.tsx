@@ -17,6 +17,19 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 3.93 1.5 5.58L0 24l6.66-1.54A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM17.1 14.7c-.26-.13-1.54-.76-1.78-.85-.23-.09-.39-.13-.55.13-.16.26-.62.85-.76 1.02-.14.16-.27.18-.5.06-1.25-.63-2.06-1.12-2.88-2.54-.22-.38.22-.36.63-1.2.07-.15.03-.27-.02-.4-.05-.12-.55-1.33-.76-1.82-.2-.49-.41-.42-.56-.44-.15-.02-.32-.02-.49-.02-.17 0-.45.06-.69.26-.24.2-.93.91-.93 2.21 0 1.3.95 2.56 1.08 2.74.13.19 1.86 2.84 4.52 3.88 1.77.7 2.77.75 3.78.63.61-.08 1.88-.77 2.15-1.5.27-.73.27-1.36.19-1.5-.08-.14-.29-.23-.55-.36z" />
+    </svg>
+  );
+}
 import CSSCBB from "../../client/public/CSSC-BB-Final.png";
 import CSSCGB from "../../client/public/CSSC-GB-Final-v2.png";
 import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
@@ -1141,28 +1154,23 @@ function SkillsSection() {
 
             <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
               <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
-                <Zap className="h-6 w-6 text-[#8ec5ea]" aria-hidden="true" />
+                <WhatsAppIcon className="h-6 w-6 text-[#8ec5ea]" />
               </div>
-              <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
+              <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#8ec5ea] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 WhatsApp
               </h4>
               <a
-                href="#"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
               >
                 Abrir WhatsApp
               </a>
             </article>
-
-            <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
                 <MapPin className="h-6 w-6 text-[#8ec5ea]" aria-hidden="true" />
               </div>
               <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 Localização
               </h4>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Tr%C3%AAs+Lagoas+MS"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
