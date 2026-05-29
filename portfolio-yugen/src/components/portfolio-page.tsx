@@ -1165,12 +1165,15 @@ function SkillsSection() {
                 Abrir WhatsApp
               </a>
             </article>
+            <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
                 <MapPin className="h-6 w-6 text-[#8ec5ea]" aria-hidden="true" />
               </div>
               <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 Localização
               </h4>
               <a
+                href="https://www.google.com/maps/search/?api=1&query=Tr%C3%AAs+Lagoas+MS"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
