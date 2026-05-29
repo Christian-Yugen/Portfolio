@@ -91,9 +91,14 @@ const heroHighlights = [
 ];
 
 const heroStats = [
-  { value: "5K+", label: "Fontes de dados integradas" },
-  { value: "17+", label: "Lideres apoiados" },
-  { value: "5", label: "Certificações Lean Six Sigma" },
+  {
+    value: "5K+",
+    target: 5000,
+    suffix: "+",
+    label: "Fontes de dados integradas",
+  },
+  { value: "17+", target: 17, suffix: "+", label: "Líderes apoiados" },
+  { value: "5", target: 5, suffix: "", label: "Certificações Lean Six Sigma" },
 ];
 
 const projects = [
@@ -223,6 +228,57 @@ export default function PortfolioPage() {
       <SkillsSection />
       <FooterSection />
     </main>
+  );
+}
+
+function AnimatedStat({
+  target,
+  suffix = "",
+  className = "",
+}: {
+  target: number;
+  suffix?: string;
+  className?: string;
+}) {
+  const elRef = useRef<HTMLParagraphElement | null>(null);
+  const [display, setDisplay] = useState<string>(() =>
+    target >= 1000 ? `0K${suffix}` : `0${suffix}`
+  );
+
+  useEffect(() => {
+    if (!elRef.current) return;
+    const obj = { val: 0 } as { val: number };
+    gsap.registerPlugin(ScrollTrigger);
+
+    const anim = gsap.to(obj, {
+      val: target,
+      duration: 1.2,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: elRef.current,
+        start: "top 90%",
+        once: true,
+      },
+      onUpdate: () => {
+        const v = Math.floor(obj.val);
+        if (target >= 1000) {
+          setDisplay(`${Math.round(v / 1000)}K${suffix}`);
+        } else {
+          setDisplay(`${v}${suffix}`);
+        }
+      },
+    });
+
+    return () => {
+      anim.kill();
+      if ((anim as any).scrollTrigger) (anim as any).scrollTrigger.kill();
+    };
+  }, [target, suffix]);
+
+  return (
+    <p ref={elRef} className={className}>
+      {display}
+    </p>
   );
 }
 
@@ -604,9 +660,11 @@ function HeroSection() {
           <div className="mt-8 grid gap-5 border-y border-[#2a2a2d] py-5 sm:grid-cols-3">
             {heroStats.map(item => (
               <div key={item.label}>
-                <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl">
-                  {item.value}
-                </p>
+                <AnimatedStat
+                  target={item.target}
+                  suffix={item.suffix}
+                  className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
+                />
                 <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">
                   {item.label}
                 </p>
