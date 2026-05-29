@@ -234,8 +234,8 @@ export default function PortfolioPage() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
       <ProjectsSection />
+      <ExperienceSection />
       <EducationSection />
       <CertificatesSection />
       <SkillsSection />
