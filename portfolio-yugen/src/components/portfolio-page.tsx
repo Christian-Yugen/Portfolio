@@ -36,6 +36,7 @@ import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
 import CSSCWB from "../../client/public/CSSC-WB-Final.png";
 import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
 import REDTEAM from "../../client/public/Especializado_RED.png";
+import WhatsappLogo from "../../client/public/whatsapp.png";
 
 const experiences = [
   {
@@ -1145,7 +1146,6 @@ function SkillsSection() {
                 Email
               </h4>
               <a
-                href="mailto:jcristianolima@yahoo.com.br"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
               >
                 jcristianolima@yahoo.com.br
@@ -1154,15 +1154,13 @@ function SkillsSection() {
 
             <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
               <div className="mx-auto flex h-12 w-12 items-center justify-center bg-[#1b1c20]">
-                <WhatsAppIcon className="h-6 w-6 text-[#8ec5ea]" />
+                <Image src={WhatsappLogo} alt="WhatsApp" width={24} height={24} className="object-contain" />
               </div>
               <h4 className="mt-5 bg-linear-to-r from-[#dff9ff] via-[#8ec5ea] to-[#567fa7] bg-clip-text text-3xl font-extrabold text-transparent">
                 WhatsApp
               </h4>
-              <a
-                className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
-              >
-                Abrir WhatsApp
+              <a className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]">
+                67 98194-0075
               </a>
             </article>
             <article className="border border-[#3a3a40] bg-[#111112] p-6 text-center transition-colors hover:border-[#2997ff]">
@@ -1178,7 +1176,7 @@ function SkillsSection() {
                 rel="noreferrer"
                 className="mt-3 inline-block text-lg font-semibold text-[#b8bac1] hover:text-[#dff9ff]"
               >
-                Ver no mapa
+                Três Lagoas, MS
               </a>
             </article>
           </div>
