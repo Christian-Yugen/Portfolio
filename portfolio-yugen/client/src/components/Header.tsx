@@ -14,23 +14,30 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-black/5 bg-[#f5f5f7]/85 backdrop-blur-xl">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground">
-            JY
+        <div className="flex items-center gap-3">
+          <div className="h-7 w-7 rounded-full bg-black text-white flex items-center justify-center text-[11px] font-semibold">
+            J
           </div>
-          <span className="font-bold text-lg hidden sm:inline">José Yugen</span>
+          <div className="hidden sm:block">
+            <span className="font-semibold text-sm leading-tight block">
+              José Yugen
+            </span>
+            <span className="text-[11px] text-muted-foreground">
+              Product-minded Engineering
+            </span>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+        <nav className="hidden md:flex items-center gap-7">
+          {navItems.map(item => (
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-xs font-medium text-foreground/70 hover:text-foreground transition-colors"
             >
               {item.label}
             </a>
@@ -38,10 +45,11 @@ export default function Header() {
         </nav>
 
         {/* CTA Button - Desktop */}
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-2">
           <Button
             variant="outline"
             size="sm"
+            className="border-black/15 bg-white text-foreground hover:bg-white/80"
             onClick={() =>
               window.open("https://github.com/Christian-Yugen", "_blank")
             }
@@ -50,6 +58,7 @@ export default function Header() {
           </Button>
           <Button
             size="sm"
+            className="bg-black text-white hover:bg-black/85"
             onClick={() =>
               window.open("https://linkedin.com/in/joseyugen", "_blank")
             }
@@ -60,7 +69,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2"
+          className="md:hidden p-2 rounded-md border border-black/10 bg-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -70,23 +79,23 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden border-t border-border bg-white">
+        <div className="md:hidden border-t border-black/10 bg-[#f5f5f7]/95 backdrop-blur-md">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-black transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <div className="flex gap-2 pt-4 border-t border-border">
+            <div className="flex gap-2 pt-4 border-t border-black/10">
               <Button
                 variant="outline"
                 size="sm"
-                className="flex-1"
+                className="flex-1 border-black/15 bg-white text-foreground hover:bg-white/80"
                 onClick={() => {
                   window.open("https://github.com/Christian-Yugen", "_blank");
                   setIsOpen(false);
@@ -96,7 +105,7 @@ export default function Header() {
               </Button>
               <Button
                 size="sm"
-                className="flex-1"
+                className="flex-1 bg-black text-white hover:bg-black/85"
                 onClick={() => {
                   window.open("https://linkedin.com/in/joseyugen", "_blank");
                   setIsOpen(false);

@@ -40,22 +40,28 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-white">
+    <section id="contato" className="py-24 bg-[#f5f5f7]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Vamos Conversar?</h2>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+            Vamos Conversar?
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estou sempre aberto a novas oportunidades, parcerias e conversas sobre inovação e transformação digital.
+            Disponivel para projetos estrategicos, consultoria e colaboracoes em
+            tecnologia, analytics e melhoria continua.
           </p>
         </div>
 
         {/* Contact Methods */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             return (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center border border-black/8 bg-white shadow-sm hover:shadow-lg transition-all rounded-3xl"
+              >
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -66,8 +72,14 @@ export default function Contact() {
                   <a
                     href={method.href}
                     className="text-primary hover:underline text-sm break-all"
-                    target={method.href.startsWith("http") ? "_blank" : undefined}
-                    rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    target={
+                      method.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      method.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                   >
                     {method.value}
                   </a>
@@ -78,14 +90,18 @@ export default function Contact() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl p-12 text-center border border-primary/20 mb-12">
-          <h3 className="text-2xl font-bold mb-4">Pronto para colaborar?</h3>
-          <p className="text-foreground/80 mb-6 max-w-lg mx-auto">
-            Se você está buscando um profissional que combine expertise técnica com visão estratégica, vamos conversar!
+        <div className="bg-[#0b0b0d] rounded-4xl p-12 text-center border border-white/10 mb-12 shadow-[0_18px_50px_rgba(0,0,0,0.22)]">
+          <h3 className="text-2xl font-bold mb-4 text-white">
+            Pronto para o proximo ciclo de resultados?
+          </h3>
+          <p className="text-white/75 mb-6 max-w-2xl mx-auto">
+            Se sua equipe precisa de execucao tecnica com foco de negocio,
+            podemos desenhar juntos um plano de entrega orientado a impacto.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              className="shadow-sm hover:shadow-md bg-white text-black hover:bg-white/90"
               onClick={() => {
                 window.open("mailto:jcristianolima@yahoo.com.br");
               }}
@@ -95,6 +111,7 @@ export default function Contact() {
             <Button
               size="lg"
               variant="outline"
+              className="border-white/35 text-white bg-transparent hover:bg-white/10"
               onClick={() => {
                 window.open("https://linkedin.com/in/joseyugen", "_blank");
               }}
@@ -126,9 +143,10 @@ export default function Contact() {
 
       {/* Footer */}
       <div className="border-t border-border mt-16 pt-8">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground/90">
           <p>
-            © 2026 José Christian Yūgen. Todos os direitos reservados. | Desenvolvido com React + Tailwind CSS
+            © 2026 José Christian Yūgen. Todos os direitos reservados. |
+            Desenvolvido com React + Tailwind CSS
           </p>
         </div>
       </div>

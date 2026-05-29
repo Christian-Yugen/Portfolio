@@ -1,115 +1,82 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, BarChart3, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-white via-white to-primary/5 flex items-center">
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="inline-block">
-                <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
-                  👋 Bem-vindo ao meu portfólio
-                </span>
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                José Christian
-                <span className="block text-primary">Yūgen</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Engenheiro de Software | Pesquisador DTI II CNPq | Especialista em People Analytics
+    <section className="relative overflow-hidden bg-[#f5f5f7] pt-16 pb-20 md:pt-24 md:pb-28">
+      <div className="pointer-events-none absolute -top-52 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center max-w-4xl mx-auto">
+          <p className="text-[clamp(1.05rem,4.5vw,1.9rem)] font-semibold tracking-[0.08em] uppercase text-primary/80 mb-4 whitespace-nowrap">
+            Jose Christian Yugen
+          </p>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] text-[#111111]">
+            Engenharia e dados
+            <span className="block text-[#3d3d3d] mt-2">
+              com acabamento premium.
+            </span>
+          </h1>
+          <p className="text-base md:text-xl text-[#5f5f64] mt-8 max-w-3xl mx-auto leading-relaxed">
+            Estrategia, software e analytics em um unico sistema de entrega para
+            transformar operacoes complexas em resultados mensuraveis.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10">
+            <Button
+              size="lg"
+              className="group bg-black text-white hover:bg-black/85 rounded-full px-8"
+              onClick={() => {
+                document
+                  .getElementById("projetos")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Ver projetos
+              <ArrowRight
+                className="ml-2 group-hover:translate-x-1 transition-transform"
+                size={18}
+              />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full border-black/20 bg-white text-[#1f1f22] hover:bg-white/80 px-8"
+              onClick={() => {
+                window.open("https://linkedin.com/in/joseyugen", "_blank");
+              }}
+            >
+              Conversar no LinkedIn
+            </Button>
+          </div>
+        </div>
+
+        <div className="mt-14 md:mt-20 rounded-4xl bg-[#0d0d0f] text-white p-7 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.22)] border border-white/10">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div>
+              <p className="text-white/60 text-xs uppercase tracking-[0.18em] mb-2">
+                Escala operacional
+              </p>
+              <p className="text-4xl md:text-5xl font-semibold">5K+</p>
+              <p className="text-sm text-white/70 mt-2">
+                Servidores acompanhados com visao integrada.
               </p>
             </div>
-
-            <p className="text-lg text-foreground/80 leading-relaxed max-w-lg">
-              Transformo dados em decisões estratégicas. Com expertise em Lean Six Sigma (Master Black Belt), desenvolvimento de software e análise avançada de dados, crio soluções que impulsionam eficiência e inovação.
-            </p>
-
-            {/* Key Stats */}
-            <div className="grid grid-cols-3 gap-4 py-8 border-y border-border">
-              <div>
-                <div className="text-3xl font-bold text-primary">5K+</div>
-                <p className="text-sm text-muted-foreground">Servidores Gerenciados</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">17</div>
-                <p className="text-sm text-muted-foreground">Profissionais Liderados</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">5</div>
-                <p className="text-sm text-muted-foreground">Belts Lean Six Sigma</p>
-              </div>
+            <div>
+              <p className="text-white/60 text-xs uppercase tracking-[0.18em] mb-2">
+                Lideranca tecnica
+              </p>
+              <p className="text-4xl md:text-5xl font-semibold">17</p>
+              <p className="text-sm text-white/70 mt-2">
+                Profissionais coordenados em ambiente publico.
+              </p>
             </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                onClick={() => {
-                  document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group"
-              >
-                Ver Projetos
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => {
-                  window.open("https://linkedin.com/in/joseyugen", "_blank");
-                }}
-              >
-                Conectar no LinkedIn
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Visual */}
-          <div className="hidden md:flex flex-col gap-6">
-            {/* Feature Cards */}
-            <div className="bg-white rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Code2 className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Software Engineering</h3>
-                  <p className="text-sm text-muted-foreground">
-                    React, Python, Full Stack Development
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <BarChart3 className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">People Analytics</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Power BI, Análise Estatística, Dashboards
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Lean Six Sigma</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Master Black Belt, Otimização de Processos
-                  </p>
-                </div>
-              </div>
+            <div>
+              <p className="text-white/60 text-xs uppercase tracking-[0.18em] mb-2">
+                Melhoria continua
+              </p>
+              <p className="text-4xl md:text-5xl font-semibold">5</p>
+              <p className="text-sm text-white/70 mt-2">
+                Certificacoes Lean Six Sigma aplicadas ao negocio.
+              </p>
             </div>
           </div>
         </div>
