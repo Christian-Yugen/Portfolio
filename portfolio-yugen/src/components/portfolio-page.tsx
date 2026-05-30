@@ -50,7 +50,7 @@ const experiences = [
   },
   {
     role: "Founder & CEO",
-    company: "UXBRAS Editech",
+    company: "UXBRAS Edtech",
     period: "2022 -> hoje",
     summary:
       "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
@@ -223,6 +223,7 @@ export default function PortfolioPage() {
       <EducationSection />
       <ProjectsSection />
       <CertificatesSection />
+      <GitHubContributionsSection />
       <SkillsSection />
       <FooterSection />
     </main>
@@ -1041,7 +1042,203 @@ function CertificatesSection() {
             />
           </div>
 
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="Power BI & Power Virtual Agents"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="Analise de dados com Python"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
           {/* Removed legacy `certifications` list rendering — individual `CertShowcase` components are used above */}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GitHubContributionsSection() {
+  const [publicRepos, setPublicRepos] = useState<number | null>(null);
+  const [recentContribs, setRecentContribs] = useState<number | null>(null);
+  const username = "Christian-Yugen";
+
+  useEffect(() => {
+    let mounted = true;
+
+    // Fetch public profile (public repos, followers)
+    fetch(`https://api.github.com/users/${username}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!mounted) return;
+        if (data && typeof data.public_repos === "number")
+          setPublicRepos(data.public_repos);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setPublicRepos(null);
+      });
+
+    // Fetch recent public events and approximate contributions in the current year
+    fetch(`https://api.github.com/users/${username}/events/public`)
+      .then(res => res.json())
+      .then(events => {
+        if (!mounted) return;
+        if (!Array.isArray(events)) return setRecentContribs(null);
+        const year = new Date().getFullYear();
+        let commits = 0;
+        events.forEach((e: any) => {
+          try {
+            const created = new Date(e.created_at);
+            if (created.getFullYear() === year && e.type === "PushEvent") {
+              if (Array.isArray(e.payload?.commits))
+                commits += e.payload.commits.length;
+            }
+          } catch (err) {
+            // ignore
+          }
+        });
+        setRecentContribs(commits);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setRecentContribs(null);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  return (
+    <section
+      id="github"
+      className="border-b border-[#2a2a2d] bg-[#ffffff] px-4 py-16 md:px-8 md:py-20"
+      aria-labelledby="github-title"
+    >
+      <div className="container">
+        <motion.h2
+          {...reveal}
+          id="github-title"
+          className="text-center text-4xl font-extrabold tracking-[-0.03em] text-[#0b1220] md:text-5xl"
+          data-reveal
+        >
+          GitHub & Contribuições
+        </motion.h2>
+
+        <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-[#55606b]">
+          Indicador visual de atividade em código aberto — atualiza
+          automaticamente a partir do perfil público do GitHub.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal>
+          <article className="border border-[#ececef] bg-[#fbfbfc] p-6 text-center">
+            <AnimatedStat
+              target={recentContribs ?? 0}
+              suffix=""
+              className="text-4xl font-extrabold tracking-[-0.03em] text-[#0b5bff] md:text-5xl"
+            />
+            <p className="mt-1 text-base font-semibold text-[#6b7280]">
+              Contribuições em {new Date().getFullYear()}
+            </p>
+          </article>
+
+          <article className="border border-[#ececef] bg-[#fbfbfc] p-6 text-center">
+            <AnimatedStat
+              target={publicRepos ?? 0}
+              suffix="+"
+              className="text-4xl font-extrabold tracking-[-0.03em] text-[#0b5bff] md:text-5xl"
+            />
+            <p className="mt-1 text-base font-semibold text-[#6b7280]">
+              Repositórios Públicos
+            </p>
+          </article>
+
+          <article className="border border-[#ececef] bg-[#fbfbfc] p-6 text-center">
+            <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#0b5bff] md:text-5xl">
+              100%
+            </p>
+            <p className="mt-1 text-base font-semibold text-[#6b7280]">
+              Ativo em {new Date().getFullYear()}
+            </p>
+          </article>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-4xl rounded-lg border border-[#ececef] bg-[#fbfbfc] p-6">
+          <h3 className="flex items-center gap-2 text-lg font-semibold text-[#0b1220]">
+            <svg
+              className="h-5 w-5 text-[#0b5bff]"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2v4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 18v4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4 12h16"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Mapa de Contribuições {new Date().getFullYear()}
+          </h3>
+
+          <div className="mt-4 overflow-hidden rounded-sm bg-white p-6">
+            <div className="mx-auto max-w-full">
+              <img
+                src={`https://ghchart.rshah.org/${username}`}
+                alt={`Mapa de contribuições de ${username}`}
+                className="mx-auto max-w-full"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-end gap-2 text-sm text-[#6b7280]">
+              <span>Menos</span>
+              <div className="flex items-center gap-1">
+                <span className="h-3 w-3 rounded bg-[#f3f4f6] inline-block" />
+                <span className="h-3 w-3 rounded bg-[#bfdbfe] inline-block" />
+                <span className="h-3 w-3 rounded bg-[#7fb3ff] inline-block" />
+                <span className="h-3 w-3 rounded bg-[#0b5bff] inline-block" />
+              </div>
+              <span>Mais</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
