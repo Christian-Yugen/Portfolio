@@ -16,7 +16,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -333,7 +333,7 @@ function CertShowcase({
 }: Readonly<{
   title: string;
   subtitle?: string;
-  items: { name: string; detail?: string; href?: string; image?: StaticImageData | string }[];
+  items: { name: string; detail?: string; href?: string }[];
 }>) {
   const [open, setOpen] = useState(false);
 
@@ -403,12 +403,14 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-lg md:text-2xl font-extrabold text-transparent leading-tight`}
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-lg md:text-xl font-extrabold text-transparent leading-tight`}
             >
               {title}
             </p>
             {subtitle && (
-              <p className="text-sm md:text-base text-[#9aa0a6] mt-1 pl-4 md:pl-6">{subtitle}</p>
+              <p className="text-sm text-[#9aa0a6] mt-1 pl-4 md:pl-6">
+                {subtitle}
+              </p>
             )}
           </div>
           <div>
@@ -453,7 +455,7 @@ function CertShowcase({
                     className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-(--belt-color)"}`}
                   >
                     <Image
-                      src={it.image ?? getBeltImage(it.name)}
+                      src={getBeltImage(it.name)}
                       alt={`${it.name} badge`}
                       width={64}
                       height={64}
@@ -962,6 +964,7 @@ function CertificatesSection() {
         >
           Certificados Profissionais
         </motion.h2>
+
         <div className="mt-10 grid gap-5" data-reveal>
           <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
@@ -1017,7 +1020,6 @@ function CertificatesSection() {
             />
           </div>
 
-          </div>
           <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="People Analytics"
@@ -1027,7 +1029,6 @@ function CertificatesSection() {
                   name: "Especialização em Análise de negócios",
                   detail:
                     "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
-                  image: WHARTON,
                   href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
                 },
               ]}
