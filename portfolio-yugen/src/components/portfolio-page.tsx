@@ -632,7 +632,11 @@ function HeroSection() {
       aria-labelledby="hero-title"
       style={{
         backgroundImage:
-          "radial-gradient(circle at center, rgba(41,151,255,0.12) 0%, rgba(41,151,255,0.06) 12%, rgba(2,2,3,0.92) 60%)",
+          "radial-gradient(circle at center, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundBlendMode: "overlay",
       }}
     >
       <div className="container grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
