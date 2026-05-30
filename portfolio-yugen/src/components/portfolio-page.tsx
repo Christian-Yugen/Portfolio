@@ -333,7 +333,7 @@ function CertShowcase({
 }: Readonly<{
   title: string;
   subtitle?: string;
-  items: { name: string; detail?: string; href?: string }[];
+  items: { name: string; detail?: string; href?: string; image?: any }[];
 }>) {
   const [open, setOpen] = useState(false);
 
@@ -403,12 +403,12 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-lg md:text-xl font-extrabold text-transparent leading-tight`}
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-2xl md:text-3xl lg:text-4xl font-black text-transparent leading-tight tracking-tight`}
             >
               {title}
             </p>
             {subtitle && (
-              <p className="text-sm text-[#9aa0a6] mt-1 pl-4 md:pl-6">
+              <p className="text-base text-[#9aa0a6] mt-2 pl-4 md:pl-6">
                 {subtitle}
               </p>
             )}
@@ -455,7 +455,7 @@ function CertShowcase({
                     className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-(--belt-color)"}`}
                   >
                     <Image
-                      src={getBeltImage(it.name)}
+                      src={it.image ?? getBeltImage(it.name)}
                       alt={`${it.name} badge`}
                       width={64}
                       height={64}
@@ -1029,6 +1029,7 @@ function CertificatesSection() {
                   name: "Especialização em Análise de negócios",
                   detail:
                     "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
                   href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
                 },
               ]}
