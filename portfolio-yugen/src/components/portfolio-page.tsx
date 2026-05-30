@@ -34,7 +34,8 @@ function GitHubContributionsSection() {
       .then(res => res.json())
       .then(data => {
         if (!mounted) return;
-        if (data && typeof data.public_repos === "number") setPublicRepos(data.public_repos);
+        if (data && typeof data.public_repos === "number")
+          setPublicRepos(data.public_repos);
       })
       .catch(() => {
         if (!mounted) return;
@@ -53,8 +54,17 @@ function GitHubContributionsSection() {
           try {
             const created = new Date(e.created_at);
             if (created.getFullYear() === year) {
-              if (e.type === "PushEvent" && Array.isArray(e.payload?.commits)) count += e.payload.commits.length;
-              else if (["PullRequestEvent", "IssuesEvent", "IssueCommentEvent", "CreateEvent"].includes(e.type)) count += 1;
+              if (e.type === "PushEvent" && Array.isArray(e.payload?.commits))
+                count += e.payload.commits.length;
+              else if (
+                [
+                  "PullRequestEvent",
+                  "IssuesEvent",
+                  "IssueCommentEvent",
+                  "CreateEvent",
+                ].includes(e.type)
+              )
+                count += 1;
             }
           } catch (err) {
             // ignore
@@ -95,7 +105,8 @@ function GitHubContributionsSection() {
           className="mt-6 max-w-4xl text-lg font-semibold leading-relaxed text-[#b2b3ba] md:text-xl"
           data-reveal
         >
-          Indicador visual de atividade em código aberto — atualizado automaticamente a partir do perfil público do GitHub.
+          Indicador visual de atividade em código aberto — atualizado
+          automaticamente a partir do perfil público do GitHub.
         </motion.p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-3" data-reveal>
@@ -105,7 +116,9 @@ function GitHubContributionsSection() {
               suffix=""
               className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
             />
-            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Contribuições em {new Date().getFullYear()}</p>
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">
+              Contribuições em {new Date().getFullYear()}
+            </p>
           </article>
 
           <article className="border border-[#2a2a2d] bg-[#111112] p-6 text-center">
@@ -114,22 +127,53 @@ function GitHubContributionsSection() {
               suffix=""
               className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
             />
-            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Repositórios ({privateRepos} privados)</p>
-            <p className="mt-1 text-sm text-[#8e919a]">Públicos: {publicCount}</p>
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">
+              Repositórios ({privateRepos} privados)
+            </p>
+            <p className="mt-1 text-sm text-[#8e919a]">
+              Públicos: {publicCount}
+            </p>
           </article>
 
           <article className="border border-[#2a2a2d] bg-[#111112] p-6 text-center">
-            <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#79c5ff] md:text-5xl">100%</p>
-            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Ativo em {new Date().getFullYear()}</p>
+            <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#79c5ff] md:text-5xl">
+              100%
+            </p>
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">
+              Ativo em {new Date().getFullYear()}
+            </p>
           </article>
         </div>
 
         <div className="mx-auto mt-8 rounded-lg border border-[#2a2a2d] bg-[#111112] p-6">
           <h3 className="flex items-center gap-2 text-lg font-semibold text-[#dff9ff]">
-            <svg className="h-5 w-5 text-[#79c5ff]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M12 18v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M4 12h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              className="h-5 w-5 text-[#79c5ff]"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2v4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 18v4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4 12h16"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             Mapa de Contribuições {new Date().getFullYear()}
           </h3>
@@ -145,11 +189,26 @@ function GitHubContributionsSection() {
             <div className="mt-4 flex items-center justify-end gap-2 text-sm text-[#6b7280]">
               <span>Menos</span>
               <div className="flex items-center gap-1">
-                <span className="h-3 w-3 rounded inline-block" style={{ background: "#ebedf0" }} />
-                <span className="h-3 w-3 rounded inline-block" style={{ background: "#9be9a8" }} />
-                <span className="h-3 w-3 rounded inline-block" style={{ background: "#40c463" }} />
-                <span className="h-3 w-3 rounded inline-block" style={{ background: "#30a14e" }} />
-                <span className="h-3 w-3 rounded inline-block" style={{ background: "#216e39" }} />
+                <span
+                  className="h-3 w-3 rounded inline-block"
+                  style={{ background: "#ebedf0" }}
+                />
+                <span
+                  className="h-3 w-3 rounded inline-block"
+                  style={{ background: "#9be9a8" }}
+                />
+                <span
+                  className="h-3 w-3 rounded inline-block"
+                  style={{ background: "#40c463" }}
+                />
+                <span
+                  className="h-3 w-3 rounded inline-block"
+                  style={{ background: "#30a14e" }}
+                />
+                <span
+                  className="h-3 w-3 rounded inline-block"
+                  style={{ background: "#216e39" }}
+                />
               </div>
               <span>Mais</span>
             </div>
@@ -159,6 +218,10 @@ function GitHubContributionsSection() {
     </section>
   );
 }
+
+const education = [
+  {
+    title: "Administração",
     institution: "Universidade Norte do Paraná - UNOPAR",
     period: "2014 — 2018",
   },
