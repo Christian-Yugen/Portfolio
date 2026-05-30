@@ -397,7 +397,7 @@ function CertShowcase({
               {title}
             </p>
             {subtitle && (
-              <p className="text-left text-sm md:text-base text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
+              <p className="text-left text-base md:text-lg text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
                 {subtitle}
               </p>
             )}
