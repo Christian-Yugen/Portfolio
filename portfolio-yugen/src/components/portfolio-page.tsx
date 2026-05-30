@@ -36,6 +36,8 @@ import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
 import CSSCWB from "../../client/public/CSSC-WB-Final.png";
 import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
 import REDTEAM from "../../client/public/Especializado_RED.png";
+import WHARTON from "../../client/public/Wharton-320x320.png";
+import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 
 const experiences = [
   {
@@ -48,7 +50,7 @@ const experiences = [
   },
   {
     role: "Founder & CEO",
-    company: "UXBRAS Editech",
+    company: "UXBRAS Edtech",
     period: "2022 -> hoje",
     summary:
       "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
@@ -159,24 +161,7 @@ const education = [
   },
 ];
 
-const certifications = [
-  {
-    name: "Cibersegurança & Red Team",
-    issuer: "Certificação oficial do governo federal - MCTI",
-    href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
-  },
-  {
-    name: "Google Data Analytics Professional Certificate",
-    issuer: "Coursera / Google",
-    href: "https://www.coursera.org/",
-  },
-  {
-    name: "Lean Six Sigma Black Belt",
-    issuer: "Labone Consultoria",
-    href: "#",
-  },
-  { name: "Python for Data Science", issuer: "DataCamp", href: "#" },
-];
+// `certifications` removed — now using individual CertShowcase components above
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -234,11 +219,12 @@ export default function PortfolioPage() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <ProjectsSection />
       <ExperienceSection />
       <EducationSection />
+      <ProjectsSection />
       <CertificatesSection />
       <SkillsSection />
+      <ContactSection />
       <FooterSection />
     </main>
   );
@@ -332,7 +318,7 @@ function CertShowcase({
 }: Readonly<{
   title: string;
   subtitle?: string;
-  items: { name: string; detail?: string; href?: string }[];
+  items: { name: string; detail?: string; href?: string; image?: any }[];
 }>) {
   const [open, setOpen] = useState(false);
 
@@ -379,6 +365,11 @@ function CertShowcase({
 
   const getBeltImage = (name: string) => {
     if (/red\s?team/i.test(name) || /red\s?team/i.test(title)) return REDTEAM;
+    if (
+      /data-driven hr strategies/i.test(name) ||
+      /data-driven hr strategies/i.test(title)
+    )
+      return DATAHR;
     if (/master/i.test(name)) return CSSCMBB;
     if (/black/i.test(name)) return CSSCBB;
     if (/green/i.test(name)) return CSSCGB;
@@ -402,18 +393,18 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-lg md:text-xl font-extrabold text-transparent leading-tight`}
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-xl md:text-2xl lg:text-3xl font-extrabold text-transparent leading-tight tracking-tight`}
             >
               {title}
             </p>
             {subtitle && (
-              <p className="text-sm text-[#9aa0a6] mt-1">{subtitle}</p>
+              <p className="text-left text-base md:text-lg text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
+                {subtitle}
+              </p>
             )}
           </div>
           <div>
-            <span className={ctaClass}>
-              {open ? "Fechar" : "Ver Certificados"}
-            </span>
+            <span className={ctaClass}>{open ? "Fechar" : "Verificar"}</span>
           </div>
         </div>
       </motion.button>
@@ -432,7 +423,9 @@ function CertShowcase({
         <div className="mx-auto mt-4 max-w-full border-t border-[#2a2a2d] pt-4">
           {/* badges inline removed; each item will show a colored icon */}
 
-          <div className="grid gap-3 md:grid-cols-2">
+          <div
+            className={`grid gap-3 ${items.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}
+          >
             {items.map(it => {
               const isBlack = /black/i.test(it.name);
               const isMaster = /master/i.test(it.name);
@@ -445,14 +438,14 @@ function CertShowcase({
                   target="_blank"
                   rel="noreferrer"
                   style={{ ["--belt-color" as any]: getBeltColor(it.name) }}
-                  className={`group flex items-start gap-3 p-3 rounded-lg ${isWhite ? "hover:bg-black" : "hover:bg-white"} transition-colors`}
+                  className={`group flex items-start gap-3 p-8 rounded-lg ${isWhite ? "hover:bg-black" : "hover:bg-white"} transition-colors`}
                 >
                   <div
                     aria-hidden
-                    className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-(--belt-color)"}`}
+                    className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-[var(--belt-color)]"}`}
                   >
                     <Image
-                      src={getBeltImage(it.name)}
+                      src={it.image ?? getBeltImage(it.name)}
                       alt={`${it.name} badge`}
                       width={64}
                       height={64}
@@ -461,13 +454,13 @@ function CertShowcase({
                   </div>
                   <div className="flex-1">
                     <p
-                      className={`text-lg md:text-xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-(--belt-color)"}`}
+                      className={`text-lg md:text-xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-[var(--belt-color)]"}`}
                     >
                       {it.name}
                     </p>
                     {it.detail && (
                       <p
-                        className={`mt-1 text-base md:text-lg transition-colors ${isBlack ? (isMaster ? "text-[#b1b1b7] group-hover:text-[#2997ff]" : "text-[#b1b1b7] group-hover:text-black") : isWhite ? "text-[#b1b1b7] group-hover:text-white" : "text-[#b1b1b7] group-hover:text-(--belt-color)"}`}
+                        className={`mt-1 text-base md:text-lg transition-colors ${isBlack ? (isMaster ? "text-[#b1b1b7] group-hover:text-[#2997ff]" : "text-[#b1b1b7] group-hover:text-black") : isWhite ? "text-[#b1b1b7] group-hover:text-white" : "text-[#b1b1b7] group-hover:text-[var(--belt-color)]"}`}
                       >
                         {it.detail}
                       </p>
@@ -651,7 +644,7 @@ function HeroSection() {
             José Cristiano da S. Lima
           </h1>
 
-          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight text-[#d5d5da] md:text-[1.78rem]">
+          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#d5d5da] md:text-[1.78rem]">
             <span className="block">
               Administrador | Master Black Belt em Lean Six Sigma
             </span>
@@ -660,7 +653,7 @@ function HeroSection() {
             </span>
           </p>
 
-          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-[#b1b1b7] md:text-2xl">
+          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl">
             Transformo dados organizacionais em decisões estratégicas.
             Especialista em estruturar governança de dados, integrar sistemas e
             aplicar estatística preditiva para otimização de processos e People
@@ -759,7 +752,7 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-bold"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold"
           data-reveal
         >
           Administrador e Full-Stack Developer com sólida experiência em
@@ -767,8 +760,10 @@ function AboutSection() {
           processos e inteligência de negócios. Especialista na estruturação de
           governança de dados, integração de múltiplos sistemas corporativos
           (RPs/HRIS) e automação em larga escala — com histórico de mais de 5
-          mil servidores integrados via código. Atuo de forma consultiva junto a
-          lideranças executivas,{" "}
+          mil servidores integrados via código e atuação como Pesquisador DTI-B
+          CNPq no desenvolvimento de soluções inovadoras com propriedade
+          intelectual patenteável. Atuo de forma consultiva junto a lideranças
+          executivas,{" "}
           <span className="text-[#ffffff]">
             aplicando as melhores práticas da metodologia PMBOK para a gestão de
             projetos estratégicos de People Analytics
@@ -959,11 +954,43 @@ function CertificatesSection() {
           className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
           data-reveal
         >
-          Licenças e Certificados
+          Certificados Profissionais
         </motion.h2>
 
         <div className="mt-10 grid gap-5" data-reveal>
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="People Analytics with AI - cursando agora"
+              subtitle="Data-Driven HR Strategies (Coursera)"
+              items={[
+                {
+                  name: "Data-Driven HR Strategies",
+                  detail:
+                    "Certificação profissional avançada voltada à aplicação prática de ciência de dados e inteligência artificial na resolução de desafios complexos de RH. Capacitação focada no desenho de pipelines de dados completos, modelagem estatística assistida por IA para previsão de riscos de rotatividade (turnover) e estruturação de dashboards de saúde da força de trabalho. Ênfase em atuação consultiva estratégica, traduzindo métricas e análises preditivas em relatórios executivos de alto impacto para tomada de decisão da diretoria.",
+                  image: DATAHR,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="People Analytics"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="Certificações de Six Sigma"
               subtitle="Creditação Internacional - Labone Consultoria"
@@ -1002,7 +1029,7 @@ function CertificatesSection() {
             />
           </div>
 
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="Cibersegurança & Red Team"
               subtitle="Certificação oficial do Governo Federal do B- MCTI"
@@ -1017,32 +1044,39 @@ function CertificatesSection() {
             />
           </div>
 
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
-            {certifications.map(item => (
-              <article
-                key={item.name}
-                className="grid gap-1 border-b border-[#2a2a2d] py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center"
-              >
-                <div>
-                  <h3 className="bg-linear-to-r from-[#dff9ff] via-[#8ec5ea] to-[#4f79a2] bg-clip-text text-lg font-bold text-transparent">
-                    {item.name}
-                  </h3>
-                  <p className="text-base font-semibold text-[#afb0b6]">
-                    {item.issuer}
-                  </p>
-                </div>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-lg font-bold text-[#afb0b6] transition-colors hover:text-[#2997ff]"
-                >
-                  Verificar
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </article>
-            ))}
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="Power BI & Power Virtual Agents"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
           </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="Analise de dados com Python"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          {/* Removed legacy `certifications` list rendering — individual `CertShowcase` components are used above */}
         </div>
       </div>
     </section>
@@ -1092,6 +1126,19 @@ function SkillsSection() {
             </div>
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section
+      id="contato"
+      className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
+      aria-labelledby="contato-title"
+    >
+      <div className="container">
         <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end pt-12">
           <div>
             <p className="text-base font-bold tracking-[0.18em] text-[#b0b1b7]">
