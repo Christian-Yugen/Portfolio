@@ -446,7 +446,7 @@ function CertShowcase({
                   target="_blank"
                   rel="noreferrer"
                   style={{ ["--belt-color" as any]: getBeltColor(it.name) }}
-                  className={`group flex items-start gap-3 p-4 rounded-lg ${isWhite ? "hover:bg-black" : "hover:bg-white"} transition-colors`}
+                  className={`group flex items-start gap-3 p-8 rounded-lg ${isWhite ? "hover:bg-black" : "hover:bg-white"} transition-colors`}
                 >
                   <div
                     aria-hidden
