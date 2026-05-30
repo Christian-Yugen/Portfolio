@@ -957,18 +957,18 @@ function CertificatesSection() {
         <motion.h2
           {...reveal}
           id="certificados-title"
-          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
+          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-5xl font-extrabold tracking-[-0.03em] text-transparent md:text-6xl"
           data-reveal
         >
           Certificados Profissionais
         </motion.h2>
-
-        <div className="mt-10 grid gap-5" data-reveal>
-          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <p
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-xl md:text-2xl font-extrabold text-transparent leading-tight`}
+            >
             <CertShowcase
               title="Certificações de Six Sigma"
               subtitle="Creditação Internacional - Labone Consultoria"
-              items={[
+              <p className="text-sm md:text-base text-[#9aa0a6] mt-1 pl-4 md:pl-6">{subtitle}</p>
                 {
                   name: " CSSMBB - Certified Six Sigma Master Black Belt",
                   detail:
