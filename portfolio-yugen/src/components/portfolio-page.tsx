@@ -442,7 +442,7 @@ function CertShowcase({
                 >
                   <div
                     aria-hidden
-                    className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-(--belt-color)"}`}
+                    className={`mt-1 inline-block h-16 w-16 shrink-0 overflow-hidden rounded-sm transform transition-transform group-hover:scale-105 group-hover:shadow-lg ring-0 group-hover:ring-2 ${isBlack || isWhite ? "group-hover:ring-black" : "group-hover:ring-[var(--belt-color)]"}`}
                   >
                     <Image
                       src={it.image ?? getBeltImage(it.name)}
@@ -454,13 +454,13 @@ function CertShowcase({
                   </div>
                   <div className="flex-1">
                     <p
-                      className={`text-lg md:text-xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-(--belt-color)"}`}
+                      className={`text-lg md:text-xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-[var(--belt-color)]"}`}
                     >
                       {it.name}
                     </p>
                     {it.detail && (
                       <p
-                        className={`mt-1 text-base md:text-lg transition-colors ${isBlack ? (isMaster ? "text-[#b1b1b7] group-hover:text-[#2997ff]" : "text-[#b1b1b7] group-hover:text-black") : isWhite ? "text-[#b1b1b7] group-hover:text-white" : "text-[#b1b1b7] group-hover:text-(--belt-color)"}`}
+                        className={`mt-1 text-base md:text-lg transition-colors ${isBlack ? (isMaster ? "text-[#b1b1b7] group-hover:text-[#2997ff]" : "text-[#b1b1b7] group-hover:text-black") : isWhite ? "text-[#b1b1b7] group-hover:text-white" : "text-[#b1b1b7] group-hover:text-[var(--belt-color)]"}`}
                       >
                         {it.detail}
                       </p>
@@ -644,7 +644,7 @@ function HeroSection() {
             José Cristiano da S. Lima
           </h1>
 
-          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-[1.06] text-[#d5d5da] md:text-[1.78rem]">
+          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#d5d5da] md:text-[1.78rem]">
             <span className="block">
               Administrador | Master Black Belt em Lean Six Sigma
             </span>
@@ -653,7 +653,7 @@ function HeroSection() {
             </span>
           </p>
 
-          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-[#b1b1b7] md:text-2xl">
+          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl">
             Transformo dados organizacionais em decisões estratégicas.
             Especialista em estruturar governança de dados, integrar sistemas e
             aplicar estatística preditiva para otimização de processos e People
