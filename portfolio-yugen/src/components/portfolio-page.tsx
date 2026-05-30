@@ -962,13 +962,12 @@ function CertificatesSection() {
         >
           Certificados Profissionais
         </motion.h2>
-            <p
-              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-xl md:text-2xl font-extrabold text-transparent leading-tight`}
-            >
+        <div className="mt-10 grid gap-5" data-reveal>
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="Certificações de Six Sigma"
               subtitle="Creditação Internacional - Labone Consultoria"
-              <p className="text-sm md:text-base text-[#9aa0a6] mt-1 pl-4 md:pl-6">{subtitle}</p>
+              items={[
                 {
                   name: " CSSMBB - Certified Six Sigma Master Black Belt",
                   detail:
