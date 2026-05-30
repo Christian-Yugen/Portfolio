@@ -403,12 +403,12 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-2xl md:text-3xl lg:text-4xl font-black text-transparent leading-tight tracking-tight`}
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-xl md:text-2xl lg:text-3xl font-extrabold text-transparent leading-tight tracking-tight`}
             >
               {title}
             </p>
             {subtitle && (
-              <p className="text-base text-[#9aa0a6] mt-2 pl-4 md:pl-6">
+              <p className="text-sm md:text-base text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
                 {subtitle}
               </p>
             )}
@@ -435,7 +435,7 @@ function CertShowcase({
         <div className="mx-auto mt-4 max-w-full border-t border-[#2a2a2d] pt-4">
           {/* badges inline removed; each item will show a colored icon */}
 
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className={`grid gap-3 ${items.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
             {items.map(it => {
               const isBlack = /black/i.test(it.name);
               const isMaster = /master/i.test(it.name);
@@ -1030,7 +1030,7 @@ function CertificatesSection() {
                   detail:
                     "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
                   image: WHARTON,
-                  href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
+                  /*href: "",*/
                 },
               ]}
             />
