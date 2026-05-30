@@ -644,7 +644,7 @@ function HeroSection() {
             José Cristiano da S. Lima
           </h1>
 
-          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight text-[#d5d5da] md:text-[1.78rem]">
+          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-[1.06] text-[#d5d5da] md:text-[1.78rem]">
             <span className="block">
               Administrador | Master Black Belt em Lean Six Sigma
             </span>
@@ -752,7 +752,7 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-bold"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold"
           data-reveal
         >
           Administrador e Full-Stack Developer com sólida experiência em
@@ -760,8 +760,10 @@ function AboutSection() {
           processos e inteligência de negócios. Especialista na estruturação de
           governança de dados, integração de múltiplos sistemas corporativos
           (RPs/HRIS) e automação em larga escala — com histórico de mais de 5
-          mil servidores integrados via código. Atuo de forma consultiva junto a
-          lideranças executivas,{" "}
+          mil servidores integrados via código e atuação como Pesquisador DTI-B
+          CNPq no desenvolvimento de soluções inovadoras com propriedade
+          intelectual patenteável. Atuo de forma consultiva junto a lideranças
+          executivas,{" "}
           <span className="text-[#ffffff]">
             aplicando as melhores práticas da metodologia PMBOK para a gestão de
             projetos estratégicos de People Analytics
