@@ -628,8 +628,12 @@ function HeroSection() {
   return (
     <section
       id="hero"
-      className="border-b border-[#2a2a2d] bg-[#000000] px-4 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24"
+      className="border-b border-[#2a2a2d] px-4 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24"
       aria-labelledby="hero-title"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at center, rgba(41,151,255,0.12) 0%, rgba(41,151,255,0.06) 12%, rgba(2,2,3,0.92) 60%)",
+      }}
     >
       <div className="container grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <motion.div {...reveal} data-reveal>
