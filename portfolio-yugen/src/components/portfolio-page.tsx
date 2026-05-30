@@ -36,6 +36,7 @@ import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
 import CSSCWB from "../../client/public/CSSC-WB-Final.png";
 import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
 import REDTEAM from "../../client/public/Especializado_RED.png";
+import WHARTON from "../../client/public/Wharton-320x320.png";
 
 const experiences = [
   {
@@ -161,8 +162,8 @@ const education = [
 
 const certifications = [
   {
-    name: "Cibersegurança & Red Team",
-    issuer: "Certificação oficial do governo federal - MCTI",
+    name: "People Analytics",
+    issuer: "University of Pennsylvania",
     href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
   },
   {
@@ -234,9 +235,9 @@ export default function PortfolioPage() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <ProjectsSection />
       <ExperienceSection />
       <EducationSection />
+      <ProjectsSection />
       <CertificatesSection />
       <SkillsSection />
       <FooterSection />
@@ -402,7 +403,7 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-lg md:text-xl font-extrabold text-transparent leading-tight`}
+              className={`${titleGradient} bg-clip-text text-left text-lg md:text-xl font-extrabold text-transparent leading-tight`}
             >
               {title}
             </p>
@@ -959,11 +960,11 @@ function CertificatesSection() {
           className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
           data-reveal
         >
-          Licenças e Certificados
+          Certificados Profissionais
         </motion.h2>
 
         <div className="mt-10 grid gap-5" data-reveal>
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="Certificações de Six Sigma"
               subtitle="Creditação Internacional - Labone Consultoria"
@@ -1002,7 +1003,7 @@ function CertificatesSection() {
             />
           </div>
 
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
               title="Cibersegurança & Red Team"
               subtitle="Certificação oficial do Governo Federal do B- MCTI"
@@ -1011,6 +1012,21 @@ function CertificatesSection() {
                   name: "Ethical Hacking - Red Team Specialist",
                   detail:
                     "Certificação governamental em segurança da informação, auditoria de sistemas e mitigação de vulnerabilidades aplicadas à governança e integridade de dados corporativos.",
+                  href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="People Analytics"
+              subtitle="Wharton School - University of Pennsylvania (Coursera)"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
                   href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
                 },
               ]}
