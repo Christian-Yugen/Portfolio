@@ -632,9 +632,9 @@ function HeroSection() {
       aria-labelledby="hero-title"
       style={{
         backgroundImage:
-          "radial-gradient(circle at center, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
+          "radial-gradient(circle at 58% 48%, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "58% 48%",
         backgroundSize: "cover",
         backgroundBlendMode: "overlay",
       }}
