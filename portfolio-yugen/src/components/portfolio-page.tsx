@@ -334,8 +334,7 @@ function CertShowcase({
   title: string;
   subtitle?: string;
   items: { name: string; detail?: string; href?: string; image?: StaticImageData | string }[];
-                  image: WHARTON,
-                  href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
+}>) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -1028,6 +1027,7 @@ function CertificatesSection() {
                   name: "Especialização em Análise de negócios",
                   detail:
                     "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
                   href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
                 },
               ]}
