@@ -403,12 +403,12 @@ function CertShowcase({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p
-              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-lg md:text-xl font-extrabold text-transparent leading-tight`}
+              className={`${titleGradient} bg-clip-text text-left pl-4 md:pl-6 text-2xl md:text-3xl font-extrabold text-transparent leading-tight`}
             >
               {title}
             </p>
             {subtitle && (
-              <p className="text-sm text-[#9aa0a6] mt-1 pl-4 md:pl-6">{subtitle}</p>
+              <p className="text-base md:text-lg text-[#9aa0a6] mt-2 pl-4 md:pl-6">{subtitle}</p>
             )}
           </div>
           <div>
@@ -462,7 +462,7 @@ function CertShowcase({
                   </div>
                   <div className="flex-1">
                     <p
-                      className={`text-lg md:text-xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-(--belt-color)"}`}
+                      className={`text-xl md:text-2xl font-bold transition-colors ${isBlack ? (isMaster ? "text-white group-hover:text-[#2997ff]" : "text-white group-hover:text-black") : isWhite ? "text-white group-hover:text-white" : "text-white group-hover:text-(--belt-color)"}`}
                     >
                       {it.name}
                     </p>
