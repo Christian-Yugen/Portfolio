@@ -37,6 +37,7 @@ import CSSCWB from "../../client/public/CSSC-WB-Final.png";
 import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
 import REDTEAM from "../../client/public/Especializado_RED.png";
 import WHARTON from "../../client/public/Wharton-320x320.png";
+import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 
 const experiences = [
   {
@@ -160,24 +161,7 @@ const education = [
   },
 ];
 
-const certifications = [
-  {
-    name: "People Analytics",
-    issuer: "University of Pennsylvania",
-    href: "https://ava.hackersdobem.org.br/mod/customcert/my_certificates.php?downloadcert=1&userid=3791&certificateid=11",
-  },
-  {
-    name: "Google Data Analytics Professional Certificate",
-    issuer: "Coursera / Google",
-    href: "https://www.coursera.org/",
-  },
-  {
-    name: "Lean Six Sigma Black Belt",
-    issuer: "Labone Consultoria",
-    href: "#",
-  },
-  { name: "Python for Data Science", issuer: "DataCamp", href: "#" },
-];
+// `certifications` removed — now using individual CertShowcase components above
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -380,6 +364,11 @@ function CertShowcase({
 
   const getBeltImage = (name: string) => {
     if (/red\s?team/i.test(name) || /red\s?team/i.test(title)) return REDTEAM;
+    if (
+      /data-driven hr strategies/i.test(name) ||
+      /data-driven hr strategies/i.test(title)
+    )
+      return DATAHR;
     if (/master/i.test(name)) return CSSCMBB;
     if (/black/i.test(name)) return CSSCBB;
     if (/green/i.test(name)) return CSSCGB;
@@ -408,15 +397,13 @@ function CertShowcase({
               {title}
             </p>
             {subtitle && (
-              <p className="text-sm md:text-base text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
+              <p className="text-left text-sm md:text-base text-[#9aa0a6] mt-1.5 pl-4 md:pl-6">
                 {subtitle}
               </p>
             )}
           </div>
           <div>
-            <span className={ctaClass}>
-              {open ? "Fechar" : "Ver Certificados"}
-            </span>
+            <span className={ctaClass}>{open ? "Fechar" : "Verificar"}</span>
           </div>
         </div>
       </motion.button>
@@ -435,7 +422,9 @@ function CertShowcase({
         <div className="mx-auto mt-4 max-w-full border-t border-[#2a2a2d] pt-4">
           {/* badges inline removed; each item will show a colored icon */}
 
-          <div className={`grid gap-3 ${items.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
+          <div
+            className={`grid gap-3 ${items.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}
+          >
             {items.map(it => {
               const isBlack = /black/i.test(it.name);
               const isMaster = /master/i.test(it.name);
@@ -968,6 +957,38 @@ function CertificatesSection() {
         <div className="mt-10 grid gap-5" data-reveal>
           <div className="border border-[#2a2a2d] bg-[#111112] p-3">
             <CertShowcase
+              title="People Analytics with AI - cursando agora"
+              subtitle="Data-Driven HR Strategies (Coursera)"
+              items={[
+                {
+                  name: "Data-Driven HR Strategies",
+                  detail:
+                    "Certificação profissional avançada voltada à aplicação prática de ciência de dados e inteligência artificial na resolução de desafios complexos de RH. Capacitação focada no desenho de pipelines de dados completos, modelagem estatística assistida por IA para previsão de riscos de rotatividade (turnover) e estruturação de dashboards de saúde da força de trabalho. Ênfase em atuação consultiva estratégica, traduzindo métricas e análises preditivas em relatórios executivos de alto impacto para tomada de decisão da diretoria.",
+                  image: DATAHR,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
+              title="People Analytics"
+              subtitle="Wharton School - University of Pennsylvania"
+              items={[
+                {
+                  name: "Especialização em Análise de negócios",
+                  detail:
+                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
+                  image: WHARTON,
+                  href: "https://www.coursera.org/account/accomplishments/certificate/9Z5KZ6QG8L2C",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
+            <CertShowcase
               title="Certificações de Six Sigma"
               subtitle="Creditação Internacional - Labone Consultoria"
               items={[
@@ -1020,48 +1041,7 @@ function CertificatesSection() {
             />
           </div>
 
-          <div className="border border-[#2a2a2d] bg-[#111112] p-3">
-            <CertShowcase
-              title="People Analytics"
-              subtitle="Wharton School - University of Pennsylvania (Coursera)"
-              items={[
-                {
-                  name: "Especialização em Análise de negócios",
-                  detail:
-                    "Formação executiva voltada à aplicação de ciência de dados na tomada de decisões estratégicas de RH. Capacitação avançada na identificação e tratamento de vieses estatísticos em avaliações de desempenho, uso de modelagem preditiva para o controle de atrito, rotatividade e retenção de talentos, e mapeamento de redes de colaboração interna (ONA) para otimização de fluxos informacionais. Foco em governança de dados, causalidade e implementação de algoritmos éticos e imparciais para o desenvolvimento de talentos.",
-                  image: WHARTON,
-                  /*href: "",*/
-                },
-              ]}
-            />
-          </div>
-
-          <div className="border border-[#2a2a2d] bg-[#111112] p-6">
-            {certifications.map(item => (
-              <article
-                key={item.name}
-                className="grid gap-1 border-b border-[#2a2a2d] py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center"
-              >
-                <div>
-                  <h3 className="bg-linear-to-r from-[#dff9ff] via-[#8ec5ea] to-[#4f79a2] bg-clip-text text-lg font-bold text-transparent">
-                    {item.name}
-                  </h3>
-                  <p className="text-base font-semibold text-[#afb0b6]">
-                    {item.issuer}
-                  </p>
-                </div>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-lg font-bold text-[#afb0b6] transition-colors hover:text-[#2997ff]"
-                >
-                  Verificar
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </article>
-            ))}
-          </div>
+          {/* Removed legacy `certifications` list rendering — individual `CertShowcase` components are used above */}
         </div>
       </div>
     </section>
