@@ -17,135 +17,148 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
-function WhatsAppIcon({ className }: { className?: string }) {
+function GitHubContributionsSection() {
+  const username = "Christian-Yugen";
+  const totalRepos = 25; // conforme solicitado
+  const privateRepos = 6; // conforme solicitado
+  const publicFallback = totalRepos - privateRepos;
+
+  const [publicRepos, setPublicRepos] = useState<number | null>(null);
+  const [recentContribs, setRecentContribs] = useState<number | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    // tenta obter public_repos (fallback se API falhar)
+    fetch(`https://api.github.com/users/${username}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!mounted) return;
+        if (data && typeof data.public_repos === "number") setPublicRepos(data.public_repos);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setPublicRepos(null);
+      });
+
+    // eventos públicos recentes para estimar contribuições no ano atual
+    fetch(`https://api.github.com/users/${username}/events/public`)
+      .then(res => res.json())
+      .then(events => {
+        if (!mounted) return;
+        if (!Array.isArray(events)) return setRecentContribs(null);
+        const year = new Date().getFullYear();
+        let count = 0;
+        events.forEach((e: any) => {
+          try {
+            const created = new Date(e.created_at);
+            if (created.getFullYear() === year) {
+              if (e.type === "PushEvent" && Array.isArray(e.payload?.commits)) count += e.payload.commits.length;
+              else if (["PullRequestEvent", "IssuesEvent", "IssueCommentEvent", "CreateEvent"].includes(e.type)) count += 1;
+            }
+          } catch (err) {
+            // ignore
+          }
+        });
+        setRecentContribs(count);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setRecentContribs(null);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const publicCount = publicRepos ?? publicFallback;
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
+    <section
+      id="github"
+      className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
+      aria-labelledby="github-title"
     >
-      <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 3.93 1.5 5.58L0 24l6.66-1.54A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM17.1 14.7c-.26-.13-1.54-.76-1.78-.85-.23-.09-.39-.13-.55.13-.16.26-.62.85-.76 1.02-.14.16-.27.18-.5.06-1.25-.63-2.06-1.12-2.88-2.54-.22-.38.22-.36.63-1.2.07-.15.03-.27-.02-.4-.05-.12-.55-1.33-.76-1.82-.2-.49-.41-.42-.56-.44-.15-.02-.32-.02-.49-.02-.17 0-.45.06-.69.26-.24.2-.93.91-.93 2.21 0 1.3.95 2.56 1.08 2.74.13.19 1.86 2.84 4.52 3.88 1.77.7 2.77.75 3.78.63.61-.08 1.88-.77 2.15-1.5.27-.73.27-1.36.19-1.5-.08-.14-.29-.23-.55-.36z" />
-    </svg>
+      <div className="container">
+        <motion.h2
+          {...reveal}
+          id="github-title"
+          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
+          data-reveal
+        >
+          GitHub & Contribuições
+        </motion.h2>
+
+        <motion.p
+          {...reveal}
+          className="mt-6 max-w-4xl text-lg font-semibold leading-relaxed text-[#b2b3ba] md:text-xl"
+          data-reveal
+        >
+          Indicador visual de atividade em código aberto — atualizado automaticamente a partir do perfil público do GitHub.
+        </motion.p>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3" data-reveal>
+          <article className="border border-[#2a2a2d] bg-[#111112] p-6 text-center">
+            <AnimatedStat
+              target={recentContribs ?? 0}
+              suffix=""
+              className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
+            />
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Contribuições em {new Date().getFullYear()}</p>
+          </article>
+
+          <article className="border border-[#2a2a2d] bg-[#111112] p-6 text-center">
+            <AnimatedStat
+              target={totalRepos}
+              suffix=""
+              className="text-4xl font-extrabold tracking-[-0.03em] text-[#ffffff] md:text-5xl"
+            />
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Repositórios ({privateRepos} privados)</p>
+            <p className="mt-1 text-sm text-[#8e919a]">Públicos: {publicCount}</p>
+          </article>
+
+          <article className="border border-[#2a2a2d] bg-[#111112] p-6 text-center">
+            <p className="text-4xl font-extrabold tracking-[-0.03em] text-[#79c5ff] md:text-5xl">100%</p>
+            <p className="mt-1 text-lg font-semibold text-[#b1b2b8]">Ativo em {new Date().getFullYear()}</p>
+          </article>
+        </div>
+
+        <div className="mx-auto mt-8 rounded-lg border border-[#2a2a2d] bg-[#111112] p-6">
+          <h3 className="flex items-center gap-2 text-lg font-semibold text-[#dff9ff]">
+            <svg className="h-5 w-5 text-[#79c5ff]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 18v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4 12h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Mapa de Contribuições {new Date().getFullYear()}
+          </h3>
+
+          <div className="mt-4 overflow-hidden rounded-sm bg-[#111112] p-6">
+            <div className="mx-auto max-w-full">
+              <img
+                src={`https://ghchart.rshah.org/${username}`}
+                alt={`Mapa de contribuições de ${username}`}
+                className="mx-auto max-w-full"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-end gap-2 text-sm text-[#6b7280]">
+              <span>Menos</span>
+              <div className="flex items-center gap-1">
+                <span className="h-3 w-3 rounded inline-block" style={{ background: "#ebedf0" }} />
+                <span className="h-3 w-3 rounded inline-block" style={{ background: "#9be9a8" }} />
+                <span className="h-3 w-3 rounded inline-block" style={{ background: "#40c463" }} />
+                <span className="h-3 w-3 rounded inline-block" style={{ background: "#30a14e" }} />
+                <span className="h-3 w-3 rounded inline-block" style={{ background: "#216e39" }} />
+              </div>
+              <span>Mais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
-import CSSCBB from "../../client/public/CSSC-BB-Final.png";
-import CSSCGB from "../../client/public/CSSC-GB-Final-v2.png";
-import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
-import CSSCWB from "../../client/public/CSSC-WB-Final.png";
-import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
-import REDTEAM from "../../client/public/Especializado_RED.png";
-import WHARTON from "../../client/public/Wharton-320x320.png";
-import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
-
-const experiences = [
-  {
-    role: "Coord. Gestão de Políticas Públicas",
-    company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
-    period: "2021 -> maio2026",
-    summary:
-      "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
-    stack: ["BI", "SQL", "Python", "Governança de Dados"],
-  },
-  {
-    role: "Founder & CEO",
-    company: "UXBRAS Edtech",
-    period: "2022 -> hoje",
-    summary:
-      "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
-    stack: ["Product Strategy", "Analytics", "React", "Next.js"],
-  },
-  {
-    role: "Especialista em Saude Ocupacional",
-    company: "Suzano / JFI Silvicultura",
-    period: "2014 -> 2021",
-    summary:
-      "Estruturação de processos tecnicos e operacionais com paines de acompanhamento, leitura de risco e integracao de dados para monitoramento continuo.",
-    stack: ["Indicadores", "Automacao", "Excel Avancado", "Processos"],
-  },
-];
-
-const skills = [
-  "People Analytics",
-  "Business Intelligence",
-  "Power BI",
-  "SQL",
-  "Python",
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Automacao de Processos",
-  "Data Storytelling",
-  "Governanca de Dados",
-  "KPIs Corporativos",
-  "Arquitetura de Dashboards",
-  "Planejamento Estrategico",
-  "Gestao de Pessoas",
-  "Transformacao Digital",
-];
-
-const heroHighlights = [
-  {
-    title: "Software Engineering & Data Analytics",
-    description:
-      "Python, Automação de Rotinas, Integração de Sistemas (ERP/HRIS) e SQL...",
-    icon: Code2,
-  },
-  {
-    title: "Estatística Aplicada & BI",
-    description: "Power BI, Minitab e Modelagem Preditiva de Tendências.",
-    icon: BarChart3,
-  },
-  {
-    title: "Master Black Belt em Lean Six Sigma",
-    description:
-      "Eficiência operacional, eliminação de gargalos e cultura orientada a dados (Data-Driven)...",
-    icon: Zap,
-  },
-];
-
-const heroStats = [
-  {
-    value: "5K+",
-    target: 5000,
-    suffix: "+",
-    label: "Fontes de dados integradas",
-  },
-  { value: "17+", target: 17, suffix: "+", label: "Líderes apoiados" },
-  { value: "5", target: 5, suffix: "", label: "Certificações Lean Six Sigma" },
-];
-
-const projects = [
-  {
-    title: "Occupational Intelligence Suite",
-    context:
-      "Monitoramento de saude ocupacional e desempenho em grande escala no setor publico.",
-    impact:
-      "Mais de 5.000 servidores acompanhados com visao consolidada e decisao mais rapida.",
-    stack: ["Power BI", "Python", "SQL", "Automacao"],
-  },
-  {
-    title: "People Analytics Executive Dashboard",
-    context:
-      "Camada executiva para leitura de capacidade, risco e alocacao de pessoas.",
-    impact:
-      "Priorizacao estrategica com indicadores acionaveis para liderancas de alto nivel.",
-    stack: ["Power BI", "Data Modeling", "Storytelling", "KPIs"],
-  },
-  {
-    title: "Data-Driven Product Operations",
-    context:
-      "Estruturacao de operacao e roadmap orientado por dados em ambiente EdTech.",
-    impact:
-      "Mais previsibilidade na entrega e foco em valor de negocio com ciclos curtos.",
-    stack: ["Next.js", "React", "Analytics", "Product Strategy"],
-  },
-];
-
-const education = [
-  {
-    title: "Administração",
     institution: "Universidade Norte do Paraná - UNOPAR",
     period: "2014 — 2018",
   },
