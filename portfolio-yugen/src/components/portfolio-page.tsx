@@ -30,7 +30,7 @@ const experiences = [
   {
     role: "Coord. Gestão de Políticas Públicas",
     company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
-    period: "2021 -> maio2026",
+    period: "2021 -> maio 2026",
     summary:
       "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
     stack: ["BI", "SQL", "Python", "Governança de Dados"],
@@ -295,28 +295,14 @@ function AnimatedStat({
 function FooterSection() {
   return (
     <footer className="border-t border-[#2a2a2d] bg-[#000000] px-4 py-8 md:px-8">
-      <div className="container mx-auto flex items-center justify-between">
-        <p className="text-sm text-[#8f9094]">
-          © {new Date().getFullYear()} José Cristiano S.Lima
+      <div className="container mx-auto flex flex-col items-center justify-center gap-4 md:flex-row md:justify-center">
+        <p className="text-sm text-[#efeff0] text-center">
+          © {new Date().getFullYear()} <em>Powered by </em>{" "}
+          <span style={{ letterSpacing: "1px" }}>
+            <strong> UXBRAS</strong>®
+          </span>
+          . Todos os direitos reservados.
         </p>
-        <div className="flex items-center gap-4">
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#b8bac1] hover:text-[#dff9ff]"
-          >
-            <Github className="h-5 w-5" />
-          </a>
-          <a
-            href="https://linkedin.com/in/joseyugen"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#b8bac1] hover:text-[#dff9ff]"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-        </div>
       </div>
     </footer>
   );
@@ -535,10 +521,16 @@ function Header() {
           <div className="hidden items-center gap-5 md:flex">
             <nav className="hidden items-center gap-7 text-lg font-semibold text-[#afb1b7] lg:flex">
               <a
-                href="#sobre"
+                href="#hero"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Sobre
+              </a>
+              <a
+                href="#sobre"
+                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
+              >
+                Resumo
               </a>
               <a
                 href="#projetos"
@@ -563,6 +555,12 @@ function Header() {
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Certificados
+              </a>
+              <a
+                href="#contato"
+                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
+              >
+                Contato
               </a>
             </nav>
 
@@ -653,7 +651,7 @@ function HeroSection() {
       <div className="container grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <motion.div {...reveal} data-reveal>
           <p className="inline-flex border border-[#2a2a2d] bg-[#111112] px-4 py-1.5 text-lg font-semibold text-[#b4b5bb]">
-            Bem-vindo ao meu portfólio
+            Bem-vindo ao meu Curriculum Vitae Digital
           </p>
 
           <h1
@@ -729,9 +727,9 @@ function HeroSection() {
           {heroHighlights.map(item => {
             const Icon = item.icon;
             return (
-              <article
+              <motion.article
                 key={item.title}
-                className="flex items-start gap-4 border p-4 rounded-sm allow-round"
+                className="group flex items-start gap-4 border p-4 rounded-sm allow-round"
                 style={{
                   borderColor: "#97989c",
                   borderRadius: "6px",
@@ -740,9 +738,15 @@ function HeroSection() {
                     "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
                   backgroundBlendMode: "overlay",
                 }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.01,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 24 }}
               >
                 <div
-                  className="flex h-11 w-11 items-center justify-center border bg-[#111112] rounded-sm allow-round-inner"
+                  className="flex h-11 w-11 items-center justify-center border bg-[#111112] rounded-sm allow-round-inner transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105"
                   style={{
                     backgroundImage:
                       "linear-gradient(180deg, rgba(41,151,255,0.20) 0%, rgba(41,151,255,0.06) 100%)",
@@ -758,7 +762,7 @@ function HeroSection() {
                     {item.description}
                   </p>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </motion.div>
@@ -771,8 +775,15 @@ function AboutSection() {
   return (
     <section
       id="sobre"
-      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="sobre-title"
+      style={{
+        backgroundColor: "#161617",
+        backgroundImage:
+          "radial-gradient(circle at 18% 30%, rgba(41,151,255,0.12) 0%, rgba(41,151,255,0.06) 12%, rgba(2,2,3,0.92) 55%)",
+        backgroundRepeat: "no-repeat",
+        backgroundBlendMode: "overlay",
+      }}
     >
       <div className="container">
         <motion.h2
@@ -785,26 +796,44 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold flex flex-wrap justify-center gap-x-[0.24em] gap-y-0.5 cursor-default select-none"
           data-reveal
         >
-          Administrador e Full-Stack Developer com sólida experiência em
-          Business Intelligence e modelagem estatística aplicada à engenharia de
-          processos e inteligência de negócios. Especialista na estruturação de
-          governança de dados, integração de múltiplos sistemas corporativos
-          (RPs/HRIS) e automação em larga escala — com histórico de mais de 5
-          mil servidores integrados via código e atuação como Pesquisador DTI-B
-          CNPq no desenvolvimento de soluções inovadoras com propriedade
-          intelectual patenteável. Atuo de forma consultiva junto a lideranças
-          executivas,{" "}
-          <span className="text-[#ffffff]">
-            aplicando as melhores práticas da metodologia PMBOK para a gestão de
-            projetos estratégicos de People Analytics
-          </span>{" "}
-          (turnover, absenteísmo, custos e retenção de talentos). Master Black
-          Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura
-          data-driven, eficiência operacional e transformação digital. Residente
-          em Três Lagoas/MS.
+          {(() => {
+            const text =
+              "Administrador e Full-Stack Developer com sólida experiência em Business Intelligence e modelagem estatística aplicada à engenharia de processos e inteligência de negócios. Especialista na estruturação de governança de dados, integração de múltiplos sistemas corporativos (RPs/HRIS) e automação em larga escala — com histórico de mais de 5 mil servidores integrados via código e atuação como Pesquisador DTI-B CNPq no desenvolvimento de soluções inovadoras com propriedade intelectual patenteável. Atuo de forma consultiva junto a lideranças executivas, aplicando as melhores práticas da metodologia PMBOK para a gestão de projetos estratégicos de People Analytics (turnover, absenteísmo, custos e retenção de talentos). Master Black Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura data-driven, eficiência operacional e transformação digital. Residente em Três Lagoas/MS.";
+            const words = text.split(" ");
+            const targetStartIndex = words.findIndex(
+              (w, i) =>
+                w.replace(/[(),.—]/g, "").toLowerCase() === "master" &&
+                words[i + 1]?.replace(/[(),.—]/g, "").toLowerCase() ===
+                  "black" &&
+                words[i + 2]?.replace(/[(),.—]/g, "").toLowerCase() ===
+                  "belt" &&
+                words[i + 3]?.replace(/[(),.—]/g, "").toLowerCase() === "em" &&
+                words[i + 4]?.replace(/[(),.—]/g, "").toLowerCase() === "lean"
+            );
+
+            return words.map((word, index) => {
+              const isSpecialPhrase =
+                targetStartIndex !== -1 &&
+                index >= targetStartIndex &&
+                index < targetStartIndex + 14;
+
+              return (
+                <span
+                  key={index}
+                  className={`inline-block transition-all duration-150 hover:scale-115 transform hover:z-10 ${
+                    isSpecialPhrase
+                      ? "text-[#ffffff] font-bold hover:text-[#50b5ff]"
+                      : "text-[#b1b1b7] hover:text-white"
+                  }`}
+                >
+                  {word}
+                </span>
+              );
+            });
+          })()}
         </motion.p>
       </div>
     </section>
@@ -839,8 +868,10 @@ function ExperienceSection() {
             >
               <div className="flex items-start justify-between gap-6">
                 <div className="flex-1">
-                  <p className="text-sm text-[#9aa0a6]">{exp.period}</p>
-                  <h3 className="mt-1 text-2xl font-bold text-white">
+                  <p className="text-2xl font-semibold text-[#f4f6f8]">
+                    {exp.period}
+                  </p>
+                  <h3 className="mt-1 text-2xl font-bold bg-linear-to-r from-[#dff9ff] via-[#4d9dd2] to-[#125593] bg-clip-text text-transparent">
                     {exp.role}
                   </h3>
                   <p className="mt-1 text-lg font-semibold text-[#b0b1b7]">
@@ -937,6 +968,12 @@ function EducationSection() {
       id="formacao"
       className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="formacao-title"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 12% 22%, rgba(149, 201, 249, 0.1) 0%, rgba(41,151,255,0.05) 10%, rgba(2,2,3,0.92) 60%)",
+        backgroundRepeat: "no-repeat",
+        backgroundBlendMode: "overlay",
+      }}
     >
       <div className="container">
         <motion.h2
