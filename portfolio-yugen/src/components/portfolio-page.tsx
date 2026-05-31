@@ -798,33 +798,44 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-relaxed md:leading-relaxed text-[#b1b1b7] md:text-2xl font-semibold flex flex-wrap justify-center gap-x-[0.24em] gap-y-1.5 cursor-default select-none"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold flex flex-wrap justify-center gap-x-[0.24em] gap-y-0.5 cursor-default select-none"
           data-reveal
         >
-          {"Administrador e Full-Stack Developer com sólida experiência em Business Intelligence e modelagem estatística aplicada à engenharia de processos e inteligência de negócios. Especialista na estruturação de governança de dados, integração de múltiplos sistemas corporativos (RPs/HRIS) e automação em larga escala — com histórico de mais de 5 mil servidores integrados via código e atuação como Pesquisador DTI-B CNPq no desenvolvimento de soluções inovadoras com propriedade intelectual patenteável. Atuo de forma consultiva junto a lideranças executivas, aplicando as melhores práticas da metodologia PMBOK para a gestão de projetos estratégicos de People Analytics (turnover, absenteísmo, custos e retenção de talentos). Master Black Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura data-driven, eficiência operacional e transformação digital. Residente em Três Lagoas/MS."
-            .split(" ")
-            .map((word, index) => {
-              const cleanedWord = word.replace(/[(),.—]/g, "").toLowerCase();
-              const isSpecial = [
-                "master black belt",
-                "em lean six sigma",
-                "focaado no desenvolvimento de uma cultura data-driven",
-                "intelligence",
-              ].includes(cleanedWord);
+          {(() => {
+            const text =
+              "Administrador e Full-Stack Developer com sólida experiência em Business Intelligence e modelagem estatística aplicada à engenharia de processos e inteligência de negócios. Especialista na estruturação de governança de dados, integração de múltiplos sistemas corporativos (RPs/HRIS) e automação em larga escala — com histórico de mais de 5 mil servidores integrados via código e atuação como Pesquisador DTI-B CNPq no desenvolvimento de soluções inovadoras com propriedade intelectual patenteável. Atuo de forma consultiva junto a lideranças executivas, aplicando as melhores práticas da metodologia PMBOK para a gestão de projetos estratégicos de People Analytics (turnover, absenteísmo, custos e retenção de talentos). Master Black Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura data-driven, eficiência operacional e transformação digital. Residente em Três Lagoas/MS.";
+            const words = text.split(" ");
+            const targetStartIndex = words.findIndex(
+              (w, i) =>
+                w.replace(/[(),.—]/g, "").toLowerCase() === "master" &&
+                words[i + 1]?.replace(/[(),.—]/g, "").toLowerCase() ===
+                  "black" &&
+                words[i + 2]?.replace(/[(),.—]/g, "").toLowerCase() ===
+                  "belt" &&
+                words[i + 3]?.replace(/[(),.—]/g, "").toLowerCase() === "em" &&
+                words[i + 4]?.replace(/[(),.—]/g, "").toLowerCase() === "lean"
+            );
+
+            return words.map((word, index) => {
+              const isSpecialPhrase =
+                targetStartIndex !== -1 &&
+                index >= targetStartIndex &&
+                index < targetStartIndex + 14;
 
               return (
                 <span
                   key={index}
                   className={`inline-block transition-all duration-150 hover:scale-115 transform hover:z-10 ${
-                    isSpecial 
-                      ? "text-[#ffffff] font-bold hover:text-[#50b5ff]" 
+                    isSpecialPhrase
+                      ? "text-[#ffffff] font-bold hover:text-[#50b5ff]"
                       : "text-[#b1b1b7] hover:text-white"
                   }`}
                 >
                   {word}
                 </span>
               );
-            })}
+            });
+          })()}
         </motion.p>
       </div>
     </section>
