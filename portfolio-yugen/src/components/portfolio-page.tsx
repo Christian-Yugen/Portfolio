@@ -30,7 +30,7 @@ const experiences = [
   {
     role: "Coord. Gestão de Políticas Públicas",
     company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
-    period: "2021 -> maio2026",
+    period: "2021 -> maio 2026",
     summary:
       "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
     stack: ["BI", "SQL", "Python", "Governança de Dados"],
@@ -870,7 +870,7 @@ function ExperienceSection() {
             >
               <div className="flex items-start justify-between gap-6">
                 <div className="flex-1">
-                  <p className="text-sm text-[#9aa0a6]">{exp.period}</p>
+                  <p className="text-lg text-[#9aa0a6]">{exp.period}</p>
                   <h3 className="mt-1 text-2xl font-bold text-white">
                     {exp.role}
                   </h3>
