@@ -729,9 +729,9 @@ function HeroSection() {
           {heroHighlights.map(item => {
             const Icon = item.icon;
             return (
-              <article
+              <motion.article
                 key={item.title}
-                className="flex items-start gap-4 border p-4 rounded-sm allow-round"
+                className="group flex items-start gap-4 border p-4 rounded-sm allow-round"
                 style={{
                   borderColor: "#97989c",
                   borderRadius: "6px",
@@ -740,9 +740,11 @@ function HeroSection() {
                     "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
                   backgroundBlendMode: "overlay",
                 }}
+                whileHover={{ y: -6, scale: 1.01, boxShadow: "0 10px 30px rgba(0,0,0,0.6)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 24 }}
               >
                 <div
-                  className="flex h-11 w-11 items-center justify-center border bg-[#111112] rounded-sm allow-round-inner"
+                  className="flex h-11 w-11 items-center justify-center border bg-[#111112] rounded-sm allow-round-inner transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105"
                   style={{
                     backgroundImage:
                       "linear-gradient(180deg, rgba(41,151,255,0.20) 0%, rgba(41,151,255,0.06) 100%)",
@@ -758,7 +760,7 @@ function HeroSection() {
                     {item.description}
                   </p>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </motion.div>
