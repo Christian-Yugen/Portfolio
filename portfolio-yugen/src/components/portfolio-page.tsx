@@ -780,7 +780,7 @@ function AboutSection() {
         <motion.h2
           {...reveal}
           id="sobre-title"
-          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-center text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
+          className="text-white text-center text-4xl font-extrabold tracking-[-0.03em] md:text-5xl"
           data-reveal
         >
           Resumo Estratégico
