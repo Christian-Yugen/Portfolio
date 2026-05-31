@@ -665,9 +665,9 @@ function HeroSection() {
             Transformo dados organizacionais em decisões estratégicas. Estruturo
             governança de dados, integro sistemas e aplico estatística e modelos
             preditivos para otimizar processos e iniciativas de People Analytics
-            (turnover, absenteísmo e produtividade, etc.). Experiência em Power BI,
-            Excel Avançado e automação de relatórios gerenciais e executivos com
-            linguagens de programação. Possuo certificação MCTI em Ethical
+            (turnover, absenteísmo e produtividade, etc.). Experiência em Power
+            BI, Excel Avançado e automação de relatórios gerenciais e executivos
+            com linguagens de programação. Possuo certificação MCTI em Ethical
             Hacking, o que reforça meu diferencial em segurança da informação.
           </p>
 
@@ -1128,7 +1128,7 @@ function SkillsSection() {
           {skills.map(item => (
             <div
               key={item}
-              className="border border-[#3a3a40] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl"
+              className="border border-[#5b6167] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl"
             >
               {item}
             </div>
