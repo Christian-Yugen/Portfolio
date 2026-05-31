@@ -134,3 +134,11 @@ h6 {
     }
   }
 }
+
+/* Allow small rounding on targeted elements even when .no-round is applied */
+.no-round .allow-round {
+  border-radius: 4px !important;
+}
+.no-round .allow-round-inner {
+  border-radius: 4px !important;
+}

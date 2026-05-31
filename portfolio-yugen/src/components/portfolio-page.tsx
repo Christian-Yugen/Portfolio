@@ -17,19 +17,6 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
-function WhatsAppIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 3.93 1.5 5.58L0 24l6.66-1.54A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM17.1 14.7c-.26-.13-1.54-.76-1.78-.85-.23-.09-.39-.13-.55.13-.16.26-.62.85-.76 1.02-.14.16-.27.18-.5.06-1.25-.63-2.06-1.12-2.88-2.54-.22-.38.22-.36.63-1.2.07-.15.03-.27-.02-.4-.05-.12-.55-1.33-.76-1.82-.2-.49-.41-.42-.56-.44-.15-.02-.32-.02-.49-.02-.17 0-.45.06-.69.26-.24.2-.93.91-.93 2.21 0 1.3.95 2.56 1.08 2.74.13.19 1.86 2.84 4.52 3.88 1.77.7 2.77.75 3.78.63.61-.08 1.88-.77 2.15-1.5.27-.73.27-1.36.19-1.5-.08-.14-.29-.23-.55-.36z" />
-    </svg>
-  );
-}
 import CSSCBB from "../../client/public/CSSC-BB-Final.png";
 import CSSCGB from "../../client/public/CSSC-GB-Final-v2.png";
 import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
@@ -65,6 +52,30 @@ const experiences = [
     stack: ["Indicadores", "Automacao", "Excel Avancado", "Processos"],
   },
 ];
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden
+    >
+      <path
+        d="M21.7 5.3a11.9 11.9 0 00-17 0c-4.7 4.7-4.8 12.3-.2 17.1L3 24l1.6-4.1A11.9 11.9 0 0024 6.6c-.1-.9-.4-1.8-.9-2.6z"
+        stroke="currentColor"
+        strokeWidth={1.2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M17.2 14.6c-.3.8-1 1.6-1.6 1.8-.4.1-.8.2-1.6-.2-.7-.4-1.5-.7-2.4-1.4-.9-.6-1.3-1.4-1.1-2 .1-.3.3-.5.6-.6.3-.1.7-.2 1-.2.3 0 .6 0 .9.1.3.1.5.1.7.2.1.1.2.2.4.3.1.1.2.2.4.3.3.2.5.4.8.5.4.2.7.2 1.1.1.3 0 .6.1.8.2.5.1 1 .3 1.2.5.3.2.4.5.2 1z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
 
 const skills = [
   "People Analytics",
@@ -628,8 +639,16 @@ function HeroSection() {
   return (
     <section
       id="hero"
-      className="border-b border-[#2a2a2d] bg-[#000000] px-4 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24"
+      className="border-b border-[#2a2a2d] px-4 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24"
       aria-labelledby="hero-title"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 58% 48%, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "58% 48%",
+        backgroundSize: "cover",
+        backgroundBlendMode: "overlay",
+      }}
     >
       <div className="container grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <motion.div {...reveal} data-reveal>
@@ -644,7 +663,7 @@ function HeroSection() {
             José Cristiano da S. Lima
           </h1>
 
-          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#d5d5da] md:text-[1.78rem]">
+          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#ededf0] md:text-[1.78rem]">
             <span className="block">
               Administrador | Master Black Belt em Lean Six Sigma
             </span>
@@ -653,14 +672,14 @@ function HeroSection() {
             </span>
           </p>
 
-          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl">
-            Transformo dados organizacionais em decisões estratégicas.
-            Especialista em estruturar governança de dados, integrar sistemas e
-            aplicar estatística preditiva para otimização de processos e People
-            Analytics (turnover, absenteísmo e produtividade). Domínio em Power
+          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#cfcfd1] md:text-2xl">
+            Transformo dados organizacionais em decisões estratégicas. Estruturo
+            governança de dados, integro sistemas e aplico estatística e modelos
+            preditivos para otimizar processos e iniciativas de People Analytics
+            (turnover, absenteísmo e produtividade, etc.). Experiência em Power
             BI, Excel Avançado e automação de relatórios gerenciais e executivos
-            com linguagens de programação. Diferencial em segurança da
-            informação com certificação oficial MCTI (Ethical Hacking).
+            com linguagens de programação. Possuo certificação MCTI em Ethical
+            Hacking, o que reforça meu diferencial em segurança da informação.
           </p>
 
           <div className="mt-8 grid gap-5 border-y border-[#2a2a2d] py-5 sm:grid-cols-3">
@@ -690,7 +709,7 @@ function HeroSection() {
                 href="https://linkedin.com/in/joseyugen"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center border border-[#3a3a40] bg-[#000000] px-7 text-lg font-bold transition-colors hover:border-[#2997ff] focus:outline-none focus:ring-2 focus:ring-[#2a9bff]"
+                className="inline-flex min-h-12 items-center justify-center border border-[#3a3a40] bg-[#111112] px-7 text-lg font-bold transition-colors hover:border-[#2997ff] focus:outline-none focus:ring-2 focus:ring-[#2a9bff]"
               >
                 <span className="bg-linear-to-r from-[#1b87ff] via-[#2a9bff] to-[#567fa7] bg-clip-text text-transparent">
                   Conectar no LinkedIn
@@ -712,9 +731,23 @@ function HeroSection() {
             return (
               <article
                 key={item.title}
-                className="flex items-start gap-4 border border-[#2a2a2d] bg-[#1d1d1f] p-4"
+                className="flex items-start gap-4 border p-4 rounded-sm allow-round"
+                style={{
+                  borderColor: "#8f97b9",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(29,29,31,0.4)",
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
+                  backgroundBlendMode: "overlay",
+                }}
               >
-                <div className="flex h-11 w-11 items-center justify-center border border-[#333338] bg-[#111112]">
+                <div
+                  className="flex h-11 w-11 items-center justify-center border bg-[#111112] rounded-sm allow-round-inner"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(180deg, rgba(41,151,255,0.20) 0%, rgba(41,151,255,0.06) 100%)",
+                  }}
+                >
                   <Icon className="h-5 w-5 text-[#2997ff]" />
                 </div>
                 <div>
@@ -1120,7 +1153,7 @@ function SkillsSection() {
           {skills.map(item => (
             <div
               key={item}
-              className="border border-[#3a3a40] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl"
+              className="border border-[#5b6167] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl"
             >
               {item}
             </div>
