@@ -23,7 +23,7 @@ import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
 import CSSCWB from "../../client/public/CSSC-WB-Final.png";
 import CSSCYB from "../../client/public/CSSC-YB-Final2.png";
 import REDTEAM from "../../client/public/Especializado_RED.png";
-import WHARTON from "../../client/public/Wharton-320x320.png";
+import WHARTON from "../../client/public/wharton-320x320.png";
 import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 
 const experiences = [
@@ -105,7 +105,7 @@ const heroHighlights = [
   },
   {
     title: "Estatística Aplicada & BI",
-    description: "Power BI, Minitab e Modelagem Preditiva de Tendências.",
+    description: "Power BI, Minitab e Modelagem Preditiva de Tendências...",
     icon: BarChart3,
   },
   {
@@ -733,7 +733,7 @@ function HeroSection() {
                 key={item.title}
                 className="flex items-start gap-4 border p-4 rounded-sm allow-round"
                 style={{
-                  borderColor: "#8f97b9",
+                  borderColor: "#97989c",
                   borderRadius: "6px",
                   backgroundColor: "rgba(29,29,31,0.4)",
                   backgroundImage:
