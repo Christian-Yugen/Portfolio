@@ -652,7 +652,7 @@ function HeroSection() {
             José Cristiano da S. Lima
           </h1>
 
-          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#d5d5da] md:text-[1.78rem]">
+          <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#ededf0] md:text-[1.78rem]">
             <span className="block">
               Administrador | Master Black Belt em Lean Six Sigma
             </span>
@@ -661,14 +661,14 @@ function HeroSection() {
             </span>
           </p>
 
-          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl">
-            Transformo dados organizacionais em decisões estratégicas.
-            Especialista em estruturar governança de dados, integrar sistemas e
-            aplicar estatística preditiva para otimização de processos e People
-            Analytics (turnover, absenteísmo e produtividade). Domínio em Power
-            BI, Excel Avançado e automação de relatórios gerenciais e executivos
-            com linguagens de programação. Diferencial em segurança da
-            informação com certificação oficial MCTI (Ethical Hacking).
+          <p className="mt-8 max-w-3xl text-xl leading-tight md:leading-snug text-[#cfcfd1] md:text-2xl">
+            Transformo dados organizacionais em decisões estratégicas. Estruturo
+            governança de dados, integro sistemas e aplico estatística e modelos
+            preditivos para otimizar processos e iniciativas de People Analytics
+            (turnover, absenteísmo e produtividade, etc.). Experiência em Power BI,
+            Excel Avançado e automação de relatórios gerenciais e executivos com
+            linguagens de programação. Possuo certificação MCTI em Ethical
+            Hacking, o que reforça meu diferencial em segurança da informação.
           </p>
 
           <div className="mt-8 grid gap-5 border-y border-[#2a2a2d] py-5 sm:grid-cols-3">
