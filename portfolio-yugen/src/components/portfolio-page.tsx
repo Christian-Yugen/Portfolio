@@ -740,7 +740,11 @@ function HeroSection() {
                     "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
                   backgroundBlendMode: "overlay",
                 }}
-                whileHover={{ y: -6, scale: 1.01, boxShadow: "0 10px 30px rgba(0,0,0,0.6)" }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.01,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
+                }}
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
               >
                 <div
@@ -773,14 +777,21 @@ function AboutSection() {
   return (
     <section
       id="sobre"
-      className="border-b border-[#2a2a2d] bg-[#161617] px-4 py-16 md:px-8 md:py-20"
+      className="border-b border-[#2a2a2d] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="sobre-title"
+      style={{
+        backgroundColor: "#161617",
+        backgroundImage:
+          "radial-gradient(circle at 18% 30%, rgba(41,151,255,0.12) 0%, rgba(41,151,255,0.06) 12%, rgba(2,2,3,0.92) 55%)",
+        backgroundRepeat: "no-repeat",
+        backgroundBlendMode: "overlay",
+      }}
     >
       <div className="container">
         <motion.h2
           {...reveal}
           id="sobre-title"
-          className="text-white text-center text-4xl font-extrabold tracking-[-0.03em] md:text-5xl"
+          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-center text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
           data-reveal
         >
           Resumo Estratégico
