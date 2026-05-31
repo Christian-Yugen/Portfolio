@@ -720,9 +720,9 @@ function HeroSection() {
             return (
               <article
                 key={item.title}
-                className="flex items-start gap-4 border border-[#2a2a2d] bg-[#1d1d1f] p-4"
+                className="flex items-start gap-4 border border-[#5b6167] bg-[#1d1d1f] p-4"
               >
-                <div className="flex h-11 w-11 items-center justify-center border border-[#333338] bg-[#111112]">
+                <div className="flex h-11 w-11 items-center justify-center border border-[#5b6167] bg-[#111112]">
                   <Icon className="h-5 w-5 text-[#2997ff]" />
                 </div>
                 <div>
