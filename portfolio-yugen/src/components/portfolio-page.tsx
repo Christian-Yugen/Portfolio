@@ -1036,10 +1036,10 @@ function EducationSection() {
       style={{
         backgroundColor: "#000000",
         backgroundImage:
-          "radial-gradient(circle at 70% 50%, rgba(41,151,255,0.95) 0%, rgba(41,151,255,0.65) 18%, rgba(41,151,255,0.30) 36%, rgba(2,2,3,1) 100%)",
+          "radial-gradient(circle at 100% 0%, rgba(41,151,255,0.35) 0%, rgba(41,151,255,0.22) 12%, rgba(41,151,255,0.10) 24%, rgba(2,2,3,0.92) 56%, rgba(2,2,3,1) 100%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "70% 50%",
-        backgroundSize: "220% 160%",
+        backgroundPosition: "100% 0%",
+        backgroundSize: "120% 100%",
         backgroundBlendMode: "normal",
       }}
     >
