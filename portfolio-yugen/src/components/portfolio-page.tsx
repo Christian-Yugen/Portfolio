@@ -1036,11 +1036,11 @@ function EducationSection() {
       style={{
         backgroundColor: "#000000",
         backgroundImage:
-          "radial-gradient(circle at 70% 45%, rgba(41,151,255,0.90) 0%, rgba(41,151,255,0.60) 12%, rgba(41,151,255,0.28) 28%, rgba(0,0,0,0.98) 75%), linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%)",
+          "radial-gradient(circle at 70% 50%, rgba(41,151,255,0.95) 0%, rgba(41,151,255,0.65) 18%, rgba(41,151,255,0.30) 36%, rgba(2,2,3,1) 100%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "70% 45%",
-        backgroundSize: "240% 200%, cover",
-        backgroundBlendMode: "overlay, normal",
+        backgroundPosition: "70% 50%",
+        backgroundSize: "220% 160%",
+        backgroundBlendMode: "normal",
       }}
     >
       <div className="container">
@@ -1064,7 +1064,7 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.08)",
+                backgroundColor: "rgba(29,29,31,0.06)",
                 backgroundImage:
                   "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%)",
                 backgroundBlendMode: "overlay",
