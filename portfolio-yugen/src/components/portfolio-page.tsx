@@ -202,7 +202,9 @@ const education = [
     pillar: "Tecnologia",
     description:
       "Formação focada em desenvolvimento de soluções tecnológicas, integração de dados, automação de processos e construção de sistemas orientados por dados.",
-    skills: [ "Python", "Análise de Dados",
+    skills: [
+      "Python",
+      "Análise de Dados",
       "Automação de Processos",
       "Integração de Sistemas",
       "Business Intelligence",
@@ -210,7 +212,7 @@ const education = [
       "Arquitetura de Soluções",
       "Banco de Dados",
       "Desenvolvimento de Software",
-    ]
+    ],
   },
   {
     title: "Especialização em Six Sigma Green Belt",
@@ -220,16 +222,16 @@ const education = [
     description:
       "Capacitação voltada para análise estatística, melhoria contínua e gestão baseada em indicadores, utilizando metodologias estruturadas para aumento de eficiência e redução de desperdícios.",
     skills: [
-     "DMAIC",
-     "Estatística Aplicada",
-     "Análise de Processos",
-     "Indicadores de Performance",
-     "Melhoria Contínua",
-     "Root Cause Analysis",
-     "Data-Driven Decision Making",
-     "Controle Estatístico",
-     "Eficiência Operacional",
-     "Gestão da Qualidade"
+      "DMAIC",
+      "Estatística Aplicada",
+      "Análise de Processos",
+      "Indicadores de Performance",
+      "Melhoria Contínua",
+      "Root Cause Analysis",
+      "Data-Driven Decision Making",
+      "Controle Estatístico",
+      "Eficiência Operacional",
+      "Gestão da Qualidade",
     ],
   },
 ];
@@ -1048,9 +1050,21 @@ function EducationSection() {
             <motion.article
               key={item.title}
               {...reveal}
-              whileHover={{ y: -6, scale: 1.01, boxShadow: "0 16px 40px rgba(41,151,255,0.06)" }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="group border border-[#2a2a2d] bg-[#111112] p-6 transform will-change-transform transition-all"
+              whileHover={{
+                y: -6,
+                scale: 1.01,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+              className="group flex flex-col gap-4 border p-6 rounded-sm allow-round transform will-change-transform transition-all"
+              style={{
+                borderColor: "#97989c",
+                borderRadius: "6px",
+                backgroundColor: "rgba(29,29,31,0.4)",
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
+                backgroundBlendMode: "overlay",
+              }}
               data-reveal
             >
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#91c8ec]">
