@@ -1034,8 +1034,10 @@ function EducationSection() {
       aria-labelledby="formacao-title"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 12% 22%, rgba(149, 201, 249, 0.1) 0%, rgba(41,151,255,0.05) 10%, rgba(2,2,3,0.92) 60%)",
+          "radial-gradient(circle at 58% 48%, rgba(41,151,255,0.20) 0%, rgba(41,151,255,0.12) 14%, rgba(41,151,255,0.06) 28%, rgba(2,2,3,0.96) 62%)",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "58% 48%",
+        backgroundSize: "cover",
         backgroundBlendMode: "overlay",
       }}
     >
