@@ -10,6 +10,7 @@ import {
   BarChart3,
   Code2,
   Github,
+  GithubIcon,
   Linkedin,
   Mail,
   MapPin,
@@ -28,28 +29,36 @@ import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 
 const experiences = [
   {
+    role: "Founder & Diretor Executivo",
+    company: "UXBRAS Edtech",
+    period: "2023 -> hoje",
+    summary:
+      "Liderança executiva global, sendo responsável pela gestão direta e coordenação de equipes internacionais multidisciplinares com profissionais baseados em Israel, Paquistão e Índia. Desenvolvimento de uma plataforma educacional e arquiteturas de informação focadas em acessibilidade web (WCAG2.2) e alta performance de interface com Gen AI. Modelagem e gerenciamento de banco de dados relacionais e estruturação de pipelines de dados integrados para monitoramento de métricas operacionais e financeiras do negócio. Pesquisador CNPq DTI B, Desenvolvimento web e Cibersegurança.",
+    stack: ["Product Strategy", "Analytics", "React", "Next.js", "TypeScript", "SQL", "Python", "Github"],
+  },
+  {
     role: "Coord. Gestão de Políticas Públicas",
     company: "Secretaria Municipal de Gestão de Pessoas - Três Lagoas/MS",
     period: "2021 -> maio 2026",
     summary:
-      "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios consultivos para suporte à tomada de decisão executiva.",
+      "Coordenação estratégica e liderança direta da equipe multidisciplinar do SESMT composta por 17 profissionais (médicos do trabalho, enfermeiro, psicólogas, assistentes sociais e corpo administrativo). Responsável pela governança, automação e análise avançada de indicadores críticos de saúde ocupacional, absenteísmo, turnover e produtividade, gerando relatórios estatíticos e consultivos para suporte à tomada de decisão executiva. Automação de rotinas internas e relatórios gerenciais através de linguagens de programação, mitigando riscos operacionais e assegurando conformidade com normas regulatórias (NRs) e proteção de dados sensíveis. Foi desenvolvido um sistema  para acompanhamento em tempo real das informações estatisticas do SESMT (sesmt-system.vercel.app), integrando dados de múltiplas fontes (ERP, HRIS, sistemas de saúde) e fornecendo insights acionáveis para otimização de processos e estratégias de gestão de pessoas.",
     stack: ["BI", "SQL", "Python", "Governança de Dados"],
   },
   {
-    role: "Founder & CEO",
-    company: "UXBRAS Edtech",
-    period: "2022 -> hoje",
+    role: "Auditor Interno",
+    company: "Associação Brasileira AIJCSUD",
+    period: "2019 -> 2024",
     summary:
-      "Condução de estratégia de produto e plataforma com orientação data-driven, desenho de operação e priorização de roadmap com foco em valor de negócio.",
-    stack: ["Product Strategy", "Analytics", "React", "Next.js"],
+      "Responsável pela auditoria financeira de resultados em nível interestadual, coordenando e validando dados fiscais e contábeis em múltiplos municípios nos estados de São Paulo (SP) e Mato Grosso do Sul (MS).  Condução de auditorias internas de processos e sistemas, assegurando conformidade com regulamentos vigentes e integridade na governança de dados institucionais por meio do sistema Local Unit Financial Auditing System - LDS Church.  Desenvolvimento de relatórios analíticos para suporte à tomada de decisão estratégica e otimização de recursos financeiros, utilizando ferramentas avançadas de análise de dados e visualização para identificar oportunidades de melhoria e garantir a transparência nas operações financeiras da organização.",
+    stack: ["BI", "SQL", "Processos"],
   },
   {
     role: "Especialista em Saude Ocupacional",
     company: "Suzano / JFI Silvicultura",
     period: "2014 -> 2021",
     summary:
-      "Estruturação de processos tecnicos e operacionais com paines de acompanhamento, leitura de risco e integracao de dados para monitoramento continuo.",
-    stack: ["Indicadores", "Automacao", "Excel Avancado", "Processos"],
+      "Atuação na análise de dados, monitoramento de indicadores e desenvolvimento de estudos e laudos técnicos (AET) de ergonomia aplicados a operações florestais e industriais de larga escala no setor de celulose.  Aplicação de técnicas de melhoria contínua (Lean Six Sigma) e análise estatística para mapeamento de gargalos, identificação de causas-raiz de absenteísmo e otimização de fluxos operacionais de saúde no campo e industria.  Garantia de conformidade técnica e legal junto a órgãos fiscalizadores, atuando diretamente no controle de documentações e relatórios de auditoria preventiva.",
+    stack: ["Indicadores", "Automação", "Excel Avancado", "Processos", "PowerBI"],
   },
 ];
 
@@ -129,7 +138,7 @@ const heroStats = [
 
 const projects = [
   {
-    title: "Occupational Intelligence Suite",
+    title: "SESMT- System | Plataforma de Monitoramento de Saúde Ocupacional",
     context:
       "Monitoramento de saude ocupacional e desempenho em grande escala no setor publico.",
     impact:
