@@ -820,7 +820,7 @@ function HeroSection() {
                   <Icon className="h-5 w-5 text-[#2997ff]" />
                 </div>
                 <div>
-                  <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-2xl font-bold text-transparent">
+                  <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-lg font-medium text-[#b3b3b9]">
@@ -944,7 +944,7 @@ function ExperienceSection() {
                   <p className="text-2xl font-semibold text-[#f4f6f8]">
                     {exp.period}
                   </p>
-                  <h3 className="mt-1 text-2xl font-bold bg-linear-to-r from-[#dff9ff] via-[#4d9dd2] to-[#125593] bg-clip-text text-transparent">
+                  <h3 className="mt-1 text-xl md:text-2xl font-bold bg-linear-to-r from-[#dff9ff] via-[#4d9dd2] to-[#125593] bg-clip-text text-transparent">
                     {exp.role}
                   </h3>
                   <p className="mt-1 text-lg font-semibold text-[#b0b1b7]">
@@ -1016,7 +1016,7 @@ function ProjectsSection() {
               }}
               data-reveal
             >
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-2xl font-bold text-transparent">
+              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
                 {project.title}
               </h3>
               <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
@@ -1091,7 +1091,7 @@ function EducationSection() {
                 {item.pillar}
               </p>
 
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-4xl md:text-5xl font-bold text-transparent">
+              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-3xl md:text-4xl font-bold text-transparent">
                 {item.title}
               </h3>
 
