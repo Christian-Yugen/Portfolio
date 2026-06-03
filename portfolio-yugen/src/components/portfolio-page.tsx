@@ -1034,12 +1034,13 @@ function EducationSection() {
       className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="formacao-title"
       style={{
+        backgroundColor: "#000000",
         backgroundImage:
-          "radial-gradient(circle at 70% 50%, rgba(41,151,255,0.45) 0%, rgba(41,151,255,0.30) 16%, rgba(41,151,255,0.14) 34%, rgba(2,2,3,0.92) 68%)",
+          "radial-gradient(circle at 70% 45%, rgba(41,151,255,0.90) 0%, rgba(41,151,255,0.60) 12%, rgba(41,151,255,0.28) 28%, rgba(0,0,0,0.98) 75%), linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "70% 50%",
-        backgroundSize: "140% 120%",
-        backgroundBlendMode: "overlay",
+        backgroundPosition: "70% 45%",
+        backgroundSize: "240% 200%, cover",
+        backgroundBlendMode: "overlay, normal",
       }}
     >
       <div className="container">
@@ -1063,9 +1064,9 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.14)",
+                backgroundColor: "rgba(29,29,31,0.08)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.12), transparent 22%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
