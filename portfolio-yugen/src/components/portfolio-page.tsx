@@ -559,20 +559,20 @@ function Header() {
       <header className="sticky top-0 z-40 border-b border-[#2a2a2d] bg-[#000000]/95 backdrop-blur-sm">
         <div className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-6 px-5 md:px-7 lg:px-8">
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => setIsAvatarOpen(true)}
-              className="group relative h-10 w-10 cursor-pointer overflow-hidden border border-[#2a2a2d] bg-[#111112] shadow-[0_0_0_rgba(41,151,255,0)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.04] hover:border-[#2997ff] hover:shadow-[0_8px_20px_rgba(41,151,255,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2997ff]"
-              aria-label="Ampliar avatar"
+            <section
+              id="formacao"
+              className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
+              aria-labelledby="formacao-title"
+              style={{
+                backgroundColor: "#000000",
+                backgroundImage:
+                  "radial-gradient(circle at 85% 50%, rgba(41,151,255,1) 0%, rgba(41,151,255,0.75) 16%, rgba(41,151,255,0.40) 34%, rgba(0,0,0,1) 80%), linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,1) 100%)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "85% 50%",
+                backgroundSize: "600% 480%, cover",
+                backgroundBlendMode: "overlay, normal",
+              }}
             >
-              <Image
-                src="/MinhaFoto.png"
-                alt="Avatar de José Cristiano da S. Lima"
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-            </button>
-
             <div>
               <p className="text-base font-bold text-[#ffffff]">
                 José Cristiano da S. Lima
