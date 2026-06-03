@@ -930,8 +930,11 @@ function ExperienceSection() {
               transition={{ ...reveal.transition, delay: idx * 0.04 }}
               className="border border-[#2a2a2d] bg-[#111112] p-6"
               style={{
+                borderColor: "#97989c",
+                borderRadius: "6px",
+                backgroundColor: "rgba(29,29,31,0.06)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 20%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
