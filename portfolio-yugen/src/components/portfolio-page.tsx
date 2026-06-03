@@ -572,6 +572,7 @@ function Header() {
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </button>
+
             <div>
               <p className="text-base font-bold text-[#ffffff]">
                 José Cristiano da S. Lima
@@ -1062,9 +1063,9 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.28)",
+                backgroundColor: "rgba(29,29,31,0.14)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.08), transparent 18%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.12), transparent 22%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
