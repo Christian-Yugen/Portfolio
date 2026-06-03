@@ -202,7 +202,15 @@ const education = [
     pillar: "Tecnologia",
     description:
       "Formação focada em desenvolvimento de soluções tecnológicas, integração de dados, automação de processos e construção de sistemas orientados por dados.",
-    skills: ["React", "Next.js", "TypeScript", "Banco de Dados", "Automação"],
+    skills: [ "Python", "Análise de Dados",
+      "Automação de Processos",
+      "Integração de Sistemas",
+      "Business Intelligence",
+      "Engenharia de Dados",
+      "Arquitetura de Soluções",
+      "Banco de Dados",
+      "Desenvolvimento de Software",
+    ]
   },
   {
     title: "Especialização em Six Sigma Green Belt",
@@ -212,11 +220,16 @@ const education = [
     description:
       "Capacitação voltada para análise estatística, melhoria contínua e gestão baseada em indicadores, utilizando metodologias estruturadas para aumento de eficiência e redução de desperdícios.",
     skills: [
-      "DMAIC",
-      "Análise Estatística",
-      "Indicadores",
-      "Melhoria Contínua",
-      "Data-Driven",
+     "DMAIC",
+     "Estatística Aplicada",
+     "Análise de Processos",
+     "Indicadores de Performance",
+     "Melhoria Contínua",
+     "Root Cause Analysis",
+     "Data-Driven Decision Making",
+     "Controle Estatístico",
+     "Eficiência Operacional",
+     "Gestão da Qualidade"
     ],
   },
 ];
@@ -1035,7 +1048,9 @@ function EducationSection() {
             <motion.article
               key={item.title}
               {...reveal}
-              className="border border-[#2a2a2d] bg-[#111112] p-6"
+              whileHover={{ y: -6, scale: 1.01, boxShadow: "0 16px 40px rgba(41,151,255,0.06)" }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="group border border-[#2a2a2d] bg-[#111112] p-6 transform will-change-transform transition-all"
               data-reveal
             >
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#91c8ec]">
@@ -1062,7 +1077,7 @@ function EducationSection() {
                 {item.skills.map(skill => (
                   <span
                     key={skill}
-                    className="text-[13px] text-white/70 bg-white/4 border border-white/8 rounded-md px-2 py-1"
+                    className="text-[13px] text-white/70 bg-white/4 border border-white/8 rounded-md px-2 py-1 transition-colors duration-200 group-hover:bg-white/6 group-hover:text-white/90"
                   >
                     {skill}
                   </span>
