@@ -800,7 +800,7 @@ function HeroSection() {
                   borderRadius: "6px",
                   backgroundColor: "rgba(29,29,31,0.4)",
                   backgroundImage:
-                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 26%)",
+                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
                   backgroundBlendMode: "overlay",
                 }}
                 whileHover={{
@@ -929,6 +929,11 @@ function ExperienceSection() {
               {...reveal}
               transition={{ ...reveal.transition, delay: idx * 0.04 }}
               className="border border-[#2a2a2d] bg-[#111112] p-6"
+              style={{
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                backgroundBlendMode: "overlay",
+              }}
               data-reveal
             >
               <div className="flex items-start justify-between gap-6">
@@ -1066,7 +1071,7 @@ function EducationSection() {
                 borderRadius: "6px",
                 backgroundColor: "rgba(29,29,31,0.06)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.18), transparent 41%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
