@@ -601,16 +601,16 @@ function Header() {
                 href="#projetos"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
-                Projetos
-              </a>
-              <a
-                href="#experiencia"
-                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
-              >
                 Experiências
               </a>
               <a
                 href="#formacao"
+                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
+              >
+                Projetos
+              </a>
+              <a
+                href="#experiencia"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Formação
@@ -795,14 +795,13 @@ function HeroSection() {
               <motion.article
                 key={item.title}
                 className="group flex items-start gap-4 border p-4 rounded-sm allow-round"
-                style={{
-                  borderColor: "#97989c",
-                  borderRadius: "6px",
-                  backgroundColor: "rgba(29,29,31,0.4)",
-                  backgroundImage:
-                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
-                  backgroundBlendMode: "overlay",
-                }}
+                  style={{
+                    borderColor: "#97989c",
+                    borderRadius: "6px",
+                    backgroundImage:
+                      "linear-gradient(90deg, rgba(29,29,31,0.36) 0%, rgba(29,29,31,0.08) 50%, rgba(29,29,31,0) 100%), linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
+                    backgroundBlendMode: "overlay",
+                  }}
                 whileHover={{
                   y: -6,
                   scale: 1.01,
