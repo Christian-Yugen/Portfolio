@@ -795,13 +795,14 @@ function HeroSection() {
               <motion.article
                 key={item.title}
                 className="group flex items-start gap-4 border p-4 rounded-sm allow-round"
-                  style={{
-                    borderColor: "#97989c",
-                    borderRadius: "6px",
-                    backgroundImage:
-                      "linear-gradient(90deg, rgba(29,29,31,0.36) 0%, rgba(29,29,31,0.08) 50%, rgba(29,29,31,0) 100%), linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
-                    backgroundBlendMode: "overlay",
-                  }}
+                style={{
+                  borderColor: "#97989c",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(29,29,31,0.4)",
+                  backgroundImage:
+                    "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.02) 30%, rgba(255,255,255,0.04) 100%), linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
+                  backgroundBlendMode: "overlay",
+                }}
                 whileHover={{
                   y: -6,
                   scale: 1.01,
