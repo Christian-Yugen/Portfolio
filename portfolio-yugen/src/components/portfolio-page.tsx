@@ -800,7 +800,7 @@ function HeroSection() {
                   borderRadius: "6px",
                   backgroundColor: "rgba(29,29,31,0.4)",
                   backgroundImage:
-                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
+                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 26%)",
                   backgroundBlendMode: "overlay",
                 }}
                 whileHover={{
@@ -1036,10 +1036,10 @@ function EducationSection() {
       style={{
         backgroundColor: "#000000",
         backgroundImage:
-          "radial-gradient(circle at 98% 50%, rgba(41,151,255,0.9) 0%, rgba(41,151,255,0.6) 12%, rgba(41,151,255,0.28) 28%, rgba(0,0,0,0.98) 75%), linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%)",
+          "radial-gradient(circle at 70% 45%, rgba(41,151,255,0.90) 0%, rgba(41,151,255,0.60) 12%, rgba(41,151,255,0.28) 28%, rgba(0,0,0,0.98) 75%), linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "98% 50%",
-        backgroundSize: "180% 140%, cover",
+        backgroundPosition: "70% 45%",
+        backgroundSize: "240% 200%, cover",
         backgroundBlendMode: "overlay, normal",
       }}
     >
@@ -1064,10 +1064,9 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.04)",
+                backgroundColor: "rgba(29,29,31,0.06)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 18% 40%, rgba(41,151,255,0.26) 0%, rgba(41,151,255,0.18) 30%, rgba(41,151,255,0.08) 60%, transparent 100%)",
-                backgroundSize: "110% 110%",
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.18), transparent 41%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
