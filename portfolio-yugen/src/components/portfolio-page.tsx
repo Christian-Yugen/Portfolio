@@ -1091,19 +1091,19 @@ function EducationSection() {
                 {item.pillar}
               </p>
 
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-3xl font-bold text-transparent">
+              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-4xl md:text-5xl font-bold text-transparent">
                 {item.title}
               </h3>
 
-              <p className="mt-2 text-lg font-semibold leading-relaxed text-[#b0b1b7]">
+              <p className="mt-2 text-xl md:text-2xl font-semibold leading-relaxed text-[#b0b1b7]">
                 {item.institution}
               </p>
 
-              <p className="mt-2 text-xl font-semibold leading-relaxed text-[#d2d3d8]">
+              <p className="mt-2 text-2xl md:text-3xl font-semibold leading-relaxed text-[#d2d3d8]">
                 {item.period}
               </p>
 
-              <p className="mt-4 text-base leading-relaxed text-white/72">
+              <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/72">
                 {item.description}
               </p>
 
@@ -1111,7 +1111,7 @@ function EducationSection() {
                 {item.skills.map(skill => (
                   <span
                     key={skill}
-                    className="text-sm text-white/70 bg-white/4 border border-white/8 rounded-md px-2 py-1 transition-colors duration-200 group-hover:bg-white/6 group-hover:text-white/90"
+                    className="text-base text-white/70 bg-white/4 border border-white/8 rounded-md px-3 py-1.5 transition-colors duration-200 group-hover:bg-white/6 group-hover:text-white/90"
                   >
                     {skill}
                   </span>
