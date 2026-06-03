@@ -1064,9 +1064,10 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.06)",
+                backgroundColor: "rgba(29,29,31,0.04)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.18), transparent 28%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 18% 40%, rgba(41,151,255,0.26) 0%, rgba(41,151,255,0.18) 30%, rgba(41,151,255,0.08) 60%, transparent 100%)",
+                backgroundSize: "220% 220%",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
