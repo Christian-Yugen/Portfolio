@@ -705,10 +705,10 @@ function HeroSection() {
       aria-labelledby="hero-title"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 58% 48%, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
+          "radial-gradient(circle at 70% 50%, rgba(41,151,255,0.45) 0%, rgba(41,151,255,0.30) 16%, rgba(41,151,255,0.14) 34%, rgba(2,2,3,0.92) 68%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "58% 48%",
-        backgroundSize: "cover",
+        backgroundPosition: "70% 50%",
+        backgroundSize: "140% 120%",
         backgroundBlendMode: "overlay",
       }}
     >
@@ -1062,9 +1062,9 @@ function EducationSection() {
               style={{
                 borderColor: "#97989c",
                 borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.4)",
+                backgroundColor: "rgba(29,29,31,0.28)",
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.08), transparent 18%)",
                 backgroundBlendMode: "overlay",
               }}
               data-reveal
