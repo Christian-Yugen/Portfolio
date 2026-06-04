@@ -17,8 +17,33 @@ export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'SIX_SIGMA' | 'ANOVA' | 'FMEA' | 'DMAIC' | 'PEOPLE_ANALYTICS' | 'PESTEL' | 'CRONOGRAMA' | 'GOVERNANCA'>('SIX_SIGMA');
   const [isTimelineModalOpen, setIsTimelineModalOpen] = useState(false);
 
+  const timelineRows = sucuriuTimeline.map((event, idx) => {
+    const relevanciaClass = event.relevancia === 'Alta (Crítica)'
+      ? 'bg-red-950/40 text-red-400 border border-red-900/60'
+      : event.relevancia === 'Estratégica'
+        ? 'bg-blue-950/40 text-blue-400 border border-blue-900/60'
+        : 'bg-gray-900 text-gray-400 border border-gray-800';
+
+    return (
+      <tr key={idx} className="border-b border-[#111] bg-[#080808] hover:bg-[#0c0c0c] transition-colors text-gray-400">
+        <td className="p-3 font-bold text-white border-r border-[#1c1c1c] font-mono">{event.data}</td>
+        <td className="p-3 font-bold text-gray-200 border-r border-[#1c1c1c] font-sans">{event.titulo}</td>
+        <td className="p-3 text-[10px] text-purple-400 border-r border-[#1c1c1c] uppercase tracking-tighter">{event.tipo}</td>
+        <td className="p-3 text-xs text-gray-400 leading-relaxed font-sans">{event.resumo}</td>
+        <td className="p-3 text-[11px] border-r border-[#1c1c1c]">
+          <a href={event.linkOficial} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline hover:text-[#d97706] transition-colors break-all block font-sans">
+            {event.fonte} ↗
+          </a>
+        </td>
+        <td className="p-3 text-center font-mono text-[10px]">
+          <span className={`px-2 py-0.5 font-bold ${relevanciaClass} rounded-none`}>{event.relevancia}</span>
+        </td>
+      </tr>
+    );
+  });
+
   return (
-    <>
+    <div>
       {isTimelineModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in">
           <div className="bg-[#050505] border border-[#d97706] rounded-none max-w-4xl w-full max-h-[85vh] overflow-y-auto p-6 relative font-mono">
@@ -292,79 +317,35 @@ export const SucuriuMinitabConsole: React.FC = () => {
         </div>
       )}
 
-     {/* ABA 7: LINHA DO TEMPO CRONOLÓGICA EXAUSTIVA */}
+     {/* ABA 7: LINHA DO TEMPO CRONOLÓGICA EXAUSTIVA (temporariamente isolada) */}
     {activeTab === 'CRONOGRAMA' && (
-    <div className="space-y-4">
-      <div>
-        <button
-          onClick={() => setIsTimelineModalOpen(true)}
-          className="rounded-none bg-[#0c0c0c] border border-[#1c1c1c] text-sm px-3 py-2 font-bold"
-        >
-          📊 VISUALIZAR LINHA DO TEMPO GRÁFICA (MINITAB STYLE)
-        </button>
+      <div className="space-y-4">
+        <div>
+          <button
+            onClick={() => setIsTimelineModalOpen(true)}
+            className="rounded-none bg-[#0c0c0c] border border-[#1c1c1c] text-sm px-3 py-2 font-bold"
+          >
+            📊 VISUALIZAR LINHA DO TEMPO GRÁFICA (MINITAB STYLE)
+          </button>
+        </div>
+        <div className="overflow-x-auto border border-[#1c1c1c]">
+          <table className="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
+                <th className="p-3 w-24">Data</th>
+                <th className="p-3 w-1/4">Marco do Projeto</th>
+                <th className="p-3 w-28">Categoria</th>
+                <th className="p-3">Sumário Técnico Auditado</th>
+                <th className="p-3 w-40">Origem da Fonte</th>
+                <th className="p-3 text-center w-28">Relevância</th>
+              </tr>
+            </thead>
+            <tbody>
+              {timelineRows}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="overflow-x-auto border border-[#1c1c1c]">
-        <table className="w-full text-xs text-left border-collapse">
-        <thead>
-            <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
-            <th className="p-3 w-24">Data</th>
-            <th className="p-3 w-1/4">Marco do Projeto</th>
-            <th className="p-3 w-28">Categoria</th>
-            <th className="p-3">Sumário Técnico Auditado</th>
-            <th className="p-3 w-40">Origem da Fonte</th>
-            <th className="p-3 text-center w-28">Relevância</th>
-            </tr>
-        </thead>
-        <tbody>
-            {sucuriuTimeline.map((event, idx) => (
-            <tr key={idx} className="border-b border-[#111] bg-[#080808] hover:bg-[#0c0c0c] transition-colors text-gray-400">
-                {/* Data */}
-                <td className="p-3 font-bold text-white border-r border-[#1c1c1c] font-mono">
-                {event.data}
-                </td>
-                
-                {/* Título / Marco */}
-                <td className="p-3 font-bold text-gray-200 border-r border-[#1c1c1c] font-sans">
-                {event.titulo}
-                </td>
-                
-                {/* Categoria / Tipo */}
-                <td className="p-3 text-[10px] text-purple-400 border-r border-[#1c1c1c] uppercase tracking-tighter">
-                {event.tipo}
-                </td>
-                
-                {/* Resumo */}
-                <td className="p-3 text-xs text-gray-400 leading-relaxed font-sans">
-                {event.resumo}
-                </td>
-                
-                {/* Origem da Fonte (Link Oficial) */}
-                <td className="p-3 text-[11px] border-r border-[#1c1c1c]">
-                <a 
-                    href={event.linkOficial} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-400 hover:underline hover:text-[#d97706] transition-colors break-all block font-sans"
-                >
-                    {event.fonte} ↗
-                </a>
-                </td>
-                
-                {/* Relevância Badge */}
-                <td className="p-3 text-center font-mono text-[10px]">
-                <span className={`px-2 py-0.5 font-bold ${
-                    event.relevancia === 'Alta (Crítica)' ? 'bg-red-950/40 text-red-400 border border-red-900/60' :
-                    event.relevancia === 'Estratégica' ? 'bg-blue-950/40 text-blue-400 border border-blue-900/60' :
-                    'bg-gray-900 text-gray-400 border border-gray-800'
-                } rounded-none`}>
-                    {event.relevancia}
-                </span>
-                </td>
-            </tr>
-            ))}
-        </tbody>
-        </table>
-    </div>
     )}
 
       {/* ABA 8: MATRIZ DE GOVERNANÇA */}
@@ -388,6 +369,6 @@ export const SucuriuMinitabConsole: React.FC = () => {
       </div>
 
     </div>
-    </>
+    </div>
   );
 };
