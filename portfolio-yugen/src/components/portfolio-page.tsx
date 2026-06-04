@@ -18,6 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+import { SectionHeading } from "./section-heading";
 import CSSCBB from "../../client/public/CSSC-BB-Final.png";
 import CSSCGB from "../../client/public/CSSC-GB-Final-v2.png";
 import CSSCMBB from "../../client/public/CSSC-MBB-Final.png";
@@ -30,11 +31,20 @@ import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 const experiences = [
   {
     role: "Founder & Diretor Executivo",
-    company: "UXBRAS Edtech",
+    company: "UXBRAS Edtech Ltda.",
     period: "2023 -> hoje",
     summary:
       "Liderança executiva global, sendo responsável pela gestão direta e coordenação de equipes internacionais multidisciplinares com profissionais baseados em Israel, Paquistão e Índia. Desenvolvimento de uma plataforma educacional e arquiteturas de informação focadas em acessibilidade web (WCAG2.2) e alta performance de interface com Gen AI. Modelagem e gerenciamento de banco de dados relacionais e estruturação de pipelines de dados integrados para monitoramento de métricas operacionais e financeiras do negócio. Pesquisador CNPq DTI B, Desenvolvimento web e Cibersegurança.",
-    stack: ["Product Strategy", "Analytics", "React", "Next.js", "TypeScript", "SQL", "Python", "Github"],
+    stack: [
+      "Product Strategy",
+      "Analytics",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "SQL",
+      "Python",
+      "Github",
+    ],
   },
   {
     role: "Coord. Gestão de Políticas Públicas",
@@ -58,7 +68,13 @@ const experiences = [
     period: "2014 -> 2021",
     summary:
       "Atuação na análise de dados, monitoramento de indicadores e desenvolvimento de estudos e laudos técnicos (AET) de ergonomia aplicados a operações florestais e industriais de larga escala no setor de celulose.  Aplicação de técnicas de melhoria contínua (Lean Six Sigma) e análise estatística para mapeamento de gargalos, identificação de causas-raiz de absenteísmo e otimização de fluxos operacionais de saúde no campo e industria.  Garantia de conformidade técnica e legal junto a órgãos fiscalizadores, atuando diretamente no controle de documentações e relatórios de auditoria preventiva.",
-    stack: ["Indicadores", "Automação", "Excel Avancado", "Processos", "PowerBI"],
+    stack: [
+      "Indicadores",
+      "Automação",
+      "Excel Avancado",
+      "Processos",
+      "PowerBI",
+    ],
   },
 ];
 
@@ -166,18 +182,57 @@ const projects = [
 const education = [
   {
     title: "Administração",
-    institution: "Universidade Norte do Paraná - UNOPAR",
+    institution: "Universidade Norte do Paraná – UNOPAR",
     period: "2014 — 2018",
+    pillar: "Gestão",
+    description:
+      "Formação voltada para gestão organizacional, planejamento estratégico e análise de desempenho, desenvolvendo visão sistêmica dos negócios e da gestão de pessoas.",
+    skills: [
+      "Gestão de Pessoas",
+      "Indicadores",
+      "Planejamento Estratégico",
+      "Processos",
+      "Tomada de Decisão",
+    ],
   },
   {
-    title: "Engenharia de Software - Bacharelando",
+    title: "Engenharia de Software – Bacharelando",
     institution: "Universidade Anhanguera",
-    period: "2022 — atual",
+    period: "2022 — Atual",
+    pillar: "Tecnologia",
+    description:
+      "Formação focada em desenvolvimento de soluções tecnológicas, integração de dados, automação de processos e construção de sistemas orientados por dados.",
+    skills: [
+      "Python",
+      "Análise de Dados",
+      "Automação de Processos",
+      "Integração de Sistemas",
+      "Business Intelligence",
+      "Engenharia de Dados",
+      "Arquitetura de Soluções",
+      "Banco de Dados",
+      "Desenvolvimento de Software",
+    ],
   },
   {
     title: "Especialização em Six Sigma Green Belt",
     institution: "Kennesaw State University",
     period: "2020",
+    pillar: "Dados e Melhoria Contínua",
+    description:
+      "Capacitação voltada para análise estatística, melhoria contínua e gestão baseada em indicadores, utilizando metodologias estruturadas para aumento de eficiência e redução de desperdícios.",
+    skills: [
+      "DMAIC",
+      "Estatística Aplicada",
+      "Análise de Processos",
+      "Indicadores de Performance",
+      "Melhoria Contínua",
+      "Root Cause Analysis",
+      "Data-Driven Decision Making",
+      "Controle Estatístico",
+      "Eficiência Operacional",
+      "Gestão da Qualidade",
+    ],
   },
 ];
 
@@ -517,6 +572,7 @@ function Header() {
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </button>
+
             <div>
               <p className="text-base font-bold text-[#ffffff]">
                 José Cristiano da S. Lima
@@ -542,12 +598,6 @@ function Header() {
                 Resumo
               </a>
               <a
-                href="#projetos"
-                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
-              >
-                Projetos
-              </a>
-              <a
                 href="#experiencia"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
@@ -558,6 +608,12 @@ function Header() {
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Formação
+              </a>
+              <a
+                href="#projetos"
+                className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
+              >
+                Projetos
               </a>
               <a
                 href="#certificados"
@@ -650,10 +706,10 @@ function HeroSection() {
       aria-labelledby="hero-title"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 58% 48%, rgba(41,151,255,0.30) 0%, rgba(41,151,255,0.20) 14%, rgba(41,151,255,0.10) 28%, rgba(2,2,3,0.96) 62%)",
+          "radial-gradient(circle at 70% 50%, rgba(41,151,255,0.45) 0%, rgba(41,151,255,0.30) 16%, rgba(41,151,255,0.14) 34%, rgba(2,2,3,0.92) 68%)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "58% 48%",
-        backgroundSize: "cover",
+        backgroundPosition: "70% 50%",
+        backgroundSize: "140% 120%",
         backgroundBlendMode: "overlay",
       }}
     >
@@ -742,10 +798,10 @@ function HeroSection() {
                 style={{
                   borderColor: "#97989c",
                   borderRadius: "6px",
-                  backgroundColor: "rgba(29,29,31,0.4)",
+                  backgroundColor: "transparent",
                   backgroundImage:
-                    "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 6% 30%, rgba(41,151,255,0.06), transparent 18%)",
-                  backgroundBlendMode: "overlay",
+                    "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.16) 45%, rgba(0,0,0,0.42) 100%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.08), transparent 90%)",
+                  backgroundBlendMode: "normal",
                 }}
                 whileHover={{
                   y: -6,
@@ -764,7 +820,7 @@ function HeroSection() {
                   <Icon className="h-5 w-5 text-[#2997ff]" />
                 </div>
                 <div>
-                  <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-2xl font-bold text-transparent">
+                  <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-lg font-medium text-[#b3b3b9]">
@@ -873,6 +929,14 @@ function ExperienceSection() {
               {...reveal}
               transition={{ ...reveal.transition, delay: idx * 0.04 }}
               className="border border-[#2a2a2d] bg-[#111112] p-6"
+              style={{
+                borderColor: "#97989c",
+                borderRadius: "6px",
+                backgroundColor: "rgba(29,29,31,0.06)",
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 20%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                backgroundBlendMode: "overlay",
+              }}
               data-reveal
             >
               <div className="flex items-start justify-between gap-6">
@@ -880,7 +944,7 @@ function ExperienceSection() {
                   <p className="text-2xl font-semibold text-[#f4f6f8]">
                     {exp.period}
                   </p>
-                  <h3 className="mt-1 text-2xl font-bold bg-linear-to-r from-[#dff9ff] via-[#4d9dd2] to-[#125593] bg-clip-text text-transparent">
+                  <h3 className="mt-1 text-xl md:text-2xl font-bold bg-linear-to-r from-[#dff9ff] via-[#4d9dd2] to-[#125593] bg-clip-text text-transparent">
                     {exp.role}
                   </h3>
                   <p className="mt-1 text-lg font-semibold text-[#b0b1b7]">
@@ -942,9 +1006,17 @@ function ProjectsSection() {
               {...reveal}
               transition={{ ...reveal.transition, delay: index * 0.05 }}
               className="border border-[#2a2a2d] bg-[#111112] p-6"
+              style={{
+                borderColor: "#97989c",
+                borderRadius: "6px",
+                backgroundColor: "rgba(29,29,31,0.06)",
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                backgroundBlendMode: "overlay",
+              }}
               data-reveal
             >
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-2xl font-bold text-transparent">
+              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
                 {project.title}
               </h3>
               <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
@@ -978,39 +1050,73 @@ function EducationSection() {
       className="border-b border-[#2a2a2d] bg-[#000000] px-4 py-16 md:px-8 md:py-20"
       aria-labelledby="formacao-title"
       style={{
+        backgroundColor: "#000000",
         backgroundImage:
-          "radial-gradient(circle at 12% 22%, rgba(149, 201, 249, 0.1) 0%, rgba(41,151,255,0.05) 10%, rgba(2,2,3,0.92) 60%)",
+          "radial-gradient(circle at 70% 45%, rgba(41,151,255,0.90) 0%, rgba(41,151,255,0.60) 12%, rgba(41,151,255,0.28) 28%, rgba(0,0,0,0.98) 75%), linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%)",
         backgroundRepeat: "no-repeat",
-        backgroundBlendMode: "overlay",
+        backgroundPosition: "70% 45%",
+        backgroundSize: "240% 200%, cover",
+        backgroundBlendMode: "overlay, normal",
       }}
     >
       <div className="container">
-        <motion.h2
-          {...reveal}
-          id="formacao-title"
-          className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl font-extrabold tracking-[-0.03em] text-transparent md:text-5xl"
-          data-reveal
-        >
-          Formação Acadêmica
-        </motion.h2>
+        <SectionHeading
+          title="Formação e Capacitação Estratégica"
+          description="Base multidisciplinar construída em gestão, tecnologia, análise de dados e melhoria contínua para apoiar decisões orientadas por indicadores."
+        />
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3" data-reveal>
+        <div className="mt-10 grid gap-6 lg:grid-cols-3" data-reveal>
           {education.map(item => (
             <motion.article
               key={item.title}
               {...reveal}
-              className="border border-[#2a2a2d] bg-[#111112] p-6"
+              whileHover={{
+                y: -6,
+                scale: 1.01,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+              className="group flex flex-col gap-4 border p-6 rounded-sm allow-round transform will-change-transform transition-all"
+              style={{
+                borderColor: "#97989c",
+                borderRadius: "6px",
+                backgroundColor: "rgba(29,29,31,0.06)",
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                backgroundBlendMode: "overlay",
+              }}
               data-reveal
             >
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-2xl font-bold text-transparent">
+              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#91c8ec]">
+                {item.pillar}
+              </p>
+
+              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-3xl md:text-4xl font-bold text-transparent">
                 {item.title}
               </h3>
-              <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
+
+              <p className="mt-2 text-xl md:text-2xl font-semibold leading-relaxed text-[#b0b1b7]">
                 {item.institution}
               </p>
-              <p className="mt-4 text-lg font-semibold leading-relaxed text-[#d2d3d8]">
+
+              <p className="mt-2 text-2xl md:text-3xl font-semibold leading-relaxed text-[#d2d3d8]">
                 {item.period}
               </p>
+
+              <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/72">
+                {item.description}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {item.skills.map(skill => (
+                  <span
+                    key={skill}
+                    className="text-base text-white/70 bg-white/4 border border-white/8 rounded-md px-3 py-1.5 transition-colors duration-200 group-hover:bg-white/6 group-hover:text-white/90"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </motion.article>
           ))}
         </div>

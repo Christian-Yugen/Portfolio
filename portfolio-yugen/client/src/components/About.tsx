@@ -1,12 +1,20 @@
 import { CheckCircle2 } from "lucide-react";
 
-const Card = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={className}>{children}</div>
-);
+const Card = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <div className={className}>{children}</div>;
 
-const CardContent = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={className}>{children}</div>
-);
+const CardContent = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <div className={className}>{children}</div>;
 
 export default function About() {
   const highlights = [
@@ -24,7 +32,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto rounded-4xl bg-white border border-black/5 shadow-[0_16px_50px_rgba(0,0,0,0.06)] p-8 md:p-12">
           {/* Section Header */}
           <div className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+            <h2 className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl md:text-5xl font-extrabold tracking-[-0.03em] text-transparent mb-4">
               Sobre Mim
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
