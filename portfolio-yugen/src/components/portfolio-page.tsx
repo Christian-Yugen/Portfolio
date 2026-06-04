@@ -598,7 +598,7 @@ function Header() {
                 Resumo
               </a>
               <a
-                href="#projetos"
+                href="#experiencia"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Experiências
@@ -607,13 +607,13 @@ function Header() {
                 href="#formacao"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
-                Projetos
+                Formação
               </a>
               <a
-                href="#experiencia"
+                href="#projetos"
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
-                Formação
+                Projetos
               </a>
               <a
                 href="#certificados"
@@ -798,10 +798,10 @@ function HeroSection() {
                 style={{
                   borderColor: "#97989c",
                   borderRadius: "6px",
-                  backgroundColor: "rgba(29,29,31,0.4)",
+                  backgroundColor: "transparent",
                   backgroundImage:
-                    "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.02) 30%, rgba(255,255,255,0.04) 100%), linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 6%, rgba(0,0,0,0) 60%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.06), transparent 30%)",
-                  backgroundBlendMode: "overlay",
+                    "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.16) 45%, rgba(0,0,0,0.42) 100%), radial-gradient(circle at 20% 60%, rgba(41,151,255,0.08), transparent 90%)",
+                  backgroundBlendMode: "normal",
                 }}
                 whileHover={{
                   y: -6,

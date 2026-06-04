@@ -44,7 +44,7 @@ export default function Contact() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+          <h2 className="bg-linear-to-r from-[#dff9ff] via-[#91c8ec] to-[#527ca3] bg-clip-text text-4xl md:text-5xl font-extrabold tracking-[-0.03em] text-transparent mb-4">
             Vamos Conversar?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
