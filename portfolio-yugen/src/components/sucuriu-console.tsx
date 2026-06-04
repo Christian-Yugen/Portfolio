@@ -12,6 +12,8 @@ import {
   pipelinesAnalytics,
   sucuriuPestel,
 } from "@/lib/sucuriu/mockData";
+import BarMeansChart from "./charts/BarMeansChart";
+import TimelineChart from "./charts/TimelineChart";
 
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
@@ -87,6 +89,8 @@ export const SucuriuMinitabConsole: React.FC = () => {
             <h2 className="text-lg font-bold text-[#0077ff] mb-4">
               Linha do Tempo — Visualização Gráfica (Minitab Style)
             </h2>
+
+            <TimelineChart data={sucuriuTimeline} />
 
             <div className="relative">
               <div className="absolute left-8 top-6 bottom-6 w-px bg-[#1c1c1c]" />
@@ -517,6 +521,11 @@ export const SucuriuMinitabConsole: React.FC = () => {
                     </tbody>
                   </table>
                 </div>
+
+                <div className="mt-4">
+                  <BarMeansChart data={minitabAnovaOutput.mediasEmpreiteiras} />
+                </div>
+
                 <span className="text-[9px] text-gray-600 font-sans block mt-1">
                   Pooled StDev = 4.0125
                 </span>
