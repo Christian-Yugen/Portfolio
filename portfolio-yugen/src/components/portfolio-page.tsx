@@ -162,7 +162,7 @@ const projects = [
     stack: ["Power BI", "Python", "SQL", "Automacao"],
   },
   {
-    title: "People Analytics Executive Dashboard",
+    title: "Projeto Sucuriú Arauco",
     context:
       "Camada executiva para leitura de capacidade, risco e alocacao de pessoas.",
     impact:
