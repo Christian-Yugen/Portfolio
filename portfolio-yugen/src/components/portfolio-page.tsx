@@ -861,9 +861,8 @@ function AboutSection() {
         </motion.h2>
         <motion.p
           {...reveal}
-          className="mx-auto mt-7 max-w-3xl text-left text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold flex flex-wrap justify-start gap-x-[0.24em] gap-y-0.5 cursor-default select-none"
+          className="mx-auto mt-7 max-w-5xl text-center text-xl leading-tight md:leading-snug text-[#b1b1b7] md:text-2xl font-semibold flex flex-wrap justify-center gap-x-[0.24em] gap-y-0.5 cursor-default select-none"
           data-reveal
-          aria-label="Resumo estratégico"
         >
           {(() => {
             const text =
@@ -889,9 +888,9 @@ function AboutSection() {
               return (
                 <span
                   key={index}
-                  className={`inline-block transition-all duration-150 transform hover:z-10 ${
+                  className={`inline-block transition-all duration-150 hover:scale-115 transform hover:z-10 ${
                     isSpecialPhrase
-                      ? "text-[#2a9bff] font-bold hover:text-white"
+                      ? "text-[#ffffff] font-bold hover:text-[#50b5ff]"
                       : "text-[#b1b1b7] hover:text-white"
                   }`}
                 >
