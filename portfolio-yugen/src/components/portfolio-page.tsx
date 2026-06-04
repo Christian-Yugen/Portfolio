@@ -1305,7 +1305,10 @@ function SkillsSection() {
           {skills.map(item => (
             <div
               key={item}
-              className="border border-[#5b6167] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl"
+              role="listitem"
+              tabIndex={0}
+              aria-label={`Competência: ${item}`}
+              className="border border-[#5b6167] bg-[#111112] px-4 py-3 text-lg font-bold text-[#dbdce1] md:text-xl rounded-md transition-all duration-300 hover:border-[#2a9bff] hover:bg-[#171717] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2a9bff]"
             >
               {item}
             </div>
