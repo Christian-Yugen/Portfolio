@@ -21,6 +21,7 @@ export interface StatisticalPipeline {
   metricaAlvo: string;
   pokaYokeSistemicos: string[];
   statusReal2026: string;
+  problemaNegocio: string;
 }
 
 export interface MinitabModel {

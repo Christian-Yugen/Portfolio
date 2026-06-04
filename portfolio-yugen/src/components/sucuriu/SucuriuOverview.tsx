@@ -14,7 +14,7 @@ export default function SucuriuOverview({ className = '' }: Props) {
         <div className="mt-6 rounded-lg border border-[#97989c] bg-[rgba(29,29,31,0.06)] p-6">
           <h3 className="text-lg font-semibold">Objetivo</h3>
           <p className="mt-2 text-sm text-muted-foreground">
-            Integração do módulo Sucuriú — pipeline de ingestão, processamento e visualização dos dados
+            Integração do módulo Sucuriú Arauco — pipeline de ingestão, processamento e visualização dos dados
             do projeto. Este componente funciona como ponto de partida para documentação técnica e
             links para rotas/endereços de API.
           </p>
