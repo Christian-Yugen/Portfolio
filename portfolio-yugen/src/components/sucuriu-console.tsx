@@ -45,10 +45,10 @@ export const SucuriuMinitabConsole: React.FC = () => {
         <td className="p-3 font-bold text-gray-200 border-r border-[#1c1c1c] font-sans">
           {event.titulo}
         </td>
-        <td className="p-3 text-[10px] text-purple-400 border-r border-[#1c1c1c] uppercase tracking-tighter">
+        <td className="p-3 text-sm text-purple-400 border-r border-[#1c1c1c] uppercase tracking-tighter">
           {event.tipo}
         </td>
-        <td className="p-3 text-xs text-gray-400 leading-relaxed font-sans">
+        <td className="p-3 text-sm text-gray-400 leading-relaxed font-sans">
           {event.resumo}
         </td>
         <td className="p-3 text-[11px] border-r border-[#1c1c1c]">
@@ -121,7 +121,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                             {node.data}
                           </div>
                           <span
-                            className={`px-2 py-0.5 text-xs font-bold ${badgeClass} rounded-none`}
+                            className={`px-2 py-0.5 text-sm font-bold ${badgeClass} rounded-none`}
                           >
                             {node.relevancia}
                           </span>
@@ -152,7 +152,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
         </div>
       )}
 
-      <div className="bg-[#0b0b0b] text-[#eaeaea] p-6 md:p-8 border border-[#1c1c1c] font-sans text-left w-full mx-auto rounded-none selection:bg-[#2997ff] selection:text-black">
+      <div className="bg-[#0b0b0b] text-[#eaeaea] p-6 md:p-8 border border-[#1c1c1c] font-sans text-left w-full mx-auto rounded-none selection:bg-[#2997ff] selection:text-black text-base">
         {/* Terminal Header */}
         <div className="border-b border-[#2997ff] pb-6 mb-6">
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
@@ -164,13 +164,13 @@ export const SucuriuMinitabConsole: React.FC = () => {
                 Projeto Sucuriú Arauco — Macroambiente e Arquitetura Estatística
               </h1>
             </div>
-            <div className="text-right text-xs text-gray-500 font-bold bg-[#111] p-2 border border-[#222]">
+            <div className="text-right text-sm text-gray-500 font-bold bg-[#111] p-2 border border-[#222]">
               AUDITORIA INTERNA: 2026
             </div>
           </div>
 
           {/* Resumo de Indicadores Rápidos */}
-          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 text-[10px] border-t border-[#1c1c1c] pt-4">
+          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 text-sm border-t border-[#1c1c1c] pt-4">
             <div>
               <span className="text-gray-500">CAPEX COMPLETO:</span>{" "}
               <span className="text-[#2997ff] font-bold">
@@ -198,7 +198,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
           </div>
 
           {/* Status Tracker 2026 */}
-          <div className="mt-2 text-[11px] bg-[#0c0c0c] p-2 border border-[#151515] text-gray-400 space-y-0.5">
+          <div className="mt-2 text-sm bg-[#0c0c0c] p-2 border border-[#151515] text-gray-400 space-y-0.5">
             <div>
               •{" "}
               <span className="text-gray-500">
@@ -248,7 +248,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-2 px-3 text-[10px] font-bold uppercase transition-all duration-300 border-none cursor-pointer rounded-none text-center flex-1 ${
+              className={`py-2 px-3 text-sm font-bold uppercase transition-all duration-300 border-none cursor-pointer rounded-none text-center flex-1 ${
                 activeTab === tab.id
                   ? "bg-[#2997ff] text-black"
                   : "bg-[#121212] text-gray-500 hover:bg-[#1c1c1c] hover:text-white"
@@ -265,9 +265,9 @@ export const SucuriuMinitabConsole: React.FC = () => {
         {activeTab === "SIX_SIGMA" && (
           <div className="space-y-4">
             <div className="overflow-x-auto border border-[#1c1c1c]">
-              <table className="w-full text-xs text-left border-collapse">
+              <table className="w-full text-sm text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
+                  <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-sm">
                     <th className="p-3 w-1/4">Metodologia</th>
                     <th className="p-3 w-1/4">Equação / Formulação</th>
                     <th className="p-3 w-1/3">Aplicação Operacional</th>
@@ -289,14 +289,14 @@ export const SucuriuMinitabConsole: React.FC = () => {
                       <td className="p-3 text-gray-300 border-r border-[#1c1c1c] leading-relaxed">
                         {m.aplicacaoSucuriu}
                       </td>
-                      <td className="p-3 text-[11px] text-gray-500 space-y-1">
+                      <td className="p-3 text-sm text-gray-500 space-y-1">
                         <div>
                           <strong className="text-gray-400">Alvo:</strong>{" "}
                           {m.metricaValidacao
                             .map(v => `${v.nome}: ${v.valor}`)
                             .join(" | ")}
                         </div>
-                        <div className="text-[10px] border-t border-[#151515] pt-1 mt-1">
+                        <div className="text-sm border-t border-[#151515] pt-1 mt-1">
                           <strong className="text-gray-400">Premissa:</strong>{" "}
                           {m.premissaEstatistica.join(" ")}
                         </div>
@@ -315,7 +315,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
           <div className="space-y-6">
             <div className="bg-[#080808] border border-[#1c1c1c] p-6 space-y-4">
               <div className="bg-[#0c0c0c] border border-[#1c1c1c] rounded-none p-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-gray-300">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
                   <div className="leading-relaxed">
                     {
                       "1. REGRA DE DECISÃO DO P-VALUE: Se p-value <= alpha (0.05): Rejeita-se a hipótese nula. Há evidências estáveis de que pelo menos uma das médias de produtividade regional difere das demais."
@@ -336,10 +336,10 @@ export const SucuriuMinitabConsole: React.FC = () => {
 
               {/* Cabeçalho do Teste de Hipóteses */}
               <div>
-                <h3 className="text-xs font-bold text-[#0077ff] uppercase tracking-wider mb-2">
+                <h3 className="text-sm font-bold text-[#0077ff] uppercase tracking-wider mb-2">
                   {minitabAnovaOutput.titulo}
                 </h3>
-                <div className="bg-[#030303] p-3 border border-[#151515] space-y-1 text-xs text-gray-400">
+                <div className="bg-[#030303] p-3 border border-[#151515] space-y-1 text-sm text-gray-400">
                   <div>
                     <strong>Method — Hipótese Nula (H₀):</strong>{" "}
                     <span className="text-gray-200 font-sans">
@@ -360,11 +360,11 @@ export const SucuriuMinitabConsole: React.FC = () => {
 
               {/* 1. Tabela de Variância Clássica (ANOVA) */}
               <div>
-                <div className="text-[11px] text-gray-500 font-bold mb-1.5 uppercase">
+                <div className="text-sm text-gray-500 font-bold mb-1.5 uppercase">
                   Analysis of Variance (Tabela Geral)
                 </div>
                 <div className="overflow-x-auto border border-[#1c1c1c]">
-                  <table className="w-full text-xs text-left border-collapse">
+                  <table className="w-full text-sm text-left border-collapse">
                     <thead>
                       <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
                         <th className="p-2.5">Fonte de Variação</th>
@@ -413,7 +413,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                   <div className="text-[11px] text-gray-500 font-bold mb-2 uppercase">
                     Model Summary
                   </div>
-                  <div className="grid grid-cols-2 gap-y-2 text-xs">
+                  <div className="grid grid-cols-2 gap-y-2 text-sm">
                     <div>
                       <span className="text-gray-500">S (Desvio Padrão):</span>
                     </div>
@@ -483,7 +483,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                   Means Interval Report (Intervalos de Confiança)
                 </div>
                 <div className="overflow-x-auto border border-[#1c1c1c]">
-                  <table className="w-full text-xs text-left border-collapse">
+                  <table className="w-full text-sm text-left border-collapse">
                     <thead>
                       <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
                         <th className="p-2">Região</th>
@@ -523,7 +523,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
               </div>
 
               {/* Conclusão Executiva Unificada */}
-              <div className="bg-[#0c0c0c] p-4 text-xs border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans">
+              <div className="bg-[#0c0c0c] p-4 text-sm border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans">
                 <strong className="font-sans text-white block mb-1 uppercase text-[10px] tracking-wider">
                   Laudo Conclusivo Inter-Operacional:
                 </strong>
@@ -536,7 +536,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
         {/* ABA 3: FMEA */}
         {activeTab === "FMEA" && (
           <div className="overflow-x-auto border border-[#1c1c1c]">
-            <table className="w-full text-xs text-left border-collapse">
+            <table className="w-full text-sm text-left border-collapse">
               <thead>
                 <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
                   <th className="p-3">Subsistema</th>
@@ -594,7 +594,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                 key={idx}
                 className="bg-[#080808] border border-[#1c1c1c] p-4 space-y-1 hover:border-[#2997ff] transition-colors"
               >
-                <div className="text-xs font-bold text-white border-b border-[#1c1c1c] pb-1">
+                <div className="text-sm font-bold text-white border-b border-[#1c1c1c] pb-1">
                   {step.fase}
                 </div>
                 <p className="text-[11px] text-gray-400 leading-relaxed">
@@ -626,7 +626,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                       <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">
                         Indicador {idx + 1}
                       </span>
-                      <h3 className="text-xs font-bold text-white uppercase tracking-tight mt-1 font-sans leading-tight">
+                      <h3 className="text-sm font-bold text-white uppercase tracking-tight mt-1 font-sans leading-tight">
                         {p.indicador}
                       </h3>
                     </div>
@@ -651,7 +651,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                       <span className="text-[9px] text-blue-400 font-bold uppercase block mb-0.5">
                         Distribuição Estatística
                       </span>
-                      <span className="text-xs text-white font-bold font-sans">
+                      <span className="text-sm text-white font-bold font-sans">
                         {p.distribuicao}
                       </span>
                     </div>
@@ -704,7 +704,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
 
         {/* ABA 6: ESTRUTURA PESTEL AVANÇADA */}
         {activeTab === "PESTEL" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
             {sucuriuPestel.map((item, idx) => (
               <div
                 key={idx}
@@ -741,7 +741,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
               </button>
             </div>
             <div className="overflow-x-auto border border-[#1c1c1c]">
-              <table className="w-full text-xs text-left border-collapse">
+              <table className="w-full text-sm text-left border-collapse">
                 <thead>
                   <tr className="bg-[#141414] border-b border-[#1c1c1c] text-gray-500 text-[10px]">
                     <th className="p-3 w-24">Data</th>
@@ -764,7 +764,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
             {stakeholders.map((person, idx) => (
               <div
                 key={idx}
-                className="bg-[#0d0d0d] border border-[#1c1c1c] p-4 text-xs space-y-1.5 hover:border-yellow-600 transition-colors"
+                className="bg-[#0d0d0d] border border-[#1c1c1c] p-4 text-sm space-y-1.5 hover:border-yellow-600 transition-colors"
               >
                 <span className="text-[9px] text-gray-500 font-bold uppercase block">
                   {person.afiliacao}
