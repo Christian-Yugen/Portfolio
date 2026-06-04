@@ -9,7 +9,7 @@ export default function SucuriuOverview({ className = '' }: Props) {
   return (
     <section id="sucuriu" className={`py-12 ${className}`}>
       <div className="container mx-auto px-4">
-        <SectionHeading title="Projeto Sucuriú" subtitle="Visão geral e integração" />
+        <SectionHeading title="Projeto Sucuriú" description="Visão geral e integração" />
 
         <div className="mt-6 rounded-lg border border-[#97989c] bg-[rgba(29,29,31,0.06)] p-6">
           <h3 className="text-lg font-semibold">Objetivo</h3>
