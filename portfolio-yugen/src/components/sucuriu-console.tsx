@@ -315,6 +315,156 @@ export const AnovaTechnicalTables: React.FC = () => {
   );
 };
 
+export const AnovaBusinessMetrics: React.FC = () => {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gap: "16px",
+        width: "100%",
+        backgroundColor: "#121212", // Fundo padrão do sistema
+        padding: "16px 0",
+        boxSizing: "border-box",
+      }}
+    >
+      {/* CARD 1: IMPACTO FINANCEIRO */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px", // Cantos vivos (zero radius)
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#aaaaaa",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+        >
+          Impacto Financeiro Estimado (COPQ)
+        </div>
+        <div
+          style={{
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "#ff3333",
+            margin: "8px 0 4px 0",
+            fontFamily: "monospace",
+          }}
+        >
+          R$ 1.42M
+        </div>
+        <div style={{ fontSize: "11px", color: "#888888", lineHeight: "1.4" }}>
+          Custo de má qualidade por dias adicionais de canteiro gerados pelo gap
+          de produtividade regional (73.50 vs. 84.20).
+        </div>
+      </div>
+
+      {/* CARD 2: PROGRAMA DE QUALIFICAÇÃO */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px", // Cantos vivos (zero radius)
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#aaaaaa",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+        >
+          Aderência ao Treinamento (PEL)
+        </div>
+        <div
+          style={{
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "#00e5ff",
+            margin: "8px 0 4px 0",
+            fontFamily: "monospace",
+          }}
+        >
+          42.0%
+        </div>
+        {/* Barra de Progresso Rígida */}
+        <div
+          style={{
+            width: "100%",
+            height: "6px",
+            backgroundColor: "#2d2d2d",
+            borderRadius: "0px",
+            margin: "8px 0",
+          }}
+        >
+          <div
+            style={{
+              width: "42%",
+              height: "100%",
+              backgroundColor: "#00e5ff",
+              borderRadius: "0px",
+            }}
+          ></div>
+        </div>
+        <div style={{ fontSize: "11px", color: "#888888", lineHeight: "1.4" }}>
+          Força de trabalho local de Inocência integrada e ativa nos cursos
+          acelerados de montagem industrial via parceria SENAI/Arauco.
+        </div>
+      </div>
+
+      {/* CARD 3: CAPACIDADE DE ABSORÇÃO */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px", // Cantos vivos (zero radius)
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#aaaaaa",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+        >
+          Capacidade de Absorção Regional
+        </div>
+        <div
+          style={{
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "#00ff66",
+            margin: "8px 0 4px 0",
+            fontFamily: "monospace",
+          }}
+        >
+          1.500 /{" "}
+          <span style={{ fontSize: "14px", color: "#888888" }}>10k</span>
+        </div>
+        <div style={{ fontSize: "11px", color: "#888888", lineHeight: "1.4" }}>
+          Headcount ativo oriundo de Inocência necessitando de reciclagem e
+          nivelamento técnico imediato para atingir o Nível Sigma esperado.
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     | "SIX_SIGMA"
@@ -853,6 +1003,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
               </div>
 
               <AnovaTechnicalTables />
+              <AnovaBusinessMetrics />
               {/* Conclusão Executiva Unificada */}
               <div className="bg-[#0c0c0c] p-4 text-sm border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans">
                 <strong className="font-sans text-white block mb-1 uppercase text-[10px] tracking-wider">
