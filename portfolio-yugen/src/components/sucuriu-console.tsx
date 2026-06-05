@@ -614,6 +614,371 @@ export const PeopleAnalyticsAdvancedMetrics: React.FC = () => {
     </div>
   );
 };
+
+export const PeopleAnalyticsMissingPlotsGrid: React.FC = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        backgroundColor: "#121212",
+        padding: "16px 0",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      {/* TÍTULO DA SEÇÃO ADICIONAL DE GRÁFICOS */}
+      <div
+        style={{
+          borderBottom: "2px solid #ffaa00",
+          paddingBottom: "6px",
+          marginBottom: "8px",
+        }}
+      >
+        <h4
+          style={{
+            color: "#ffffff",
+            fontSize: "13px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            margin: 0,
+            letterSpacing: "0.5px",
+          }}
+        >
+          Mapeamento Estocástico Adicional (Indicadores M3 e M4)
+        </h4>
+      </div>
+
+      {/* GRID DE 2 COLUNAS PARA OS GRÁFICOS FALTANTES */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "16px",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* M3. DISTRIBUIÇÃO DE POISSON (FADIGA VALMET) */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              marginBottom: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "6px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ffffff",
+                fontSize: "11px",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              M3. Distribuição de Faltas Calculadas (n=2.450 - Montagem Valmet)
+            </span>
+            <span
+              style={{
+                color: "#ffaa00",
+                fontSize: "10px",
+                fontFamily: "monospace",
+              }}
+            >
+              P(K=k)
+            </span>
+          </div>
+          <div style={{ height: "140px", width: "100%", position: "relative" }}>
+            <svg
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingLeft: "35px",
+                paddingBottom: "20px",
+                boxSizing: "border-box",
+                overflow: "visible",
+              }}
+            >
+              <line
+                x1="0"
+                y1="10"
+                x2="100%"
+                y2="10"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="45"
+                x2="100%"
+                y2="45"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="80"
+                x2="100%"
+                y2="80"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="115"
+                x2="100%"
+                y2="115"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+
+              {/* Barras de Poisson */}
+              <rect x="5%" y="90" width="8%" height="25" fill="#2d2d2d" />
+              <rect x="25%" y="40" width="8%" height="75" fill="#00e5ff" />
+              <rect x="45%" y="20" width="8%" height="95" fill="#00e5ff" />
+              <rect x="65%" y="60" width="8%" height="55" fill="#ffaa00" />
+              <rect x="85%" y="95" width="8%" height="20" fill="#ff3333" />
+            </svg>
+            <span
+              style={{
+                position: "absolute",
+                left: "5px",
+                top: "5px",
+                fontSize: "8px",
+                color: "#666",
+                fontFamily: "monospace",
+              }}
+            >
+              0.40
+            </span>
+            <span
+              style={{
+                position: "absolute",
+                left: "5px",
+                top: "110px",
+                fontSize: "8px",
+                color: "#666",
+                fontFamily: "monospace",
+              }}
+            >
+              0.00
+            </span>
+
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "35px",
+                right: "0px",
+                height: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                bottom: "20px",
+                left: "35px",
+                width: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingLeft: "35px",
+                fontSize: "8px",
+                color: "#888",
+                width: "100%",
+                position: "absolute",
+                bottom: "4px",
+                fontFamily: "monospace",
+              }}
+            >
+              <span>k=0 faltas</span>
+              <span>k=1</span>
+              <span>k=2 (Mediana λ)</span>
+              <span>k=3</span>
+              <span>k=4+</span>
+            </div>
+          </div>
+        </div>
+
+        {/* M4. ODDS RATIO LOGÍSTICA (ESTRESSE TÉRMICO) */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              marginBottom: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "6px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ffffff",
+                fontSize: "11px",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              M4. Razão de Chance de Absenteísmo vs. IBUTG Sazonal
+            </span>
+            <span
+              style={{
+                color: "#00ff66",
+                fontSize: "10px",
+                fontFamily: "monospace",
+              }}
+            >
+              Odds Ratio
+            </span>
+          </div>
+          <div style={{ height: "140px", width: "100%", position: "relative" }}>
+            <svg
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingLeft: "35px",
+                paddingBottom: "20px",
+                boxSizing: "border-box",
+                overflow: "visible",
+              }}
+            >
+              <line
+                x1="0"
+                y1="10"
+                x2="100%"
+                y2="10"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="45"
+                x2="100%"
+                y2="45"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="80"
+                x2="100%"
+                y2="80"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+              <line
+                x1="0"
+                y1="115"
+                x2="100%"
+                y2="115"
+                stroke="#252525"
+                strokeWidth="1"
+              />
+
+              {/* Curva de Probabilidade Climática */}
+              <path
+                d="M 0 115 L 80 110 L 140 95 L 180 50 L 240 15"
+                fill="none"
+                stroke="#00ff66"
+                strokeWidth="2"
+              />
+            </svg>
+            <span
+              style={{
+                position: "absolute",
+                left: "5px",
+                top: "5px",
+                fontSize: "8px",
+                color: "#666",
+                fontFamily: "monospace",
+              }}
+            >
+              12.0
+            </span>
+            <span
+              style={{
+                position: "absolute",
+                left: "5px",
+                top: "110px",
+                fontSize: "8px",
+                color: "#666",
+                fontFamily: "monospace",
+              }}
+            >
+              1.0
+            </span>
+
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "35px",
+                right: "0px",
+                height: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                bottom: "20px",
+                left: "35px",
+                width: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingLeft: "35px",
+                fontSize: "8px",
+                color: "#888",
+                width: "100%",
+                position: "absolute",
+                bottom: "4px",
+                fontFamily: "monospace",
+              }}
+            >
+              <span>24°C</span>
+              <span>32°C</span>
+              <span>36°C (Alerta MS)</span>
+              <span>40°C+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 export const PeopleAnalyticsUnifiedConsole: React.FC = () => {
   return (
     <div
@@ -2187,6 +2552,8 @@ export const PeopleAnalyticsMegaModule: React.FC = () => {
       </div>
 
       <PeopleAnalyticsAdvancedAnalyticsGrid />
+      <PeopleAnalyticsBusinessMetricsGrid />
+      <PeopleAnalyticsMissingPlotsGrid />
 
       {/* ----------------- NOVOS ACRESCIMOS 2: NOVA TABELA DE AUDITORIA DEMOGRÁFICA ----------------- */}
       <div
@@ -3199,6 +3566,282 @@ export const PeopleAnalyticsAdvancedAnalyticsGrid: React.FC = () => {
               <span>40°C+</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const PeopleAnalyticsBusinessMetricsGrid: React.FC = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        backgroundColor: "#121212",
+        padding: "16px 0",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      {/* SEÇÃO: INDICADORES EXECUTIVOS DE GESTÃO E CAPACIDADE DO FUNIL */}
+      <div
+        style={{
+          borderBottom: "2px solid #00ff66",
+          paddingBottom: "6px",
+          marginBottom: "8px",
+        }}
+      >
+        <h4
+          style={{
+            color: "#ffffff",
+            fontSize: "13px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            margin: 0,
+            letterSpacing: "0.5px",
+          }}
+        >
+          Impacto Financeiro Corporativo e Capacidade Estática do Funil Regional
+          Arauco
+        </h4>
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1.2fr 1fr 1fr 1fr",
+          gap: "16px",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* GRÁFICO DE FUNIL DE ABSORÇÃO DE MÃO DE OBRA */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              color: "#aaaaaa",
+              fontSize: "10px",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              display: "block",
+              marginBottom: "10px",
+            }}
+          >
+            Funil Analítico de Qualificação (Feiras de Profissões)
+          </span>
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            {/* Etapa 1 */}
+            <div
+              style={{ display: "flex", alignItems: "center", width: "100%" }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  backgroundColor: "#0055ff",
+                  padding: "4px 8px",
+                  fontSize: "10px",
+                  color: "#fff",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                Cadastrados: 800 inscritos
+              </div>
+            </div>
+            {/* Etapa 2 */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                paddingLeft: "10%",
+              }}
+            >
+              <div
+                style={{
+                  width: "90%",
+                  backgroundColor: "#00e5ff",
+                  padding: "4px 8px",
+                  fontSize: "10px",
+                  color: "#000",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                Qualificados SENAI: 650 eNPS
+              </div>
+            </div>
+            {/* Etapa 3 */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                paddingLeft: "20%",
+              }}
+            >
+              <div
+                style={{
+                  width: "80%",
+                  backgroundColor: "#00ff66",
+                  padding: "4px 8px",
+                  fontSize: "10px",
+                  color: "#000",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                Alocados em Campo: 520 ativos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CARD KPI 1: RECONVERSÃO DE CUSTOS */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              color: "#aaaaaa",
+              fontSize: "10px",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              display: "block",
+            }}
+          >
+            Custos de Turnover Mitigados
+          </span>
+          <div
+            style={{
+              fontSize: "22px",
+              fontWeight: "bold",
+              color: "#00ff66",
+              margin: "8px 0 4px 0",
+              fontFamily: "monospace",
+            }}
+          >
+            R$ 4.2M{" "}
+            <span style={{ fontSize: "10px", color: "#888" }}>Poupados</span>
+          </div>
+          <p
+            style={{
+              fontSize: "10px",
+              color: "#888888",
+              margin: 0,
+              lineHeight: "1.4",
+            }}
+          >
+            Redução direta de despesas rescisórias e mobilização externa no
+            Ramp-Up devido ao ganho de sobrevivência estatística.
+          </p>
+        </div>
+
+        {/* CARD KPI 2: ABSENTEÍSMO RETIDO */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              color: "#aaaaaa",
+              fontSize: "10px",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              display: "block",
+            }}
+          >
+            Horas de Engenharia Preservadas
+          </span>
+          <div
+            style={{
+              fontSize: "22px",
+              fontWeight: "bold",
+              color: "#00e5ff",
+              margin: "8px 0 4px 0",
+              fontFamily: "monospace",
+            }}
+          >
+            +18.400h{" "}
+            <span style={{ fontSize: "10px", color: "#888" }}>/mês</span>
+          </div>
+          <p
+            style={{
+              fontSize: "10px",
+              color: "#888888",
+              margin: 0,
+              lineHeight: "1.4",
+            }}
+          >
+            Volume de tempo produtivo mantido nas frentes de montagem pesada
+            através das pausas climáticas preditivas do Cerrado MS.
+          </p>
+        </div>
+
+        {/* CARD KPI 3: BUFFER ESTRATÉGICO */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              color: "#aaaaaa",
+              fontSize: "10px",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              display: "block",
+            }}
+          >
+            Estabilidade da Curva de Aprendizado
+          </span>
+          <div
+            style={{
+              fontSize: "22px",
+              fontWeight: "bold",
+              color: "#ffaa00",
+              margin: "8px 0 4px 0",
+              fontFamily: "monospace",
+            }}
+          >
+            94.8%
+          </div>
+          <p
+            style={{
+              fontSize: "10px",
+              color: "#888888",
+              margin: 0,
+              lineHeight: "1.4",
+            }}
+          >
+            Índice de retenção de conhecimento crítico setorial nas equipes de
+            linha única, blindando o cronograma de faturamento.
+          </p>
         </div>
       </div>
     </div>
@@ -8045,6 +8688,389 @@ export const RegressionQueuesCharts: React.FC = () => {
   );
 };
 
+export const TimelineMinitabCharts: React.FC = () => {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "16px",
+        width: "100%",
+        backgroundColor: "#1e1e1e",
+        boxSizing: "border-box",
+      }}
+    >
+      {/* 1. GRÁFICO I-MR - AVANÇO FÍSICO MENSAL */}
+      <div
+        style={{
+          backgroundColor: "#151515",
+          border: "1px solid #2d2d2d",
+          padding: "12px",
+          borderRadius: "0px",
+        }}
+      >
+        <span
+          style={{
+            color: "#00e5ff",
+            fontSize: "10px",
+            fontFamily: "monospace",
+            display: "block",
+            marginBottom: "6px",
+          }}
+        >
+          [T1] Gráfico de Controle I-MR - Evolução Física (%/mês)
+        </span>
+        <div style={{ height: "110px", position: "relative" }}>
+          <div
+            style={{
+              position: "absolute",
+              top: "20%",
+              left: "30px",
+              right: "10px",
+              height: "1px",
+              borderTop: "1px dashed #ff3333",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              top: "80%",
+              left: "30px",
+              right: "10px",
+              height: "1px",
+              borderTop: "1px dashed #ff3333",
+            }}
+          ></div>
+          <svg
+            style={{
+              width: "100%",
+              height: "100%",
+              paddingLeft: "30px",
+              paddingBottom: "15px",
+              boxSizing: "border-box",
+              overflow: "visible",
+            }}
+          >
+            <path
+              d="M 0 50 L 40 45 L 80 85 L 120 30 L 160 55 L 200 48"
+              fill="none"
+              stroke="#00ff66"
+              strokeWidth="2"
+            />
+            <circle cx="80" cy="85" r="3" fill="#ff9900" />{" "}
+            {/* Alerta de variação */}
+          </svg>
+          <span
+            style={{
+              position: "absolute",
+              left: "2px",
+              top: "15%",
+              fontSize: "7px",
+              color: "#ff3333",
+              fontFamily: "monospace",
+            }}
+          >
+            LSC
+          </span>
+          <span
+            style={{
+              position: "absolute",
+              left: "2px",
+              top: "75%",
+              fontSize: "7px",
+              color: "#ff3333",
+              fontFamily: "monospace",
+            }}
+          >
+            LIC
+          </span>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              left: "30px",
+              right: "0px",
+              height: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              bottom: "15px",
+              left: "30px",
+              width: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+        </div>
+      </div>
+
+      {/* 2. HISTOGRAMA DE LEAD TIME DE ATIVIDADES CRÍTICAS */}
+      <div
+        style={{
+          backgroundColor: "#151515",
+          border: "1px solid #2d2d2d",
+          padding: "12px",
+          borderRadius: "0px",
+        }}
+      >
+        <span
+          style={{
+            color: "#00e5ff",
+            fontSize: "10px",
+            fontFamily: "monospace",
+            display: "block",
+            marginBottom: "6px",
+          }}
+        >
+          [T2] Histograma de Lead Time (Dias para Conclusão de OS)
+        </span>
+        <div
+          style={{
+            height: "110px",
+            position: "relative",
+            display: "flex",
+            alignItems: "flex-end",
+            paddingLeft: "30px",
+            paddingBottom: "15px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              width: "15%",
+              height: "30%",
+              backgroundColor: "#3d3d3d",
+              marginRight: "4px",
+            }}
+          ></div>
+          <div
+            style={{
+              width: "15%",
+              height: "65%",
+              backgroundColor: "#0055ff",
+              marginRight: "4px",
+            }}
+          ></div>
+          <div
+            style={{
+              width: "15%",
+              height: "95%",
+              backgroundColor: "#00e5ff",
+              marginRight: "4px",
+            }}
+          ></div>
+          <div
+            style={{
+              width: "15%",
+              height: "50%",
+              backgroundColor: "#0055ff",
+              marginRight: "4px",
+            }}
+          ></div>
+          <div
+            style={{
+              width: "15%",
+              height: "20%",
+              backgroundColor: "#3d3d3d",
+              marginRight: "4px",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              left: "30px",
+              right: "0px",
+              height: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              bottom: "15px",
+              left: "30px",
+              width: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+        </div>
+      </div>
+
+      {/* 3. ANÁLISE DE TENDÊNCIA DE VALOR AGREGA DO (EVM) */}
+      <div
+        style={{
+          backgroundColor: "#151515",
+          border: "1px solid #2d2d2d",
+          padding: "12px",
+          borderRadius: "0px",
+        }}
+      >
+        <span
+          style={{
+            color: "#00e5ff",
+            fontSize: "10px",
+            fontFamily: "monospace",
+            display: "block",
+            marginBottom: "6px",
+          }}
+        >
+          [T3] Curva S de Valor Agregado (Planejado vs Realizado)
+        </span>
+        <div style={{ height: "110px", position: "relative" }}>
+          <svg
+            style={{
+              width: "100%",
+              height: "100%",
+              paddingLeft: "35px",
+              paddingBottom: "15px",
+              boxSizing: "border-box",
+              overflow: "visible",
+            }}
+          >
+            {/* Planejado */}
+            <path
+              d="M 0 90 Q 120 80 180 40 T 240 10"
+              fill="none"
+              stroke="#555555"
+              strokeWidth="2"
+              strokeDasharray="3,3"
+            />
+            {/* Realizado */}
+            <path
+              d="M 0 95 Q 110 90 170 50 T 230 20"
+              fill="none"
+              stroke="#00ff66"
+              strokeWidth="2"
+            />
+          </svg>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              left: "35px",
+              right: "0px",
+              height: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              bottom: "15px",
+              left: "35px",
+              width: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+          <div
+            style={{
+              display: "flex",
+              gap: "8px",
+              fontSize: "7px",
+              position: "absolute",
+              top: "4px",
+              right: "4px",
+              fontFamily: "monospace",
+            }}
+          >
+            <span style={{ color: "#888" }}>-- BCWS</span>
+            <span style={{ color: "#00ff66" }}>— BCWP</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. CAPABILIDADE DE PRAZO DE MARCOS CRÍTICOS */}
+      <div
+        style={{
+          backgroundColor: "#151515",
+          border: "1px solid #2d2d2d",
+          padding: "12px",
+          borderRadius: "0px",
+        }}
+      >
+        <span
+          style={{
+            color: "#00e5ff",
+            fontSize: "10px",
+            fontFamily: "monospace",
+            display: "block",
+            marginBottom: "6px",
+          }}
+        >
+          [T4] Capabilidade de Prazo (Desvio vs Limite de Start-up)
+        </span>
+        <div style={{ height: "110px", position: "relative" }}>
+          <div
+            style={{
+              position: "absolute",
+              left: "75%",
+              top: "0",
+              bottom: "15px",
+              width: "1px",
+              borderLeft: "1px dashed #ff3333",
+            }}
+          ></div>
+          <span
+            style={{
+              position: "absolute",
+              left: "62%",
+              top: "4px",
+              fontSize: "7px",
+              color: "#ff3333",
+              fontFamily: "monospace",
+            }}
+          >
+            Meta: Dez/27
+          </span>
+          <svg
+            style={{
+              width: "100%",
+              height: "100%",
+              paddingLeft: "30px",
+              paddingBottom: "15px",
+              boxSizing: "border-box",
+              overflow: "visible",
+            }}
+          >
+            <path
+              d="M 10 95 Q 90 95 120 20 T 220 95"
+              fill="none"
+              stroke="#00e5ff"
+              strokeWidth="1.5"
+            />
+          </svg>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              left: "30px",
+              right: "0px",
+              height: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              bottom: "15px",
+              left: "30px",
+              width: "1px",
+              backgroundColor: "#3d3d3d",
+            }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     | "SIX_SIGMA"
@@ -8195,7 +9221,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
             </div>
           </div>
           <div>
-            <RegressionQueuesCharts />
+            <TimelineMinitabCharts />
           </div>
         </div>
       )}
