@@ -17,6 +17,304 @@ import TimelineChart from "./charts/TimelineChart";
 import BoxPlot from "./charts/BoxPlot";
 import TukeyIntervalChart from "./charts/TukeyIntervalChart";
 
+export const AnovaTechnicalTables: React.FC = () => {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "16px",
+        width: "100%",
+        backgroundColor: "#121212", // Alinhar com o fundo escuro do seu sistema
+        padding: "16px 0",
+        boxSizing: "border-box",
+      }}
+    >
+      {/* TABELA A: TESTE DE TUKEY */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px", // Cantos totalmente retos (zero radius)
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h3
+          style={{
+            color: "#ffffff",
+            fontSize: "14px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            marginBottom: "12px",
+            borderBottom: "2px solid #0055ff", // Detalhe técnico linear azul
+            paddingBottom: "6px",
+          }}
+        >
+          A. Comparação Múltipla de Tukey (Post-Hoc Test)
+        </h3>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            textAlign: "left",
+            fontSize: "12px",
+          }}
+        >
+          <thead>
+            <tr style={{ borderBottom: "1px solid #3d3d3d", color: "#aaaaaa" }}>
+              <th style={{ padding: "8px 4px" }}>Comparação de Pares</th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                Diferença
+              </th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                Erro Padrão
+              </th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                Lim. Inferior (95%)
+              </th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                Lim. Superior (95%)
+              </th>
+              <th
+                style={{
+                  padding: "8px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                }}
+              >
+                p-value Adj.
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Três Lagoas vs Inocência
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                }}
+              >
+                +10.70
+              </td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>1.46</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>+7.21</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>
+                +14.19
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  fontWeight: "bold",
+                  color: "#00ff66",
+                }}
+              >
+                0.0001
+              </td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Três Lagoas vs Outros Estados
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                }}
+              >
+                +5.20
+              </td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>1.46</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>+1.71</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>+8.69</td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  fontWeight: "bold",
+                  color: "#00ff66",
+                }}
+              >
+                0.0042
+              </td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Outros Estados vs Inocência
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                }}
+              >
+                +5.50
+              </td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>1.46</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>+2.01</td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>+8.99</td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  fontWeight: "bold",
+                  color: "#00ff66",
+                }}
+              >
+                0.0028
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* TABELA B: DIAGNÓSTICO DE PREMISSAS */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px", // Cantos totalmente retos (zero radius)
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h3
+          style={{
+            color: "#ffffff",
+            fontSize: "14px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            marginBottom: "12px",
+            borderBottom: "2px solid #0055ff",
+            paddingBottom: "6px",
+          }}
+        >
+          B. Diagnóstico de Premissas Estatísticas da ANOVA
+        </h3>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            textAlign: "left",
+            fontSize: "12px",
+          }}
+        >
+          <thead>
+            <tr style={{ borderBottom: "1px solid #3d3d3d", color: "#aaaaaa" }}>
+              <th style={{ padding: "8px 4px" }}>Teste de Validação</th>
+              <th style={{ padding: "8px 4px" }}>Métrica Calculada</th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                p-value
+              </th>
+              <th style={{ padding: "8px 4px", textAlign: "right" }}>
+                Status do Modelo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Normalidade dos Resíduos (Shapiro-Wilk)
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  fontFamily: "monospace",
+                  color: "#00e5ff",
+                }}
+              >
+                W = 0.974
+              </td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>
+                0.4210
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontWeight: 500,
+                }}
+              >
+                Aprovado (p &gt; 0.05)
+              </td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Homocedasticidade (Teste de Levene)
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  fontFamily: "monospace",
+                  color: "#00e5ff",
+                }}
+              >
+                F = 1.120
+              </td>
+              <td style={{ padding: "10px 4px", textAlign: "right" }}>
+                0.3540
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontWeight: 500,
+                }}
+              >
+                Aprovado (p &gt; 0.05)
+              </td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #2d2d2d", color: "#ffffff" }}>
+              <td style={{ padding: "10px 4px", fontWeight: 500 }}>
+                Independência dos Dados (Durbin-Watson)
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  fontFamily: "monospace",
+                  color: "#00e5ff",
+                }}
+              >
+                DW = 1.98
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#888888",
+                }}
+              >
+                N/A
+              </td>
+              <td
+                style={{
+                  padding: "10px 4px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontWeight: 500,
+                }}
+              >
+                Aprovado (Sem Autocorrelação)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     | "SIX_SIGMA"
@@ -554,6 +852,7 @@ export const SucuriuMinitabConsole: React.FC = () => {
                 </span>
               </div>
 
+              <AnovaTechnicalTables />
               {/* Conclusão Executiva Unificada */}
               <div className="bg-[#0c0c0c] p-4 text-sm border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans">
                 <strong className="font-sans text-white block mb-1 uppercase text-[10px] tracking-wider">
