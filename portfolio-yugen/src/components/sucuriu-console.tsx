@@ -14,6 +14,8 @@ import {
 } from "@/lib/sucuriu/mockData";
 import BarMeansChart from "./charts/BarMeansChart";
 import TimelineChart from "./charts/TimelineChart";
+import BoxPlot from "./charts/BoxPlot";
+import TukeyIntervalChart from "./charts/TukeyIntervalChart";
 
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
@@ -72,6 +74,17 @@ export const SucuriuMinitabConsole: React.FC = () => {
         </td>
       </tr>
     );
+  });
+
+  const boxplotSeries = (minitabAnovaOutput.mediasEmpreiteiras || []).map(m => {
+    const n = Number(m.n ?? 10) || 10;
+    const mean = Number(m.media ?? 0) || 0;
+    const stDev = Number(m.stDev ?? 1) || 1;
+    const values = Array.from({ length: n }, (_, i) => {
+      const center = (n - 1) / 2;
+      return mean + (i - center) * (stDev / Math.max(1, center));
+    });
+    return { name: String(m.regiao ?? ""), values };
   });
 
   return (
@@ -524,6 +537,16 @@ export const SucuriuMinitabConsole: React.FC = () => {
 
                 <div className="mt-4">
                   <BarMeansChart data={minitabAnovaOutput.mediasEmpreiteiras} />
+
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <TukeyIntervalChart />
+                    </div>
+
+                    <div>
+                      <BoxPlot data={boxplotSeries} />
+                    </div>
+                  </div>
                 </div>
 
                 <span className="text-[9px] text-gray-600 font-sans block mt-1">
