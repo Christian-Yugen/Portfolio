@@ -673,6 +673,1516 @@ export const FmeaMitigationTableModule: React.FC = () => {
   );
 };
 
+export const DmaicRoadmapModule: React.FC = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        backgroundColor: "#121212",
+        padding: "16px 0",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+      }}
+    >
+      {/* SEÇÃO 1: LINHA DO TEMPO VISUAL DO PROCESSO LEAN (GANTT SIMPLIFICADO) */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "20px",
+          boxSizing: "border-box",
+          width: "100%",
+        }}
+      >
+        <h3
+          style={{
+            color: "#ffffff",
+            fontSize: "13px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            margin: "0 0 16px 0",
+            borderBottom: "2px solid #0055ff",
+            paddingBottom: "6px",
+          }}
+        >
+          Status de Evolução do Ciclo DMAIC - Projeto Sucuriú
+        </h3>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "12px",
+            width: "100%",
+          }}
+        >
+          {/* D */}
+          <div
+            style={{
+              borderLeft: "4px solid #00ff66",
+              backgroundColor: "#151515",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#ffffff",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                D - Definir
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  color: "#00ff66",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0,255,102,0.1)",
+                  padding: "2px 4px",
+                  fontFamily: "monospace",
+                }}
+              >
+                100%
+              </span>
+            </div>
+            <div
+              style={{ fontSize: "10px", color: "#888888", marginTop: "4px" }}
+            >
+              Marcos e Escopo CAPEX
+            </div>
+          </div>
+          {/* M */}
+          <div
+            style={{
+              borderLeft: "4px solid #00ff66",
+              backgroundColor: "#151515",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#ffffff",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                M - Medir
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  color: "#00ff66",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0,255,102,0.1)",
+                  padding: "2px 4px",
+                  fontFamily: "monospace",
+                }}
+              >
+                100%
+              </span>
+            </div>
+            <div
+              style={{ fontSize: "10px", color: "#888888", marginTop: "4px" }}
+            >
+              Coleta Baseline 10k Op.
+            </div>
+          </div>
+          {/* A */}
+          <div
+            style={{
+              borderLeft: "4px solid #00ff66",
+              backgroundColor: "#151515",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#ffffff",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                A - Analisar
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  color: "#00ff66",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0,255,102,0.1)",
+                  padding: "2px 4px",
+                  fontFamily: "monospace",
+                }}
+              >
+                100%
+              </span>
+            </div>
+            <div
+              style={{ fontSize: "10px", color: "#888888", marginTop: "4px" }}
+            >
+              ANOVA, FMEA & Ishikawa
+            </div>
+          </div>
+          {/* I */}
+          <div
+            style={{
+              borderLeft: "4px solid #00e5ff",
+              backgroundColor: "#151515",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#ffffff",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                I - Incrementar
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  color: "#00e5ff",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0,229,255,0.1)",
+                  padding: "2px 4px",
+                  fontFamily: "monospace",
+                }}
+              >
+                75%
+              </span>
+            </div>
+            <div
+              style={{ fontSize: "10px", color: "#888888", marginTop: "4px" }}
+            >
+              Monte Carlo & Filas M/M/c
+            </div>
+          </div>
+          {/* C */}
+          <div
+            style={{
+              borderLeft: "4px solid #ff9900",
+              backgroundColor: "#151515",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  color: "#ffffff",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                }}
+              >
+                C - Controlar
+              </span>
+              <span
+                style={{
+                  fontSize: "9px",
+                  color: "#ff9900",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(255,153,0,0.1)",
+                  padding: "2px 4px",
+                  fontFamily: "monospace",
+                }}
+              >
+                Config
+              </span>
+            </div>
+            <div
+              style={{ fontSize: "10px", color: "#888888", marginTop: "4px" }}
+            >
+              EWMA & Poka-Yoke Digital
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SEÇÃO 2: MATRIZ DE ENTREGÁVEIS E MÉTRICAS DE GANHO ESPERADO */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "16px",
+          boxSizing: "border-box",
+          width: "100%",
+        }}
+      >
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            textAlign: "left",
+            fontSize: "11px",
+            color: "#ffffff",
+          }}
+        >
+          <thead>
+            <tr
+              style={{
+                borderBottom: "1px solid #3d3d3d",
+                color: "#aaaaaa",
+                backgroundColor: "#151515",
+              }}
+            >
+              <th style={{ padding: "10px 6px", width: "15%" }}>
+                Fase do Ciclo
+              </th>
+              <th style={{ padding: "10px 6px", width: "25%" }}>
+                Objetivo Estratégico
+              </th>
+              <th style={{ padding: "10px 6px", width: "35%" }}>
+                Ferramenta / Entregável na Tela
+              </th>
+              <th
+                style={{
+                  padding: "10px 6px",
+                  textAlign: "right",
+                  width: "15%",
+                }}
+              >
+                Ganho Esperado
+              </th>
+              <th
+                style={{
+                  padding: "10px 6px",
+                  textAlign: "center",
+                  width: "10%",
+                }}
+              >
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* D */}
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                }}
+              >
+                D - DEFINIR
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Alinhar metas do Mega CAPEX de US$ 4.5B e capacidade alvo da
+                planta de 3.5M t/ano.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                <span style={{ color: "#00e5ff", fontWeight: 500 }}>
+                  Project Charter
+                </span>{" "}
+                & Mapeamento SIPOC interligando o cinturão florestal de 400k ha
+                até o fluxo da Malha Norte.
+              </td>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  textAlign: "right",
+                  color: "#aaaaaa",
+                  fontFamily: "monospace",
+                }}
+              >
+                Alinhamento Macro
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00ff66",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,255,102,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  CONCLUÍDO
+                </span>
+              </td>
+            </tr>
+            {/* M */}
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                }}
+              >
+                M - MEDIR
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Quantificar a linha de base de campo do headcount ativo de
+                10.000 operários.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                Plano de Coleta de Dados automatizado de horas-máquina e
+                auditoria dos{" "}
+                <span style={{ color: "#00e5ff", fontWeight: 500 }}>
+                  70% de avanço físico da Valmet
+                </span>
+                .
+              </td>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontFamily: "monospace",
+                }}
+              >
+                Amostragem Rígida
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00ff66",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,255,102,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  CONCLUÍDO
+                </span>
+              </td>
+            </tr>
+            {/* A */}
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                }}
+              >
+                A - ANALISAR
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Investigar estatisticamente as causas-raiz de variabilidade e
+                gaps de performance.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                <span style={{ color: "#00e5ff", fontWeight: 500 }}>
+                  Diagrama Ishikawa (6M)
+                </span>{" "}
+                vinculado ao Output da ANOVA One-Way regional e cruzamento de
+                criticidade na Matriz FMEA.
+              </td>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  textAlign: "right",
+                  color: "#ff3333",
+                  fontFamily: "monospace",
+                }}
+              >
+                Identificação P-Value
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00ff66",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,255,102,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  CONCLUÍDO
+                </span>
+              </td>
+            </tr>
+            {/* I */}
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                }}
+              >
+                I - INCREMENTAR
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Implementar modelagens preditivas e contramedidas
+                socioambientais mitigatórias.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                Aplicação do PES de R$ 85M +{" "}
+                <span style={{ color: "#00e5ff", fontWeight: 500 }}>
+                  Simulação de Monte Carlo (10k iterações)
+                </span>{" "}
+                e slots da Teoria das Filas ($M/M/c$) ferroviárias.
+              </td>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                +12% Produtividade
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00e5ff",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,229,255,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  EXECUÇÃO
+                </span>
+              </td>
+            </tr>
+            {/* C */}
+            <tr style={{ borderBottom: "1px solid #3d3d3d" }}>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                }}
+              >
+                C - CONTROLAR
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Blindar o complexo industrial contra retrocessos através de
+                barreiras digitais auto-executáveis.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                Ativação do{" "}
+                <span style={{ color: "#00e5ff", fontWeight: 500 }}>
+                  Poka-Yoke Digital (travamento em 1.5σ de horas extras)
+                </span>{" "}
+                e gráficos de controle EWMA na caldeira.
+              </td>
+              <td
+                style={{
+                  padding: "12px 6px",
+                  textAlign: "right",
+                  color: "#00ff66",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                Zero Acidentes
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#ff9900",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(255,153,0,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  AUTOMAÇÃO
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export const DmaicAnalyticalToolsModule: React.FC = () => {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gap: "16px",
+        width: "100%",
+        backgroundColor: "#121212",
+        padding: "16px 0",
+        boxSizing: "border-box",
+      }}
+    >
+      {/* TOOL 1: INFORMATIVO SIPOC (FASE DEFINIR) */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h4
+          style={{
+            color: "#00e5ff",
+            fontSize: "12px",
+            margin: "0 0 12px 0",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            borderBottom: "1px solid #3d3d3d",
+            paddingBottom: "6px",
+          }}
+        >
+          SIPOC - Fluxo Macro Ambiental (Fase D)
+        </h4>
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr",
+              fontSize: "11px",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "4px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ff9900",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              [S] SUP:
+            </span>
+            <span style={{ color: "#fff" }}>
+              Base Florestal (400k ha) / Valmet
+            </span>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr",
+              fontSize: "11px",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "4px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ff9900",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              [I] INP:
+            </span>
+            <span style={{ color: "#fff" }}>
+              Tora de Eucalipto, Insumos, Energia
+            </span>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr",
+              fontSize: "11px",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "4px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ff9900",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              [P] PRC:
+            </span>
+            <span style={{ color: "#fff" }}>
+              Picagem → Cozimento → Branqueamento
+            </span>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr",
+              fontSize: "11px",
+              borderBottom: "1px solid #2d2d2d",
+              paddingBottom: "4px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ff9900",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              [O] OUT:
+            </span>
+            <span style={{ color: "#fff" }}>
+              3.5M t/ano Celulose / 400MW Bioenergia
+            </span>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr",
+              fontSize: "11px",
+            }}
+          >
+            <span
+              style={{
+                color: "#ff9900",
+                fontWeight: "bold",
+                fontFamily: "monospace",
+              }}
+            >
+              [C] CST:
+            </span>
+            <span style={{ color: "#fff" }}>
+              Mercado Global / Grid de Energia Nacional
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* TOOL 2: DIAGRAMA DE ISHIKAWA 6M (FASE ANALISAR) */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h4
+          style={{
+            color: "#00e5ff",
+            fontSize: "12px",
+            margin: "0 0 12px 0",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            borderBottom: "1px solid #3d3d3d",
+            paddingBottom: "6px",
+          }}
+        >
+          Ishikawa (6M) - Causa Raiz do Gap Regional (Fase A)
+        </h4>
+        <div
+          style={{
+            height: "100px",
+            width: "100%",
+            position: "relative",
+            marginTop: "10px",
+          }}
+        >
+          {/* Espinha Dorsal Central */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "5px",
+              right: "55px",
+              height: "2px",
+              backgroundColor: "#555555",
+            }}
+          ></div>
+          {/* Efeito/Problema */}
+          <div
+            style={{
+              position: "absolute",
+              right: "0",
+              top: "35%",
+              backgroundColor: "#ff3333",
+              color: "#fff",
+              fontSize: "9px",
+              fontWeight: "bold",
+              padding: "4px",
+              textAlign: "center",
+              width: "50px",
+            }}
+          >
+            GAP DE INOCÊNCIA
+          </div>
+
+          {/* Linhas de Causa Macro */}
+          {/* Superior Esquerda */}
+          <div
+            style={{
+              position: "absolute",
+              top: "10%",
+              left: "15%",
+              fontSize: "9px",
+              color: "#00ff66",
+              fontFamily: "monospace",
+            }}
+          >
+            MÉTODO
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "20%",
+              left: "25%",
+              width: "1px",
+              height: "30px",
+              backgroundColor: "#555",
+              transform: "rotate(45deg)",
+            }}
+          ></div>
+
+          {/* Superior Centro */}
+          <div
+            style={{
+              position: "absolute",
+              top: "10%",
+              left: "45%",
+              fontSize: "9px",
+              color: "#00ff66",
+              fontFamily: "monospace",
+            }}
+          >
+            MÃO DE OBRA
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "20%",
+              left: "55%",
+              width: "1px",
+              height: "30px",
+              backgroundColor: "#555",
+              transform: "rotate(45deg)",
+            }}
+          ></div>
+
+          {/* Inferior Esquerda */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "10%",
+              left: "15%",
+              fontSize: "9px",
+              color: "#00ff66",
+              fontFamily: "monospace",
+            }}
+          >
+            MÁQUINA
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "20%",
+              left: "25%",
+              width: "1px",
+              height: "30px",
+              backgroundColor: "#555",
+              transform: "rotate(-45deg)",
+            }}
+          ></div>
+
+          {/* Inferior Centro */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "10%",
+              left: "45%",
+              fontSize: "9px",
+              color: "#00ff66",
+              fontFamily: "monospace",
+            }}
+          >
+            MEIO AMB.
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "20%",
+              left: "55%",
+              width: "1px",
+              height: "30px",
+              backgroundColor: "#555",
+              transform: "rotate(-45deg)",
+            }}
+          ></div>
+        </div>
+        <div
+          style={{
+            fontSize: "10px",
+            color: "#888888",
+            textAlign: "center",
+            marginTop: "6px",
+          }}
+        >
+          Fatores Críticos: Curva de aprendizado do PEL & Estresse Térmico.
+        </div>
+      </div>
+
+      {/* TOOL 3: EXPLICATIVO TESTE DE TUKEY (VINCULAÇÃO ESTATÍSTICA) */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "16px",
+          boxSizing: "border-box",
+        }}
+      >
+        <h4
+          style={{
+            color: "#00e5ff",
+            fontSize: "12px",
+            margin: "0 0 12px 0",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            borderBottom: "1px solid #3d3d3d",
+            paddingBottom: "6px",
+          }}
+        >
+          Validação Tukey HSD Post-Hoc (Fase A $\rightarrow$ I)
+        </h4>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            fontSize: "11px",
+            color: "#cccccc",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#151515",
+              padding: "6px",
+              borderLeft: "3px solid #00ff66",
+            }}
+          >
+            <span style={{ color: "#fff", fontWeight: "bold" }}>
+              Agrupamento Tipo A:
+            </span>{" "}
+            Três Lagoas (Média: 84.20) $\rightarrow$ Benchmark industrial
+            estabelecido.
+          </div>
+          <div
+            style={{
+              backgroundColor: "#151515",
+              padding: "6px",
+              borderLeft: "3px solid #ff9900",
+            }}
+          >
+            <span style={{ color: "#fff", fontWeight: "bold" }}>
+              Agrupamento Tipo C:
+            </span>{" "}
+            Inocência Local (Média: 73.50) $\rightarrow$ Disparo imediato do
+            gatilho de melhoria.
+          </div>
+          <div
+            style={{ fontSize: "10px", color: "#888888", lineHeight: "1.3" }}
+          >
+            A ausência de sobreposição estatística ($p &lt; 0.05$) fundamenta
+            matematicamente o direcionamento do orçamento do PES de R$ 85M.
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const PeopleAnalyticsModule: React.FC = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        backgroundColor: "#121212",
+        padding: "16px 0",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      {/* SEÇÃO 1: GRID DE VISUALIZAÇÕES DE DATA SCIENCE (3 COLUNAS) */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: "16px",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* G1. CURVA DE SOBREVIVÊNCIA DE KAPLAN-MEIER */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              borderBottom: "2px solid #0055ff",
+              paddingBottom: "6px",
+              marginBottom: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4
+              style={{
+                color: "#ffffff",
+                fontSize: "12px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                margin: 0,
+              }}
+            >
+              G1. Retenção de Talentos (Kaplan-Meier)
+            </h4>
+            <span
+              style={{
+                color: "#00ff66",
+                fontSize: "10px",
+                fontFamily: "monospace",
+              }}
+            >
+              Alpha = 0.05
+            </span>
+          </div>
+          <div style={{ height: "140px", width: "100%", position: "relative" }}>
+            {/* Linha Vertical Crítica de 90 dias */}
+            <div
+              style={{
+                position: "absolute",
+                left: "40%",
+                top: "0",
+                bottom: "20px",
+                width: "1px",
+                borderLeft: "1px dashed #ff3333",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                left: "42%",
+                top: "5px",
+                fontSize: "8px",
+                color: "#ff3333",
+                fontFamily: "monospace",
+              }}
+            >
+              Gatilho: 90 Dias
+            </span>
+
+            <svg
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingLeft: "35px",
+                paddingBottom: "20px",
+                boxSizing: "border-box",
+                overflow: "visible",
+              }}
+            >
+              {/* Linha de Sobrevivência Local */}
+              <path
+                d="M 0 10 L 50 10 L 100 40 L 150 45 L 200 50 L 250 55"
+                fill="none"
+                stroke="#00ff66"
+                strokeWidth="2"
+              />
+              {/* Linha de Sobrevivência de Fora do Estado */}
+              <path
+                d="M 0 10 L 50 15 L 100 75 L 150 90 L 200 105 L 250 110"
+                fill="none"
+                stroke="#ff9900"
+                strokeWidth="2"
+              />
+            </svg>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "35px",
+                right: "10px",
+                height: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                bottom: "20px",
+                left: "35px",
+                width: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                bottom: "2px",
+                left: "50%",
+                fontSize: "8px",
+                color: "#aaaaaa",
+                transform: "translateX(-50%)",
+              }}
+            >
+              Tempo de Contrato (Meses)
+            </span>
+          </div>
+        </div>
+
+        {/* G2. DISTRIBUIÇÃO EXPONENCIAL DE FADIGA */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              borderBottom: "2px solid #0055ff",
+              paddingBottom: "6px",
+              marginBottom: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4
+              style={{
+                color: "#ffffff",
+                fontSize: "12px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                margin: 0,
+              }}
+            >
+              G2. Escala de Estafa Crônica (Poisson)
+            </h4>
+            <span
+              style={{
+                color: "#ff3333",
+                fontSize: "10px",
+                fontFamily: "monospace",
+                fontWeight: "bold",
+              }}
+            >
+              Poka-Yoke Active
+            </span>
+          </div>
+          <div style={{ height: "140px", width: "100%", position: "relative" }}>
+            {/* Linha Limite de Inflexão (1.5 Sigma Horas Extras) */}
+            <div
+              style={{
+                position: "absolute",
+                left: "65%",
+                top: "0",
+                bottom: "20px",
+                width: "1px",
+                borderLeft: "1px dashed #ff3333",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                left: "67%",
+                top: "5px",
+                fontSize: "8px",
+                color: "#ff3333",
+                fontFamily: "monospace",
+              }}
+            >
+              Trava Bloco $\ge$ 1.5σ
+            </span>
+
+            <svg
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingLeft: "35px",
+                paddingBottom: "20px",
+                boxSizing: "border-box",
+                overflow: "visible",
+              }}
+            >
+              <path
+                d="M 0 115 Q 150 110 180 50 T 260 5"
+                fill="none"
+                stroke="#ff3333"
+                strokeWidth="2"
+              />
+            </svg>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "35px",
+                right: "10px",
+                height: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                bottom: "20px",
+                left: "35px",
+                width: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                bottom: "2px",
+                left: "50%",
+                fontSize: "8px",
+                color: "#aaaaaa",
+                transform: "translateX(-50%)",
+              }}
+            >
+              Horas Extras Acumuladas Semanais
+            </span>
+          </div>
+        </div>
+
+        {/* G3. MODELAGEM TÉRMICA SANOZAL */}
+        <div
+          style={{
+            backgroundColor: "#1e1e1e",
+            border: "1px solid #2d2d2d",
+            borderRadius: "0px",
+            padding: "16px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            style={{
+              borderBottom: "2px solid #0055ff",
+              paddingBottom: "6px",
+              marginBottom: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4
+              style={{
+                color: "#ffffff",
+                fontSize: "12px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                margin: 0,
+              }}
+            >
+              G3. Correlação de Estresse Térmico (MS)
+            </h4>
+            <span
+              style={{
+                color: "#00e5ff",
+                fontSize: "10px",
+                fontFamily: "monospace",
+              }}
+            >
+              Tmax = 41°C
+            </span>
+          </div>
+          <div style={{ height: "140px", width: "100%", position: "relative" }}>
+            {/* Zona de Perigo Térmico */}
+            <div
+              style={{
+                position: "absolute",
+                left: "60%",
+                top: "0",
+                bottom: "20px",
+                right: "10px",
+                backgroundColor: "rgba(255,51,51,0.06)",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                left: "60%",
+                top: "0",
+                bottom: "20px",
+                width: "1px",
+                borderLeft: "1px dotted #ff3333",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                left: "62%",
+                top: "5px",
+                fontSize: "8px",
+                color: "#ff3333",
+                fontFamily: "monospace",
+              }}
+            >
+              Gatilho Crítico &gt; 35°C
+            </span>
+
+            <svg
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingLeft: "35px",
+                paddingBottom: "20px",
+                boxSizing: "border-box",
+                overflow: "visible",
+              }}
+            >
+              <path
+                d="M 0 110 L 100 100 L 150 70 L 200 20 L 250 10"
+                fill="none"
+                stroke="#00e5ff"
+                strokeWidth="2"
+              />
+            </svg>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "35px",
+                right: "10px",
+                height: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                bottom: "20px",
+                left: "35px",
+                width: "1px",
+                backgroundColor: "#3d3d3d",
+              }}
+            ></div>
+            <span
+              style={{
+                position: "absolute",
+                bottom: "2px",
+                left: "50%",
+                fontSize: "8px",
+                color: "#aaaaaa",
+                transform: "translateX(-50%)",
+              }}
+            >
+              Temperatura Registrada (°C)
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* SEÇÃO 2: MATRIZ DE ENGENHARIA DE GESTÃO DE PESSOAS */}
+      <div
+        style={{
+          backgroundColor: "#1e1e1e",
+          border: "1px solid #2d2d2d",
+          borderRadius: "0px",
+          padding: "16px",
+          boxSizing: "border-box",
+          width: "100%",
+        }}
+      >
+        <h3
+          style={{
+            color: "#ffffff",
+            fontSize: "14px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+            margin: "0 0 12px 0",
+            borderBottom: "2px solid #0055ff",
+            paddingBottom: "6px",
+          }}
+        >
+          Matriz de Modelos Preditivos Ocupacionais e Controles Prescritivos
+        </h3>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            textAlign: "left",
+            fontSize: "11px",
+            color: "#ffffff",
+          }}
+        >
+          <thead>
+            <tr
+              style={{
+                borderBottom: "1px solid #3d3d3d",
+                color: "#aaaaaa",
+                backgroundColor: "#151515",
+              }}
+            >
+              <th style={{ padding: "10px 6px", width: "20%" }}>
+                Frente Preditiva
+              </th>
+              <th style={{ padding: "10px 6px", width: "30%" }}>
+                Motor Estatístico / Abordagem Matemática
+              </th>
+              <th style={{ padding: "10px 6px", width: "35%" }}>
+                Métrica Calculada / Controle Prescritivo Ativo
+              </th>
+              <th
+                style={{
+                  padding: "10px 6px",
+                  textAlign: "center",
+                  width: "15%",
+                }}
+              >
+                Status de Defesa
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td style={{ padding: "12px 6px", fontWeight: "bold" }}>
+                1. Absenteísmo Sazonal Climático
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Distribuição de Poisson associada à Regressão Logística
+                Multivariada cruzando matriz térmica (X_Clima) e umidade.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                Previsão de faltas em massa em dias de calor extremo. Dispara{" "}
+                <span style={{ color: "#00e5ff" }}>Gatilhos de Governança</span>{" "}
+                automáticos para pausas de hidratação e trocas de turnos em
+                campo.
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00ff66",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,255,102,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  PRESCREVEDOR
+                </span>
+              </td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #2d2d2d" }}>
+              <td style={{ padding: "12px 6px", fontWeight: "bold" }}>
+                2. Turnover Voluntário no Ramp-Up
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Modelo de Riscos Proporcionais de Cox e Distribuição Log-Normal
+                avaliando variáveis psicossociais e distância familiar.
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                Cálculo do tempo de permanência seguro antes da evasão.
+                Integração com o{" "}
+                <span style={{ color: "#00e5ff" }}>
+                  Banco de Talentos Regional
+                </span>{" "}
+                das Feiras de Profissões para recrutamento preditivo.
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#00ff66",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(0,255,102,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  PREDITIVO
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style={{ padding: "12px 6px", fontWeight: "bold" }}>
+                3. Fadiga Crônica na Montagem
+              </td>
+              <td style={{ padding: "12px 6px", color: "#cccccc" }}>
+                Processos estocásticos de Poisson isolando o fator de impacto
+                cumulativo de Horas Extras (X_Fadiga).
+              </td>
+              <td style={{ padding: "12px 6px" }}>
+                <span style={{ color: "#ff3333", fontWeight: "bold" }}>
+                  Poka-Yoke Digital Ativo:
+                </span>{" "}
+                Bloqueio imediato e temporário do crachá do trabalhador nas
+                catracas físicas ao atingir $+1.5\sigma$ de desvio de descanso.
+              </td>
+              <td style={{ padding: "12px 6px", textAlign: "center" }}>
+                <span
+                  style={{
+                    fontSize: "9px",
+                    color: "#ff3333",
+                    fontWeight: "bold",
+                    backgroundColor: "rgba(255,51,51,0.1)",
+                    padding: "3px 6px",
+                  }}
+                >
+                  TRAVAMENTO AUTO
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
 export const AnovaTechnicalTables: React.FC = () => {
   return (
     <div
@@ -4458,116 +5968,32 @@ export const SucuriuMinitabConsole: React.FC = () => {
 
         {/* ABA 4: DMAIC */}
         {activeTab === "DMAIC" && (
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
-            {dmaicRoadmap.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-[#080808] border border-[#1c1c1c] p-4 space-y-1 hover:border-[#2997ff] transition-colors"
-              >
-                <div className="text-sm font-bold text-white border-b border-[#1c1c1c] pb-1">
-                  {step.fase}
-                </div>
-                <p className="text-[11px] text-gray-400 leading-relaxed">
-                  {step.escopo}
-                </p>
-              </div>
-            ))}
+          <div>
+            <DmaicRoadmapModule />
+
+            <DmaicAnalyticalToolsModule />
+
+            {/* Mantenha o Laudo Conclusivo Inter-Operacional original do rodapé aqui */}
+            <div className="bg-[#0c0c0c] p-4 text-sm border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans mt-4">
+              <strong className="font-sans text-white block mb-1 uppercase text-[10px] tracking-wider">
+                Laudo Conclusivo Inter-Operacional:
+              </strong>
+              {minitabAnovaOutput.conclusao}
+            </div>
           </div>
         )}
 
         {/* ABA 5: PEOPLE ANALYTICS PREDITIVO */}
         {activeTab === "PEOPLE_ANALYTICS" && (
-          <div className="space-y-4">
-            <div className="bg-[#0c0c0c] p-3 border-l-2 border-[#0077ff] text-[11px] text-gray-400 font-sans">
-              [SUSTENTABILIDADE HUMANA] Módulos preditivos ativos para
-              monitorização de rotatividade setorial, absenteísmo e capabilidade
-              do headcount.
-            </div>
+          <div>
+            <PeopleAnalyticsModule />
 
-            <div className="grid grid-cols-1 gap-4">
-              {pipelinesAnalytics.map((p, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#080808] border border-[#1c1c1c] p-4 flex flex-col md:flex-row gap-4 rounded-none"
-                >
-                  {/* Coluna 1: O Problema de Negócio (Destaque e Escaneabilidade) */}
-                  <div className="md:w-1/3 border-b md:border-b-0 md:border-r border-[#1c1c1c] pb-3 md:pb-0 md:pr-4 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">
-                        Indicador {idx + 1}
-                      </span>
-                      <h3 className="text-sm font-bold text-white uppercase tracking-tight mt-1 font-sans leading-tight">
-                        {p.indicador}
-                      </h3>
-                    </div>
-                    {/* Box de Alerta para o Problema */}
-                    <div className="mt-4 bg-[#1a0505] border border-red-900/40 p-2.5 rounded-none">
-                      <span className="text-[10px] font-bold text-red-400 block uppercase font-sans tracking-tight">
-                        ⚠️ Problema Analisado:
-                      </span>
-                      <p className="text-[11px] text-gray-300 font-sans mt-1 leading-snug">
-                        {p.problemaNegocio}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Coluna 2: Abordagem Matemática / Engenharia de Dados */}
-                  <div className="md:w-1/3 border-b md:border-b-0 md:border-r border-[#1c1c1c] pb-3 md:pb-0 md:pr-4 space-y-2">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">
-                      Abordagem de Data Science
-                    </span>
-
-                    <div className="bg-[#030303] p-2 border border-[#151515] text-center rounded-none">
-                      <span className="text-[9px] text-blue-400 font-bold uppercase block mb-0.5">
-                        Distribuição Estatística
-                      </span>
-                      <span className="text-sm text-white font-bold font-sans">
-                        {p.distribuicao}
-                      </span>
-                    </div>
-
-                    <div className="bg-[#030303] p-2 border border-[#151515] rounded-none">
-                      <span className="text-[9px] text-amber-500 font-bold uppercase block text-center mb-0.5">
-                        Equação / Target Minitab
-                      </span>
-                      <div className="text-[11px] text-gray-300 text-center break-all font-sans select-all">
-                        {p.metricaAlvo}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Coluna 3: Solução Direta e Prescritiva (Trava Sistêmica) */}
-                  <div className="md:w-1/3 flex flex-col justify-between space-y-2">
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#00ff66] block">
-                        🔒 Controle Prescritivo (Poka-Yoke)
-                      </span>
-                      <div className="mt-2 space-y-2">
-                        {p.pokaYokeSistemicos.map((item, i) => (
-                          <div
-                            key={i}
-                            className="text-[11px] text-gray-400 leading-relaxed font-sans flex items-start gap-2"
-                          >
-                            <span className="text-[#00ff66] font-sans shrink-0">
-                              [✔]
-                            </span>
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="text-[10px] bg-[#0c0c0c] p-2 border border-[#151515] text-gray-500 font-sans mt-2">
-                      <strong className="text-gray-400 font-bold uppercase text-[9px] block">
-                        Validação em Campo (2026):
-                      </strong>
-                      <span className="font-sans text-[11px] text-gray-300 mt-0.5 block leading-tight">
-                        {p.statusReal2026}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Mantenha o Laudo Conclusivo Inter-Operacional original do rodapé aqui */}
+            <div className="bg-[#0c0c0c] p-4 text-sm border-l-2 border-[#00ff66] text-gray-400 leading-relaxed font-sans mt-4">
+              <strong className="font-sans text-white block mb-1 uppercase text-[10px] tracking-wider">
+                Laudo Conclusivo Inter-Operacional:
+              </strong>
+              {minitabAnovaOutput.conclusao}
             </div>
           </div>
         )}
