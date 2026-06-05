@@ -356,7 +356,7 @@ function AnimatedStat({
   );
 }
 
-function FooterSection() {
+export function FooterSection() {
   return (
     <footer className="border-t border-[#2a2a2d] bg-[#000000] px-4 py-8 md:px-8">
       <div className="container mx-auto flex flex-col items-center justify-center gap-4 md:flex-row md:justify-center">
@@ -540,7 +540,7 @@ function CertShowcase({
   );
 }
 
-function Header() {
+export function Header() {
   const [isAvatarOpen, setIsAvatarOpen] = useState(false);
 
   useEffect(() => {
