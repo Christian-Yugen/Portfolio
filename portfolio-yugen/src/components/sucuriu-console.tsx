@@ -465,6 +465,169 @@ export const AnovaBusinessMetrics: React.FC = () => {
   );
 };
 
+export const RegressionQueuesCharts: React.FC = () => {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '16px',
+      width: '100%',
+      backgroundColor: '#121212',
+      padding: '16px 0',
+      boxSizing: 'border-box'
+    }}>
+      {/* 1. GRÁFICO DE REGRESSÃO MULTIPLA (PIB DE INOCÊNCIA) */}
+      <div style={{
+        backgroundColor: '#1e1e1e',
+        border: '1px solid #2d2d2d',
+        borderRadius: '0px',
+        padding: '16px',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginBottom: '12px', borderBottom: '2px solid #0055ff', paddingBottom: '6px' }}>
+          <h3 style={{ color: '#ffffff', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', margin: 0 }}>
+            M1. Resíduos vs. Valores Ajustados (Regressão Múltipla)
+          </h3>
+          <span style={{ color: '#00ff66', fontFamily: 'monospace', fontSize: '11px', fontWeight: 'bold' }}>R² Adj: 0.942</span>
+        </div>
+        <div style={{ height: '180px', width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          {/* Linha Zero de Neutralidade dos Resíduos */}
+          <div style={{ position: 'absolute', top: '50%', left: '40px', right: '10px', height: '1px', borderTop: '1px dashed #555555' }}></div>
+          <span style={{ position: 'absolute', right: '15px', top: '42%', fontSize: '9px', color: '#888888', fontFamily: 'monospace' }}>Linha Zero</span>
+          
+          {/* Plotagem SVG dos Resíduos Estocásticos */}
+          <svg style={{ width: '100%', height: '100%', paddingLeft: '40px', paddingBottom: '20px', boxSizing: 'border-box' }}>
+            {/* Pontos de Resíduos (X: Valor Ajustado do PIB, Y: Desvio do Resíduo) */}
+            <circle cx="15%" cy="30%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="25%" cy="70%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="38%" cy="45%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="45%" cy="55%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="55%" cy="20%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="68%" cy="85%" r="4" fill="#ff3333" opacity="0.8" /> {/* Outlier controlado */}
+            <circle cx="75%" cy="40%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="88%" cy="60%" r="4" fill="#00e5ff" opacity="0.7" />
+            <circle cx="93%" cy="50%" r="4" fill="#00e5ff" opacity="0.7" />
+          </svg>
+          {/* Eixos */}
+          <div style={{ position: 'absolute', bottom: '20px', left: '40px', right: '10px', height: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <div style={{ position: 'absolute', top: '5px', bottom: '20px', left: '40px', width: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <span style={{ position: 'absolute', bottom: '2px', left: '50%', fontSize: '9px', color: '#aaaaaa', transform: 'translateX(-50%)' }}>Valores Ajustados do PIB (Ŷ)</span>
+          <span style={{ position: 'absolute', top: '45%', left: '5px', fontSize: '9px', color: '#aaaaaa', transform: 'rotate(-90deg)' }}>Resíduos (e)</span>
+        </div>
+      </div>
+
+      {/* 2. SIMULAÇÃO DE MONTE CARLO (CRONOGRAMA START-UP 2027) */}
+      <div style={{
+        backgroundColor: '#1e1e1e',
+        border: '1px solid #2d2d2d',
+        borderRadius: '0px',
+        padding: '16px',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginBottom: '12px', borderBottom: '2px solid #0055ff', paddingBottom: '6px' }}>
+          <h3 style={{ color: '#ffffff', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', margin: 0 }}>
+            M2. Histograma Probabilístico (10.000 Iterações)
+          </h3>
+          <span style={{ color: '#00e5ff', fontFamily: 'monospace', fontSize: '11px', fontWeight: 'bold' }}>P50: Dez/2027</span>
+        </div>
+        <div style={{ height: '180px', width: '100%', position: 'relative', display: 'flex', alignItems: 'flex-end', paddingLeft: '40px', paddingBottom: '20px', boxSizing: 'border-box' }}>
+          {/* Barras do Histograma da Distribuição de Probabilidade do Prazo */}
+          <div style={{ width: '8%', height: '15%', backgroundColor: '#2d2d2d', marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '35%', backgroundColor: '#3d3d3d', marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '65%', backgroundColor: '#0055ff', opacity: 0.6, marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '85%', backgroundColor: '#0055ff', opacity: 0.8, marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '95%', backgroundColor: '#00e5ff', marginRight: '2px' }}></div> {/* P50 - Pico */}
+          <div style={{ width: '8%', height: '75%', backgroundColor: '#0055ff', opacity: 0.8, marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '50%', backgroundColor: '#0055ff', opacity: 0.6, marginRight: '2px' }}></div>
+          <div style={{ width: '8%', height: '30%', backgroundColor: '#ff9900', marginRight: '2px' }}></div> {/* Zona de Atraso */}
+          <div style={{ width: '8%', height: '15%', backgroundColor: '#ff3333', marginRight: '2px' }}></div>
+          
+          {/* Curva S Acumulada Sobreposta (Sigmoide Estocástica) */}
+          <svg style={{ position: 'absolute', top: 0, left: '40px', width: 'calc(100% - 50px)', height: 'calc(100% - 20px)', overflow: 'visible' }}>
+            <path d="M 10 150 Q 80 140 120 80 T 300 10" fill="none" stroke="#00ff66" strokeWidth="2" />
+          </svg>
+
+          {/* Eixos */}
+          <div style={{ position: 'absolute', bottom: '20px', left: '40px', right: '10px', height: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <div style={{ position: 'absolute', top: '5px', bottom: '20px', left: '40px', width: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <span style={{ position: 'absolute', bottom: '2px', left: '50%', fontSize: '9px', color: '#aaaaaa', transform: 'translateX(-50%)' }}>Linha do Tempo da Obra (Meses / Cenários)</span>
+          <span style={{ position: 'absolute', top: '45%', left: '5px', fontSize: '9px', color: '#aaaaaa', transform: 'rotate(-90deg)' }}>Frequência / % Acum.</span>
+        </div>
+      </div>
+
+      {/* 3. CAPABILIDADE DO PROCESSO CPK (CALDEIRA VALMET 300T) */}
+      <div style={{
+        backgroundColor: '#1e1e1e',
+        border: '1px solid #2d2d2d',
+        borderRadius: '0px',
+        padding: '16px',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginBottom: '12px', borderBottom: '2px solid #0055ff', paddingBottom: '6px' }}>
+          <h3 style={{ color: '#ffffff', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', margin: 0 }}>
+            M3. Distribuição de Capabilidade do Processo (Cpk)
+          </h3>
+          <span style={{ color: '#00ff66', fontFamily: 'monospace', fontSize: '11px', fontWeight: 'bold' }}>Cpk: 1.42 (4.2σ)</span>
+        </div>
+        <div style={{ height: '180px', width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          {/* Linhas Limites Rígidas de Engenharia (LIE e LSE) */}
+          <div style={{ position: 'absolute', left: '25%', top: '10px', bottom: '20px', width: '1px', borderLeft: '1px dashed #ff3333' }}></div>
+          <span style={{ position: 'absolute', left: '26%', top: '15px', fontSize: '8px', color: '#ff3333', fontFamily: 'monospace' }}>LIE: 85 bar</span>
+          
+          <div style={{ position: 'absolute', left: '75%', top: '10px', bottom: '20px', width: '1px', borderLeft: '1px dashed #ff3333' }}></div>
+          <span style={{ position: 'absolute', left: '67%', top: '15px', fontSize: '8px', color: '#ff3333', fontFamily: 'monospace' }}>LSE: 115 bar</span>
+
+          {/* Curva Gaussiana de Processo Centralizada */}
+          <svg style={{ width: '100%', height: '100%', paddingLeft: '40px', paddingBottom: '20px', boxSizing: 'border-box', overflow: 'visible' }}>
+            <path d="M 10 150 Q 110 150 150 20 T 290 150" fill="none" stroke="#00ff66" strokeWidth="2" />
+            {/* Linha da Média */}
+            <line x1="150" y1="20" x2="150" y2="150" stroke="#00e5ff" strokeWidth="1" strokeDasharray="2,2" />
+          </svg>
+
+          {/* Eixos */}
+          <div style={{ position: 'absolute', bottom: '20px', left: '40px', right: '10px', height: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <div style={{ position: 'absolute', top: '5px', bottom: '20px', left: '40px', width: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <span style={{ position: 'absolute', bottom: '2px', left: '50%', fontSize: '9px', color: '#aaaaaa', transform: 'translateX(-50%)' }}>Pressão do Vapor de Licor Negro (Bar)</span>
+          <span style={{ position: 'absolute', top: '45%', left: '5px', fontSize: '9px', color: '#aaaaaa', transform: 'rotate(-90deg)' }}>Densidade</span>
+        </div>
+      </div>
+
+      {/* 4. TEORIA DAS FILAS M/M/c (RAMAL FERROVIÁRIO R$ 2,4B) */}
+      <div style={{
+        backgroundColor: '#1e1e1e',
+        border: '1px solid #2d2d2d',
+        borderRadius: '0px',
+        padding: '16px',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', marginBottom: '12px', borderBottom: '2px solid #0055ff', paddingBottom: '6px' }}>
+          <h3 style={{ color: '#ffffff', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', margin: 0 }}>
+            M4. Curva de Saturação Estocástica do Pátio (M/M/c)
+          </h3>
+          <span style={{ color: '#ff9900', fontFamily: 'monospace', fontSize: '11px', fontWeight: 'bold' }}>ρ Ocupação: 78%</span>
+        </div>
+        <div style={{ height: '180px', width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          {/* Zona Crítica de Saturação Logística (>85%) */}
+          <div style={{ position: 'absolute', left: '85%', top: '10px', bottom: '20px', right: '10px', backgroundColor: 'rgba(255,51,51,0.08)' }}></div>
+          <div style={{ position: 'absolute', left: '85%', top: '10px', bottom: '20px', width: '1px', borderLeft: '1px dotted #ff3333' }}></div>
+          <span style={{ position: 'absolute', left: '86%', top: '40px', fontSize: '8px', color: '#ff3333', transform: 'rotate(90deg)', transformOrigin: 'left top' }}>Gargalo Estocástico</span>
+
+          {/* Curva Exponencial de Espera (Filas de Kendall) */}
+          <svg style={{ width: '100%', height: '100%', paddingLeft: '40px', paddingBottom: '20px', boxSizing: 'border-box', overflow: 'visible' }}>
+            <path d="M 0 145 Q 200 140 250 80 T 310 5" fill="none" stroke="#ff9900" strokeWidth="2" />
+          </svg>
+
+          {/* Eixos */}
+          <div style={{ position: 'absolute', bottom: '20px', left: '40px', right: '10px', height: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <div style={{ position: 'absolute', top: '5px', bottom: '20px', left: '40px', width: '1px', backgroundColor: '#3d3d3d' }}></div>
+          <span style={{ position: 'absolute', bottom: '2px', left: '50%', fontSize: '9px', color: '#aaaaaa', transform: 'translateX(-50%)' }}>Taxa de Utilização Operacional (ρ)</span>
+          <span style={{ position: 'absolute', top: '45%', left: '5px', fontSize: '9px', color: '#aaaaaa', transform: 'rotate(-90deg)' }}>Tempo na Fila (Wq)</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const SucuriuMinitabConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
     | "SIX_SIGMA"
@@ -614,7 +777,10 @@ export const SucuriuMinitabConsole: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+            <div>
+              <RegressionQueuesCharts />
+            </div>
+          </div>
       )}
 
       <div className="bg-[#0b0b0b] text-[#eaeaea] p-6 md:p-8 border border-[#1c1c1c] font-sans text-left w-full mx-auto rounded-none selection:bg-[#2997ff] selection:text-black text-base">
