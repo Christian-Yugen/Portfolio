@@ -1044,8 +1044,6 @@ function ProjectsSection() {
                 <a
                   key={project.title}
                   href="https://crisvitae.vercel.app/sucuriu"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block"
                 >
                   {article}
