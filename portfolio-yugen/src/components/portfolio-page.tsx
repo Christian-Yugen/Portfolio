@@ -1000,43 +1000,61 @@ function ProjectsSection() {
         </motion.p>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3" data-reveal>
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              {...reveal}
-              transition={{ ...reveal.transition, delay: index * 0.05 }}
-              className="border border-[#2a2a2d] bg-[#111112] p-6"
-              style={{
-                borderColor: "#97989c",
-                borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.06)",
-                backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
-                backgroundBlendMode: "overlay",
-              }}
-              data-reveal
-            >
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
-                {project.title}
-              </h3>
-              <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
-                {project.context}
-              </p>
-              <p className="mt-4 text-lg font-semibold leading-relaxed text-[#d2d3d8]">
-                {project.impact}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.stack.map(item => (
-                  <span
-                    key={item}
-                    className="border border-[#3a3a40] bg-[#1b1c20] px-3 py-1.5 text-sm font-semibold text-[#d9dae0]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.article>
-          ))}
+          {projects.map((project, index) => {
+            const article = (
+              <motion.article
+                key={project.title}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.05 }}
+                className="border border-[#2a2a2d] bg-[#111112] p-6"
+                style={{
+                  borderColor: "#97989c",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(29,29,31,0.06)",
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                  backgroundBlendMode: "overlay",
+                }}
+                data-reveal
+              >
+                <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
+                  {project.title}
+                </h3>
+                <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
+                  {project.context}
+                </p>
+                <p className="mt-4 text-lg font-semibold leading-relaxed text-[#d2d3d8]">
+                  {project.impact}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map(item => (
+                    <span
+                      key={item}
+                      className="border border-[#3a3a40] bg-[#1b1c20] px-3 py-1.5 text-sm font-semibold text-[#d9dae0]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            );
+
+            if (project.title === "Projeto Sucuriú Arauco") {
+              return (
+                <a
+                  key={project.title}
+                  href="https://crisvitae.vercel.app/sucuriu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  {article}
+                </a>
+              );
+            }
+
+            return article;
+          })}
         </div>
       </div>
     </section>
