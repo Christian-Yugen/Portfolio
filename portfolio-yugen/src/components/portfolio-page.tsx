@@ -591,7 +591,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#hero";
+                    window.location.assign("/#hero");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -603,7 +603,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#sobre";
+                    window.location.assign("/#sobre");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -615,7 +615,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#experiencia";
+                    window.location.assign("/#experiencia");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -627,7 +627,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#formacao";
+                    window.location.assign("/#formacao");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -639,7 +639,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#projetos";
+                    window.location.assign("/#projetos");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -651,7 +651,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#certificados";
+                    window.location.assign("/#certificados");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -663,7 +663,7 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.href = "/#contato";
+                    window.location.assign("/#contato");
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
