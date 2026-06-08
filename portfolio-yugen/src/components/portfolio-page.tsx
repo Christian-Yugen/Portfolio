@@ -168,6 +168,7 @@ const projects = [
     impact:
       "Priorizacao estrategica com indicadores acionaveis para liderancas de alto nivel.",
     stack: ["Power BI", "Data Modeling", "Storytelling", "KPIs"],
+    href: "https://crisvitae.vercel.app/sucuriu", // Mantendo como rota relativa limpa
   },
   {
     title: "Data-Driven Product Operations",
