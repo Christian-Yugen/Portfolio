@@ -591,7 +591,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#hero");
+                    sessionStorage.setItem("scrollTarget", "hero");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -603,7 +604,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#sobre");
+                    sessionStorage.setItem("scrollTarget", "sobre");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -615,7 +617,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#experiencia");
+                    sessionStorage.setItem("scrollTarget", "experiencia");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -627,7 +630,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#formacao");
+                    sessionStorage.setItem("scrollTarget", "formacao");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -639,7 +643,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#projetos");
+                    sessionStorage.setItem("scrollTarget", "projetos");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -651,7 +656,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#certificados");
+                    sessionStorage.setItem("scrollTarget", "certificados");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
@@ -663,7 +669,8 @@ export function Header() {
                 onClick={(e) => {
                   if (window.location.pathname !== "/") {
                     e.preventDefault();
-                    window.location.assign("/#contato");
+                    sessionStorage.setItem("scrollTarget", "contato");
+                    window.location.href = "/";
                   }
                 }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
