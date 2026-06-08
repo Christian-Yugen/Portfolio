@@ -283,6 +283,27 @@ export default function PortfolioPage() {
       );
     });
 
+    // Ajuste cirúrgico: Verifica se o usuário veio de outra página querendo uma seção específica
+    const checkPersistedScroll = () => {
+      const targetId = sessionStorage.getItem("scrollTarget");
+      if (targetId) {
+        sessionStorage.removeItem("scrollTarget"); // Limpa para não rolar de novo sozinho
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 350); // Tempo de espera seguro para o GSAP e o Lenis estarem prontos na tela
+      }
+    };
+
+    // Executa a verificação
+    if (document.readyState === "complete") {
+      checkPersistedScroll();
+    } else {
+      globalThis.addEventListener("load", checkPersistedScroll);
+    }
+
     return () => {
       globalThis.cancelAnimationFrame(rafId);
       lenis.destroy();
