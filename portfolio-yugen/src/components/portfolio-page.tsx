@@ -168,6 +168,7 @@ const projects = [
     impact:
       "Priorizacao estrategica com indicadores acionaveis para liderancas de alto nivel.",
     stack: ["Power BI", "Data Modeling", "Storytelling", "KPIs"],
+    href: "https://crisvitae.vercel.app/sucuriu", // Mantendo como rota relativa limpa
   },
   {
     title: "Data-Driven Product Operations",
@@ -586,43 +587,85 @@ export function Header() {
           <div className="hidden items-center gap-5 md:flex">
             <nav className="hidden items-center gap-7 text-lg font-semibold text-[#afb1b7] lg:flex">
               <a
-                href="#hero"
+                href="/#hero"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#hero";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Sobre
               </a>
               <a
-                href="#sobre"
+                href="/#sobre"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#sobre";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Resumo
               </a>
               <a
-                href="#experiencia"
+                href="/#experiencia"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#experiencia";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Experiências
               </a>
               <a
-                href="#formacao"
+                href="/#formacao"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#formacao";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Formação
               </a>
               <a
-                href="#projetos"
+                href="/#projetos"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#projetos";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Projetos
               </a>
               <a
-                href="#certificados"
+                href="/#certificados"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#certificados";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Certificados
               </a>
               <a
-                href="#contato"
+                href="/#contato"
+                onClick={(e) => {
+                  if (window.location.pathname !== "/") {
+                    e.preventDefault();
+                    window.location.href = "/#contato";
+                  }
+                }}
                 className="transition-all duration-300 hover:-translate-y-0.5 hover:bg-linear-to-r hover:from-[#dff9ff] hover:via-[#8ec5ea] hover:to-[#4f79a2] hover:bg-clip-text hover:text-transparent"
               >
                 Contato
@@ -999,44 +1042,67 @@ function ProjectsSection() {
           estratégica.
         </motion.p>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3" data-reveal>
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              {...reveal}
-              transition={{ ...reveal.transition, delay: index * 0.05 }}
-              className="border border-[#2a2a2d] bg-[#111112] p-6"
-              style={{
-                borderColor: "#97989c",
-                borderRadius: "6px",
-                backgroundColor: "rgba(29,29,31,0.06)",
-                backgroundImage:
-                  "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
-                backgroundBlendMode: "overlay",
-              }}
-              data-reveal
-            >
-              <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
-                {project.title}
-              </h3>
-              <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
-                {project.context}
-              </p>
-              <p className="mt-4 text-lg font-semibold leading-relaxed text-[#d2d3d8]">
-                {project.impact}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.stack.map(item => (
-                  <span
-                    key={item}
-                    className="border border-[#3a3a40] bg-[#1b1c20] px-3 py-1.5 text-sm font-semibold text-[#d9dae0]"
-                  >
-                    {item}
-                  </span>
-                ))}
+        <div className="mt-10 grid gap-5 lg:grid-cols-3 relative z-10" data-reveal>
+          {projects.map((project, index) => {
+            const isLink = !!project.href;
+
+            const card = (
+              <motion.article
+                key={project.title}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.05 }}
+                className={`border border-[#2a2a2d] bg-[#111112] p-6 h-full transition-colors duration-200 ${
+                  isLink ? "hover:border-[#2997ff] cursor-pointer" : ""
+                }`}
+                style={{
+                  borderColor: "#97989c",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(29,29,31,0.06)",
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(255,255,255,0.02) 10%, rgba(255,255,255,0.008) 30%, rgba(0,0,0,0) 60%), radial-gradient(circle at 10% 10%, rgba(53, 158, 255, 0.18), transparent 50%)",
+                  backgroundBlendMode: "overlay",
+                }}
+                data-reveal
+              >
+                <h3 className="bg-linear-to-r from-[#d7f4ff] via-[#8ec4e8] to-[#567fa7] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
+                  {project.title}
+                </h3>
+                <p className="mt-4 text-base font-semibold leading-relaxed text-[#b0b1b7]">
+                  {project.context}
+                </p>
+                <p className="mt-4 text-lg font-semibold leading-relaxed text-[#d2d3d8]">
+                  {project.impact}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map(item => (
+                    <span
+                      key={item}
+                      className="border border-[#3a3a40] bg-[#1b1c20] px-3 py-1.5 text-sm font-semibold text-[#d9dae0]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            );
+
+            return isLink ? (
+              <a
+                key={project.title}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block no-underline relative z-30 pointer-events-auto cursor-pointer"
+                style={{ position: "relative", zIndex: 40 }}
+              >
+                {card}
+              </a>
+            ) : (
+              <div key={project.title}>
+                {card}
               </div>
-            </motion.article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
