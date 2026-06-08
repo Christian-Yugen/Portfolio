@@ -1044,7 +1044,18 @@ function ProjectsSection() {
                 <a
                   key={project.title}
                   href="https://crisvitae.vercel.app/sucuriu"
-                  className="block"
+                  className="block cursor-pointer"
+                  aria-label="Abrir Projeto Sucuriú Arauco"
+                  onClick={() => {
+                    try {
+                      globalThis.location.href =
+                        "https://crisvitae.vercel.app/sucuriu";
+                    } catch (e) {
+                      // fallback for environments without globalThis.location
+                      (window as any).location.href =
+                        "https://crisvitae.vercel.app/sucuriu";
+                    }
+                  }}
                 >
                   {article}
                 </a>
