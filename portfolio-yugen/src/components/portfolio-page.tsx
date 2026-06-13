@@ -34,7 +34,7 @@ const experiences = [
     company: "UXBRAS Edtech Ltda.",
     period: "2023 -> hoje",
     summary:
-      "Liderança executiva global, sendo responsável pela gestão direta e coordenação de equipes internacionais multidisciplinares com profissionais baseados em Israel, Paquistão e Índia. Desenvolvimento de uma plataforma educacional e arquiteturas de informação focadas em acessibilidade web (WCAG2.2) e alta performance de interface com Gen AI. Modelagem e gerenciamento de banco de dados relacionais e estruturação de pipelines de dados integrados para monitoramento de métricas operacionais e financeiras do negócio. Pesquisador CNPq DTI B, Desenvolvimento web e Cibersegurança.",
+      "Data Analytics e Liderança executiva global, sendo responsável pela gestão direta e coordenação de equipes internacionais multidisciplinares com profissionais baseados em Israel, Paquistão e Índia. Desenvolvimento de uma plataforma educacional e arquiteturas de informação focadas em acessibilidade web (WCAG2.2) e alta performance de interface com Gen AI. Modelagem e gerenciamento de banco de dados relacionais e estruturação de pipelines de dados integrados para monitoramento de métricas operacionais e financeiras do negócio. Pesquisador CNPq DTI B, Desenvolvimento web e Cibersegurança.",
     stack: [
       "Product Strategy",
       "Analytics",
@@ -123,7 +123,7 @@ const skills = [
 
 const heroHighlights = [
   {
-    title: "Software Engineering & Data Analytics",
+    title: "Data Analytics & Software Engineering",
     description:
       "Python, Automação de Rotinas, Integração de Sistemas (ERP/HRIS) e SQL...",
     icon: Code2,
@@ -600,7 +600,7 @@ export function Header() {
                 José Cristiano da S. Lima
               </p>
               <p className="text-base font-semibold text-[#aeb0b6]">
-                People Analytics · BI
+                Data Analytics · BI
               </p>
             </div>
           </div>
@@ -799,10 +799,10 @@ function HeroSection() {
 
           <p className="mt-6 max-w-4xl text-[1.58rem] font-semibold leading-tight md:leading-snug text-[#ededf0] md:text-[1.78rem]">
             <span className="block">
-              Administrador | Master Black Belt em Lean Six Sigma
+              Administrador | Data Analytics | BI
             </span>
             <span className="block">
-              Full-Stack Developer | BI &amp; People Analytics
+              MBB em Lean Six Sigma | MCTI Ethical Hacking
             </span>
           </p>
 
@@ -937,7 +937,7 @@ function AboutSection() {
         >
           {(() => {
             const text =
-              "Administrador e Full-Stack Developer com sólida experiência em Business Intelligence e modelagem estatística aplicada à engenharia de processos e inteligência de negócios. Especialista na estruturação de governança de dados, integração de múltiplos sistemas corporativos (RPs/HRIS) e automação em larga escala — com histórico de mais de 5 mil servidores integrados via código e atuação como Pesquisador DTI-B CNPq no desenvolvimento de soluções inovadoras com propriedade intelectual patenteável. Atuo de forma consultiva junto a lideranças executivas, aplicando as melhores práticas da metodologia PMBOK para a gestão de projetos estratégicos de People Analytics (turnover, absenteísmo, custos e retenção de talentos). Master Black Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura data-driven, eficiência operacional e transformação digital. Residente em Três Lagoas/MS.";
+              "Administrador e Data Analytics com sólida experiência em Business Intelligence e modelagem estatística aplicada à engenharia de processos e inteligência de negócios. Especialista na estruturação de governança de dados, integração de múltiplos sistemas corporativos (RPs/HRIS) e automação em larga escala — com histórico de mais de 5 mil servidores integrados via código e atuação como Pesquisador DTI-B CNPq no desenvolvimento de soluções inovadoras com propriedade intelectual patenteável. Atuo de forma consultiva junto a lideranças executivas, aplicando as melhores práticas da metodologia PMBOK para a gestão de projetos estratégicos de People Analytics (turnover, absenteísmo, custos e retenção de talentos). Master Black Belt em Lean Six Sigma, focado no desenvolvimento de uma cultura data-driven, eficiência operacional e transformação digital. Residente em Três Lagoas/MS.";
             const words = text.split(" ");
             const targetStartIndex = words.findIndex(
               (w, i) =>
