@@ -30,7 +30,7 @@ import DATAHR from "../../client/public/coursera-logo-full-rgb.png";
 
 const experiences = [
   {
-    role: "Founder & Diretor Executivo",
+    role: "Founder & Data Analytics",
     company: "UXBRAS Edtech Ltda.",
     period: "2023 -> hoje",
     summary:
